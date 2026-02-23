@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Team members of the SCALE Group at IIT Bhubaneswar.">
+    <title>Team | SCALE Group · IIT Bhubaneswar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+    <style>
+        /* SHALED CORE STYLES (Matches Index exactly) */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --void: #060a10; --deep: #0b1220; --surface: #111d2e; --surface-hi: #162638;
+            --cyan: #00e5ff; --cyan-dim: rgba(0,229,255,0.1); --cyan-glow: rgba(0,229,255,0.05);
+            --amber: #ffb300; --green: #00ff88;
+            --paper: #e8f0f7; --paper-dim: #7a93ad;
+            --border-c: rgba(0,229,255,0.1);
+            --font-serif: 'EB Garamond', serif;
+            --font-sans: 'IBM Plex Sans', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--void); color: var(--paper); line-height: 1.6; }
+        body::before { content: ''; position: fixed; inset: 0; z-index: 0; background-image: linear-gradient(rgba(0,229,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.025) 1px, transparent 1px); background-size: 44px 44px; pointer-events: none; }
+        a { color: var(--cyan); text-decoration: none; transition: .2s; }
+        a:hover { color: #fff; }
+
+        /* NAV */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; background: rgba(6,10,16,0.88); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-c); }
+        .nav-logo { font-family: var(--font-mono); font-size: .78rem; font-weight: 500; color: var(--cyan); letter-spacing: .5px; display: flex; align-items: center; gap: 8px; }
+        .nav-logo-b { color: var(--paper-dim); }
+        .nav-logo::before { content: '▸ '; color: var(--green); animation: blink 1.2s step-end infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        .nav-links { display: flex; list-style: none; }
+        .nav-links a { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .3px; color: var(--paper-dim); padding: 6px 16px; border-right: 1px solid var(--border-c); transition: .2s; }
+        .nav-links li:first-child a { border-left: 1px solid var(--border-c); }
+        .nav-links a:hover, .nav-links a.active { color: var(--cyan); background: var(--cyan-dim); }
+
+        /* PAGE STRUCTURE */
+        .page-wrap { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 120px 24px 80px; }
+        .eyebrow { font-family: var(--font-mono); font-size: .65rem; letter-spacing: 3px; text-transform: uppercase; color: var(--green); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .eyebrow::before { content: '//'; color: var(--paper-dim); font-weight: 400; }
+        .s-title { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 48px; }
+
+        /* TEAM SPECIFIC STYLES */
+        .team-card { background: var(--deep); border: 1px solid var(--border-c); border-radius: 2px; padding: 32px; margin-bottom: 24px; display: flex; gap: 32px; transition: .3s; }
+        .team-card:hover { background: var(--surface); border-color: rgba(0,229,255,0.3); box-shadow: 0 10px 30px var(--cyan-glow); transform: translateY(-3px); }
+        
+        .t-img-wrap { flex: 0 0 140px; }
+        .t-img { width: 140px; height: 140px; border-radius: 50%; border: 2px solid var(--cyan); object-fit: cover; padding: 4px; background: var(--void); }
+        .t-img-ph { width: 140px; height: 140px; border-radius: 50%; border: 2px dashed var(--paper-dim); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 2rem; color: var(--paper-dim); background: var(--void); }
+        
+        .t-info { flex: 1; }
+        .t-name { font-family: var(--font-serif); font-size: 1.8rem; color: #fff; line-height: 1.2; margin-bottom: 4px; }
+        .t-role { font-family: var(--font-mono); font-size: .75rem; color: var(--amber); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+        .t-bio { font-size: .95rem; color: var(--paper-dim); margin-bottom: 20px; line-height: 1.6; }
+        
+        .t-focus { background: var(--surface-hi); padding: 16px 20px; border-left: 2px solid var(--green); border-radius: 0 2px 2px 0; }
+        .t-focus strong { display: block; font-family: var(--font-mono); font-size: .7rem; color: var(--green); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .t-focus p { font-size: .9rem; color: var(--paper); margin: 0; line-height: 1.5; }
+
+        /* ALUMNI GRID */
+        .alumni-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+        .alumni-card { background: var(--deep); border: 1px solid var(--border-c); border-top: 2px solid rgba(255,255,255,0.1); padding: 24px; border-radius: 2px; transition: .2s; display: flex; flex-direction: column; }
+        .alumni-card:hover { background: var(--surface); border-top-color: var(--cyan); transform: translateY(-2px); }
+        .a-name { font-family: var(--font-serif); font-size: 1.3rem; color: #fff; margin-bottom: 4px; }
+        .a-deg { font-family: var(--font-mono); font-size: .7rem; color: var(--amber); margin-bottom: 16px; }
+        .a-det strong { display: block; font-family: var(--font-mono); font-size: .65rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .a-det { font-size: .85rem; color: var(--paper-dim); }
+
+        /* FOOTER */
+        .site-footer { position: relative; z-index: 1; border-top: 1px solid var(--border-c); padding: 48px; background: rgba(6,10,16,0.9); }
+        .footer-inner { max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; }
+        .footer-brand { font-family: var(--font-mono); font-size: .78rem; color: var(--cyan); margin-bottom: 8px; }
+        .footer-sub { font-size: .75rem; color: var(--paper-dim); line-height: 1.7; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .team-card { flex-direction: column; text-align: center; align-items: center; }
+            .t-focus { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">
+            <span class="nav-logo-b">[</span>SCALE<span class="nav-logo-b">]</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">home</a></li>
+            <li><a href="research.html">research</a></li>
+            <li><a href="publications.html">publications</a></li>
+            <li><a href="team.html" class="active">team</a></li>
+            <li><a href="teaching.html">teaching</a></li>
+            <li><a href="joinus.html">join_us</a></li>
+        </ul>
+    </nav>
+
+    <main class="page-wrap">
+        
+        <div class="eyebrow">scale_personnel</div>
+        <h1 class="s-title">Group Members</h1>
+
+        <article class="team-card">
+            <div class="t-img-wrap">
+                <img src="https://sbs.iitbbs.ac.in/physics-faculty/profile_pic/10591520220722121323.jpg" alt="Dr. Hemant Kumar" class="t-img">
+            </div>
+            <div class="t-info">
+                <h3 class="t-name">Dr. Hemant Kumar</h3>
+                <div class="t-role">Principal Investigator · Assistant Professor</div>
+                <p class="t-bio">Dr. Kumar received his Ph.D. from IISc Bangalore and completed postdoctoral research at the University of Pennsylvania. He leads the SCALE Group, bridging computational materials and biophysics.</p>
+                <div class="t-focus">
+                    <strong>Primary Methodology</strong>
+                    <p>Employing density functional theory (DFT), molecular dynamics (MD), and kinetic Monte Carlo methods to investigate material properties at atomic scales.</p>
+                </div>
+            </div>
+        </article>
+
+        <div class="eyebrow" style="margin-top: 80px;">current_researchers</div>
+        <h2 class="s-title" style="font-size: 2rem; margin-bottom: 32px;">Ph.D. & M.Sc. Students</h2>
+
+        <article class="team-card">
+            <div class="t-img-wrap"><div class="t-img-ph">SD</div></div>
+            <div class="t-info">
+                <h3 class="t-name">Sweta Das</h3>
+                <div class="t-role">Ph.D. Candidate (Since 2019)</div>
+                <p class="t-bio">Sweta completed her Master's in Physics before joining the lab. She is passionate about understanding the atomic-level interactions that govern macroscopic physical properties.</p>
+                <div class="t-focus">
+                    <strong>Focus: 2D Layered Materials</strong>
+                    <p>Investigating the frictional properties and electronic behavior of 2D layered materials and their twisted heterostructures.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="team-card">
+            <div class="t-img-wrap"><div class="t-img-ph">PM</div></div>
+            <div class="t-info">
+                <h3 class="t-name">Pratik Mishra</h3>
+                <div class="t-role">Ph.D. Candidate (Since 2020)</div>
+                <p class="t-bio">Pratik has a strong background in optics and photonics. His goal is to bridge the gap between fundamental optical physics and real-world medical applications.</p>
+                <div class="t-focus">
+                    <strong>Focus: Photonic Sensors</strong>
+                    <p>Developing flexible and wearable optical fiber-based sensors for healthcare and physiological monitoring.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="team-card">
+            <div class="t-img-wrap"><div class="t-img-ph">SB</div></div>
+            <div class="t-info">
+                <h3 class="t-name">Saheb Bera</h3>
+                <div class="t-role">Ph.D. Candidate (Since 2020)</div>
+                <p class="t-bio">Saheb specializes in computational condensed matter physics. He utilizes first-principles DFT calculations to predict the stability and functional properties of novel 2D materials.</p>
+                <div class="t-focus">
+                    <strong>Focus: MXenes & Spintronics</strong>
+                    <p>Understanding the phase stability of MXenes and the role of coordination symmetries and surface terminations.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="team-card">
+            <div class="t-img-wrap"><div class="t-img-ph">SS</div></div>
+            <div class="t-info">
+                <h3 class="t-name">Swayamshree Senapati</h3>
+                <div class="t-role">Ph.D. Candidate (Since 2020)</div>
+                <p class="t-bio">Swayamshree brings physics-based approaches to complex biological problems. She is interested in how physical mechanics within the cell nucleus regulate genetic output.</p>
+                <div class="t-focus">
+                    <strong>Focus: Biophysics & Genome Architecture</strong>
+                    <p>Studying the fundamental correlation between 3D chromatin structure and gene expression.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="team-card">
+            <div class="t-img-wrap"><div class="t-img-ph">SB</div></div>
+            <div class="t-info">
+                <h3 class="t-name">Sidhant Barik</h3>
+                <div class="t-role">Ph.D. Candidate (Since 2022)</div>
+                <p class="t-bio">Sidhant's background is in solid-state physics and electrochemistry. He is highly motivated to contribute to sustainable energy solutions.</p>
+                <div class="t-focus">
+                    <strong>Focus: Battery Electrolytes</strong>
+                    <p>Investigating ion transport and solvation properties in novel ether-based electrolytes for next-generation batteries.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="team-card">
+            <div class="t-img-wrap"><div class="t-img-ph">SD</div></div>
+            <div class="t-info">
+                <h3 class="t-name">Soumyashree Das</h3>
+                <div class="t-role">Ph.D. Candidate (Since 2023)</div>
+                <p class="t-bio">Soumyashree is dedicated to discovering highly efficient materials for large-scale grid energy storage.</p>
+                <div class="t-focus">
+                    <strong>Focus: Na-ion Batteries</strong>
+                    <p>Developing and characterizing new cathode materials for high-performance sodium-ion batteries.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="team-card">
+            <div class="t-img-wrap"><div class="t-img-ph">DK</div></div>
+            <div class="t-info">
+                <h3 class="t-name">Deepanshu Kaushik</h3>
+                <div class="t-role">M.Sc. Student (2023)</div>
+                <p class="t-bio">Deepanshu joined the group for his master's thesis project, focusing on computational device physics.</p>
+                <div class="t-focus">
+                    <strong>Focus: MXene Devices</strong>
+                    <p>Exploring MXene alloys for developing low-resistance contacts in field-effect transistors.</p>
+                </div>
+            </div>
+        </article>
+
+        <div class="eyebrow" style="margin-top: 80px;">past_members</div>
+        <h2 class="s-title" style="font-size: 2rem; margin-bottom: 32px;">Alumni</h2>
+
+        <div class="alumni-grid">
+            <div class="alumni-card"><h4 class="a-name">Dr. Firstname Lastname</h4><span class="a-deg">Ph.D., 2018 - 2023</span><div class="a-det"><strong>Current Position</strong>Postdoctoral Researcher at MIT, USA</div></div>
+            <div class="alumni-card"><h4 class="a-name">Name Surname</h4><span class="a-deg">M.Sc., 2021 - 2023</span><div class="a-det"><strong>Current Position</strong>Data Scientist at Tech Company XYZ</div></div>
+            <div class="alumni-card"><h4 class="a-name">Dr. Alumnus Three</h4><span class="a-deg">Postdoc, 2019 - 2021</span><div class="a-det"><strong>Current Position</strong>Assistant Professor at Univ. of XYZ</div></div>
+            <div class="alumni-card"><h4 class="a-name">Alumnus Four</h4><span class="a-deg">M.Sc., 2020 - 2022</span><div class="a-det"><strong>Current Position</strong>Ph.D. Candidate at Stanford Univ.</div></div>
+            <div class="alumni-card"><h4 class="a-name">Dr. Alumnus Five</h4><span class="a-deg">Ph.D., 2017 - 2022</span><div class="a-det"><strong>Current Position</strong>Research Scientist at National Lab</div></div>
+            <div class="alumni-card"><h4 class="a-name">Alumnus Six</h4><span class="a-deg">B.Tech, 2019 - 2023</span><div class="a-det"><strong>Current Position</strong>Software Engineer at Google</div></div>
+            <div class="alumni-card"><h4 class="a-name">Dr. Alumnus Seven</h4><span class="a-deg">Ph.D., 2016 - 2021</span><div class="a-det"><strong>Current Position</strong>Data Analyst at FinTech Corp</div></div>
+            <div class="alumni-card"><h4 class="a-name">Alumnus Eight</h4><span class="a-deg">M.Sc., 2019 - 2021</span><div class="a-det"><strong>Current Position</strong>Materials Engineer at Battery Co.</div></div>
+            <div class="alumni-card"><h4 class="a-name">Dr. Alumnus Nine</h4><span class="a-deg">Postdoc, 2018 - 2020</span><div class="a-det"><strong>Current Position</strong>Assistant Professor at IIT XYZ</div></div>
+            <div class="alumni-card"><h4 class="a-name">Alumnus Ten</h4><span class="a-deg">M.Sc., 2018 - 2020</span><div class="a-det"><strong>Current Position</strong>High School Physics Teacher</div></div>
+            <div class="alumni-card"><h4 class="a-name">Dr. Alumnus Eleven</h4><span class="a-deg">Ph.D., 2015 - 2020</span><div class="a-det"><strong>Current Position</strong>Postdoctoral Fellow at Oxford</div></div>
+            <div class="alumni-card"><h4 class="a-name">Alumnus Twelve</h4><span class="a-deg">B.Tech, 2017 - 2021</span><div class="a-det"><strong>Current Position</strong>Consultant at McKinsey & Co.</div></div>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-brand">SCALE · Computational Soft and Living Matter · IIT Bhubaneswar</div>
+                <div class="footer-sub">School of Basic Sciences · Dr. Hemant Kumar · hemant@iitbbs.ac.in</div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
