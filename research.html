@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Research — SCALE Group · Computational Soft and Living Matter · IIT Bhubaneswar">
+    <meta name="description" content="Research Vision — SCALE Group · Computational Soft and Living Matter · IIT Bhubaneswar">
     <title>Research | SCALE · IIT Bhubaneswar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,56 +12,26 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --void: #060a10;
-            --deep: #0b1220;
-            --surface: #111d2e;
-            --surface-hi: #162638;
-            --cyan: #00e5ff;
-            --cyan-dim: rgba(0,229,255,0.1);
-            --cyan-glow: rgba(0,229,255,0.05);
-            --amber: #ffb300;
-            --amber-dim: rgba(255,179,0,0.1);
-            --green: #00ff88;
-            --green-dim: rgba(0,255,136,0.07);
-            --violet: #a78bfa;
-            --violet-dim: rgba(167,139,250,0.1);
-            --paper: #e8f0f7;
-            --paper-dim: #7a93ad;
+            --void: #060a10; --deep: #0b1220; --surface: #111d2e; --surface-hi: #162638;
+            --cyan: #00e5ff; --cyan-dim: rgba(0,229,255,0.1); --cyan-glow: rgba(0,229,255,0.05);
+            --amber: #ffb300; --amber-dim: rgba(255,179,0,0.1);
+            --green: #00ff88; --green-dim: rgba(0,255,136,0.07);
+            --violet: #a78bfa; --violet-dim: rgba(167,139,250,0.1);
+            --paper: #e8f0f7; --paper-dim: #7a93ad;
             --border-c: rgba(0,229,255,0.1);
-            --border-a: rgba(255,179,0,0.18);
-            --border-v: rgba(167,139,250,0.2);
             --font-serif: 'EB Garamond', serif;
             --font-sans: 'IBM Plex Sans', sans-serif;
             --font-mono: 'IBM Plex Mono', monospace;
         }
 
         html { scroll-behavior: smooth; }
-        body {
-            font-family: var(--font-sans);
-            background: var(--void);
-            color: var(--paper);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-        body::before {
-            content: ''; position: fixed; inset: 0; z-index: 0;
-            background-image:
-                linear-gradient(rgba(0,229,255,0.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,229,255,0.025) 1px, transparent 1px);
-            background-size: 44px 44px; pointer-events: none;
-        }
-
+        body { font-family: var(--font-sans); background: var(--void); color: var(--paper); overflow-x: hidden; line-height: 1.6; }
+        body::before { content: ''; position: fixed; inset: 0; z-index: 0; background-image: linear-gradient(rgba(0,229,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.025) 1px, transparent 1px); background-size: 44px 44px; pointer-events: none; }
         a { color: var(--cyan); text-decoration: none; transition: .2s; }
         a:hover { color: #fff; }
 
         /* ── NAV ── */
-        nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-            height: 60px; display: flex; align-items: center; justify-content: space-between;
-            padding: 0 48px;
-            background: rgba(6,10,16,0.88); backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-c);
-        }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; background: rgba(6,10,16,0.88); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-c); }
         .nav-logo { font-family: var(--font-mono); font-size: .78rem; font-weight: 500; color: var(--cyan); display: flex; align-items: center; gap: 8px; }
         .nav-logo-b { color: var(--paper-dim); }
         .nav-logo::before { content: '▸ '; color: var(--green); animation: blink 1.2s step-end infinite; }
@@ -72,204 +42,99 @@
         .nav-links a:hover, .nav-links a.active { color: var(--cyan); background: var(--cyan-dim); }
 
         /* ── LAYOUT ── */
-        .page-wrap { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 100px 48px 80px; }
-
-        .page-header { margin-bottom: 72px; }
+        .page-wrap { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 100px 48px 80px; }
+        .page-header { margin-bottom: 56px; }
         .eyebrow { font-family: var(--font-mono); font-size: .62rem; letter-spacing: 3px; text-transform: uppercase; color: var(--green); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
         .eyebrow::before { content: '//'; color: var(--paper-dim); }
         .page-title { font-family: var(--font-serif); font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 700; color: #fff; letter-spacing: -.3px; margin-bottom: 16px; }
-        .page-intro { font-size: 1rem; color: var(--paper-dim); max-width: 680px; line-height: 1.8; font-weight: 300; }
+        .page-intro { font-size: 1.05rem; color: var(--paper-dim); max-width: 800px; line-height: 1.8; font-weight: 300; }
 
         /* ── RESEARCH NAV TABS ── */
-        .r-tabs {
-            display: flex; gap: 0; margin-bottom: 72px;
-            border: 1px solid var(--border-c); border-radius: 2px; overflow: hidden;
-        }
-        .r-tab {
-            flex: 1; padding: 14px 8px; text-align: center;
-            font-family: var(--font-mono); font-size: .68rem; letter-spacing: .5px;
-            color: var(--paper-dim); background: var(--deep);
-            border-right: 1px solid var(--border-c); cursor: pointer;
-            transition: .2s;
-        }
+        .r-tabs { display: flex; flex-wrap: wrap; gap: 0; margin-bottom: 80px; border: 1px solid var(--border-c); border-radius: 2px; overflow: hidden; }
+        .r-tab { flex: 1; min-width: 150px; padding: 16px 8px; text-align: center; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .5px; color: var(--paper-dim); background: var(--deep); border-right: 1px solid var(--border-c); border-bottom: 1px solid transparent; cursor: pointer; transition: .2s; }
         .r-tab:last-child { border-right: none; }
         .r-tab:hover { color: var(--paper); background: var(--surface); }
         .r-tab.active { color: var(--cyan); background: var(--cyan-dim); }
         .r-tab .tab-num { display: block; font-size: .55rem; color: var(--paper-dim); margin-bottom: 4px; }
         .r-tab.active .tab-num { color: var(--cyan); opacity: .6; }
 
-        /* ── SECTION DIVIDER ── */
-        .research-section { margin-bottom: 96px; scroll-margin-top: 80px; }
-
-        .section-header {
-            display: grid; grid-template-columns: 4px 1fr;
-            gap: 20px; align-items: start; margin-bottom: 40px;
-        }
-        .section-bar-battery { background: var(--amber); height: 100%; border-radius: 2px; }
+        /* ── SECTION STRUCTURE ── */
+        .research-section { margin-bottom: 120px; scroll-margin-top: 100px; }
+        .section-header { display: grid; grid-template-columns: 4px 1fr; gap: 20px; align-items: center; margin-bottom: 40px; }
         .section-bar-genome  { background: var(--violet); height: 100%; border-radius: 2px; }
-        .section-bar-2d      { background: var(--cyan);   height: 100%; border-radius: 2px; }
-        .section-bar-soft    { background: var(--green);  height: 100%; border-radius: 2px; }
+        .section-bar-electro { background: var(--cyan); height: 100%; border-radius: 2px; }
+        .section-bar-anode   { background: var(--amber); height: 100%; border-radius: 2px; }
+        .section-bar-tools   { background: var(--green); height: 100%; border-radius: 2px; }
 
-        .section-head-inner { }
-        .section-code { font-family: var(--font-mono); font-size: .62rem; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 8px; }
-        .section-code.battery { color: var(--amber); }
+        .section-code { font-family: var(--font-mono); font-size: .62rem; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 4px; }
         .section-code.genome  { color: var(--violet); }
-        .section-code.twod    { color: var(--cyan); }
-        .section-code.soft    { color: var(--green); }
-        .section-title { font-family: var(--font-serif); font-size: clamp(1.6rem, 2.8vw, 2.4rem); font-weight: 700; color: #fff; margin-bottom: 10px; }
-        .section-subtitle { font-size: .9rem; color: var(--paper-dim); line-height: 1.75; max-width: 700px; }
+        .section-code.electro { color: var(--cyan); }
+        .section-code.anode   { color: var(--amber); }
+        .section-code.tools   { color: var(--green); }
+        .section-title { font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: #fff; line-height: 1.1; }
 
-        /* ── SUBSECTION GRID (battery subtopics) ── */
-        .subsection-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr);
-            gap: 1px; background: var(--border-c);
-            border: 1px solid var(--border-c); border-radius: 2px; overflow: hidden;
-            margin-bottom: 32px;
-        }
-        .subsection-card {
-            background: var(--deep); padding: 28px 32px;
-            transition: background .3s; position: relative;
-        }
-        .subsection-card:hover { background: var(--surface-hi); }
-        .subsection-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0;
-            height: 2px; opacity: 0; transition: opacity .3s;
-        }
-        .subsection-card.battery::before { background: var(--amber); }
-        .subsection-card.genome::before  { background: var(--violet); }
-        .subsection-card:hover::before { opacity: 1; }
+        /* ── VISION LAYOUT (Text + Image) ── */
+        .vision-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; margin-bottom: 48px; }
+        .vision-text h3 { font-family: var(--font-mono); font-size: .75rem; letter-spacing: 2px; text-transform: uppercase; color: #fff; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; }
+        .vision-text p { font-size: 1rem; color: var(--paper-dim); line-height: 1.8; margin-bottom: 32px; }
+        .vision-text p strong { color: var(--paper); font-weight: 500; }
 
-        .sub-icon { font-size: 1.6rem; margin-bottom: 14px; }
-        .sub-num { font-family: var(--font-mono); font-size: .6rem; letter-spacing: 2px; color: var(--paper-dim); margin-bottom: 6px; }
-        .sub-title { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; color: #fff; margin-bottom: 10px; line-height: 1.3; }
-        .sub-desc { font-size: .85rem; color: var(--paper-dim); line-height: 1.7; margin-bottom: 16px; }
-        .sub-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-        .sub-tag {
-            font-family: var(--font-mono); font-size: .6rem;
-            padding: 3px 10px; border-radius: 1px; border: 1px solid;
-        }
-        .sub-tag.amber  { color: var(--amber);  border-color: var(--border-a); }
-        .sub-tag.violet { color: var(--violet); border-color: var(--border-v); }
-        .sub-tag.cyan   { color: var(--cyan);   border-color: var(--border-c); }
-        .sub-tag.green  { color: var(--green);  border-color: rgba(0,255,136,0.2); }
+        .vision-img { width: 100%; height: 350px; border-radius: 4px; border: 1px solid var(--border-c); overflow: hidden; background: var(--deep); position: relative; }
+        .vision-img img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.8) brightness(0.9); transition: transform 0.5s, filter 0.5s; }
+        .vision-img:hover img { transform: scale(1.03); filter: saturate(1.1) brightness(1); }
 
-        /* ── TOOLS USED ── */
-        .tools-block {
-            border: 1px solid var(--border-c);
-            border-radius: 2px; overflow: hidden; margin-bottom: 32px;
-        }
-        .tools-header {
-            background: var(--surface); padding: 12px 20px;
-            border-bottom: 1px solid var(--border-c);
-            font-family: var(--font-mono); font-size: .65rem;
-            letter-spacing: 2px; text-transform: uppercase;
-            display: flex; align-items: center; gap: 10px;
-        }
-        .tools-header::before { content: '$'; color: var(--green); }
-        .tools-header.battery { color: var(--amber); }
-        .tools-header.genome  { color: var(--violet); }
-        .tools-header.twod    { color: var(--cyan); }
-        .tools-header.soft    { color: var(--green); }
-        .tools-body { padding: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
-        .tool-chip {
-            font-family: var(--font-mono); font-size: .7rem;
-            padding: 6px 14px; border-radius: 1px;
-            background: var(--deep); border: 1px solid var(--border-c);
-            color: var(--paper-dim); transition: .2s;
-            display: flex; align-items: center; gap: 6px;
-        }
-        .tool-chip::before { content: '>'; font-size: .55rem; }
-        .tool-chip:hover { color: var(--paper); border-color: rgba(0,229,255,0.3); background: var(--surface); }
+        /* ── MILESTONES / EXAMPLES BOX ── */
+        .milestones-box { background: var(--deep); border: 1px solid var(--border-c); border-radius: 4px; padding: 32px; position: relative; }
+        .milestones-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; }
+        .milestones-box.genome::before { background: var(--violet); }
+        .milestones-box.electro::before { background: var(--cyan); }
+        .milestones-box.anode::before { background: var(--amber); }
 
-        /* ── KEY PUBLICATIONS WITHIN SECTION ── */
-        .section-pubs { margin-bottom: 32px; }
-        .pubs-label {
-            font-family: var(--font-mono); font-size: .62rem; letter-spacing: 2px;
-            text-transform: uppercase; color: var(--paper-dim);
-            padding-bottom: 10px; margin-bottom: 0;
-            border-bottom: 1px solid var(--border-c);
-            display: flex; align-items: center; gap: 8px;
-        }
-        .pubs-label::before { content: '//'; color: var(--paper-dim); opacity: .5; }
-        .pub-row {
-            display: grid; grid-template-columns: 3fr 1fr;
-            gap: 16px; padding: 14px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.04);
-            align-items: start; transition: padding-left .2s;
-        }
-        .pub-row:hover { padding-left: 8px; }
-        .pub-row:last-child { border-bottom: none; }
-        .pub-t { font-family: var(--font-serif); font-size: 1rem; font-weight: 600; color: #fff; line-height: 1.35; margin-bottom: 4px; }
-        .pub-a { font-size: .78rem; color: var(--paper-dim); }
-        .pub-a strong { color: var(--amber); font-weight: 600; }
-        .pub-j { font-family: var(--font-mono); font-size: .68rem; text-align: right; line-height: 1.5; padding-top: 2px; }
-        .pub-j.amber  { color: var(--amber); }
-        .pub-j.violet { color: var(--violet); }
-        .pub-j.cyan   { color: var(--cyan); }
-        .pub-j.green  { color: var(--green); }
+        .milestones-title { font-family: var(--font-mono); font-size: .7rem; letter-spacing: 2px; text-transform: uppercase; color: #fff; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+        .milestones-title::before { content: '>>'; color: var(--paper-dim); }
 
-        /* ── GENOME SPECIFIC: polymer model diagram ── */
-        .genome-layout {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 1px; background: var(--border-c);
-            border: 1px solid var(--border-c); border-radius: 2px; overflow: hidden;
-            margin-bottom: 32px;
-        }
-        .genome-card { background: var(--deep); padding: 28px 32px; }
-        .genome-card:hover { background: var(--surface-hi); }
+        .milestone-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+        .milestone-item { font-size: .9rem; color: var(--paper-dim); line-height: 1.6; padding-left: 16px; position: relative; }
+        .milestone-item::before { content: '■'; position: absolute; left: 0; top: 0; font-size: .6rem; }
+        .milestone-item.genome::before { color: var(--violet); }
+        .milestone-item.electro::before { color: var(--cyan); }
+        .milestone-item.anode::before { color: var(--amber); }
+        .milestone-item strong { color: #fff; font-weight: 500; display: block; margin-bottom: 2px; }
+        .milestone-item em { font-style: normal; font-family: var(--font-mono); font-size: .7rem; opacity: 0.7; margin-left: 8px; }
 
-        /* ── FIGURE PLACEHOLDER ── */
-        .fig-ph {
-            border: 1px dashed rgba(255,255,255,0.08);
-            border-radius: 2px; padding: 32px 20px;
-            text-align: center; margin-bottom: 32px;
-            background: var(--deep); position: relative; overflow: hidden;
+        /* ── TOOLS UNIFIED BLOCK ── */
+        .tools-unified { background: var(--surface); border: 1px solid var(--border-c); border-radius: 4px; padding: 48px; position: relative; overflow: hidden; text-align: center; }
+        .tools-unified::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: var(--green); }
+        .tools-body { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 32px; justify-content: center;}
+        
+        .tool-chip-large { 
+            font-family: var(--font-mono); font-size: 1rem; font-weight: 500;
+            padding: 16px 28px; border-radius: 4px; background: var(--deep); 
+            border: 1px solid rgba(0,255,136,0.2); color: var(--paper); 
+            transition: .3s; display: flex; align-items: center; gap: 12px; 
         }
-        .fig-ph::before {
-            content: '';
-            position: absolute; inset: 0;
-            background-image:
-                linear-gradient(rgba(0,229,255,0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,229,255,0.02) 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-        .fig-ph-icon { font-size: 2rem; display: block; margin-bottom: 8px; position: relative; z-index: 1; opacity: .4; }
-        .fig-ph-label { font-family: var(--font-mono); font-size: .62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--paper-dim); position: relative; z-index: 1; display: block; margin-bottom: 4px; }
-        .fig-ph-hint  { font-size: .7rem; color: rgba(255,255,255,0.18); position: relative; z-index: 1; display: block; }
+        .tool-chip-large::before { content: '>'; font-size: .8rem; color: var(--green); font-weight: bold;}
+        .tool-chip-large:hover { border-color: var(--green); background: rgba(0,255,136,0.05); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,255,136,0.1);}
 
         /* ── FOOTER ── */
         .site-footer { position: relative; z-index: 1; border-top: 1px solid var(--border-c); padding: 48px; margin-top: 40px; }
-        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; }
+        .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; }
         .footer-brand { font-family: var(--font-mono); font-size: .78rem; color: var(--cyan); margin-bottom: 6px; }
-        .footer-brand::before { content: '// '; color: var(--paper-dim); }
         .footer-sub { font-size: .75rem; color: var(--paper-dim); line-height: 1.7; }
-        .footer-nav { display: flex; }
-        .footer-nav a { font-family: var(--font-mono); font-size: .68rem; color: var(--paper-dim); padding: 6px 14px; border-right: 1px solid var(--border-c); transition: .2s; }
-        .footer-nav a:first-child { border-left: 1px solid var(--border-c); }
-        .footer-nav a:hover { color: var(--cyan); background: var(--cyan-dim); }
 
-        /* ── TYPING / REVEAL ── */
-        .type-heading .char { opacity: 0; display: inline-block; }
-        .type-heading.typed .char { animation: char-in .04s ease forwards; }
-        @keyframes char-in { to { opacity: 1; } }
+        /* ── ANIMATIONS & RESPONSIVE ── */
         .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
         .reveal.visible { opacity: 1; transform: none; }
 
-        /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
-            .subsection-grid { grid-template-columns: 1fr; }
-            .genome-layout { grid-template-columns: 1fr; }
-            .r-tabs { flex-wrap: wrap; }
-            .r-tab { flex: 1 1 40%; }
-            .pub-row { grid-template-columns: 1fr; }
-            .pub-j { text-align: left; }
+            .vision-layout { grid-template-columns: 1fr; gap: 32px; }
+            .vision-img { height: 250px; }
         }
-        @media (max-width: 640px) {
-            nav { padding: 0 16px; }
+        @media (max-width: 768px) {
             .nav-links { display: none; }
-            .page-wrap { padding: 80px 20px 60px; }
-            .site-footer { padding: 32px 20px; }
-            .footer-inner { flex-direction: column; gap: 20px; }
+            .r-tabs { flex-direction: column; }
+            .r-tab { border-right: none; border-bottom: 1px solid var(--border-c); text-align: left; padding: 16px 24px; }
+            .tool-chip-large { width: 100%; justify-content: flex-start; }
         }
     </style>
 </head>
@@ -289,470 +154,171 @@
 
 <main class="page-wrap">
 
-    <!-- PAGE HEADER -->
     <div class="page-header reveal">
-        <div class="eyebrow">scale_research</div>
-        <h1 class="page-title">Research</h1>
+        <div class="eyebrow">long_term_vision</div>
+        <h1 class="page-title">Research Vision</h1>
         <p class="page-intro">
-            We develop and apply multiscale computational methods — density functional theory, molecular dynamics, machine learning potentials, and polymer physics models — to understand and design functional materials, from battery electrolytes to the genome.
+            We are not just simulating materials; we are mapping the fundamental physical rules that govern complex systems. From predicting how atomic interfaces shape the future of the energy grid, to decoding how the 3D topology of DNA dictates the logic of life.
         </p>
     </div>
 
-    <!-- TAB NAV -->
     <div class="r-tabs reveal">
-        <div class="r-tab active" onclick="scrollTo('battery')">
-            <span class="tab-num">01 ——</span>Battery Materials
+        <div class="r-tab active" onclick="smoothScrollTo('genome')">
+            <span class="tab-num">01 ——</span>Genome Organization
         </div>
-        <div class="r-tab" onclick="scrollTo('genome')">
-            <span class="tab-num">02 ——</span>Genome Organization
+        <div class="r-tab" onclick="smoothScrollTo('electrolytes')">
+            <span class="tab-num">02 ——</span>Electrolytes & Interfaces
         </div>
-        <div class="r-tab" onclick="scrollTo('twod')">
-            <span class="tab-num">03 ——</span>2D Materials & MXenes
+        <div class="r-tab" onclick="smoothScrollTo('electrodes')">
+            <span class="tab-num">03 ——</span>Quantum Electrodes
         </div>
-        <div class="r-tab" onclick="scrollTo('soft')">
-            <span class="tab-num">04 ——</span>Soft Matter
-        </div>
-    </div>
-
-    <!-- ═══════════════════════════════════════════
-         01 — BATTERY MATERIALS
-    ════════════════════════════════════════════ -->
-    <div class="research-section reveal" id="battery">
-        <div class="section-header">
-            <div class="section-bar-battery"></div>
-            <div class="section-head-inner">
-                <div class="section-code battery">// 01 · Energy Storage</div>
-                <h2 class="section-title">Battery Materials</h2>
-                <p class="section-subtitle">
-                    We use first-principles DFT, classical and reactive molecular dynamics, and machine-learning interatomic potentials to understand and design the full spectrum of battery components — from solid and liquid electrolytes to composite interfaces and electrode materials — targeting next-generation Na-ion, Li-metal, and Mg-ion systems.
-                </p>
-            </div>
-        </div>
-
-        <!-- FIGURE SLOT -->
-        <div class="fig-ph">
-            <span class="fig-ph-icon">🔋</span>
-            <span class="fig-ph-label">Insert Research Figure</span>
-            <span class="fig-ph-hint">e.g. DFT energy landscape · MD snapshot of SEI · ML parity plot</span>
-        </div>
-
-        <!-- 4 SUBSECTIONS -->
-        <div class="subsection-grid">
-
-            <div class="subsection-card battery">
-                <div class="sub-num">01.A ——</div>
-                <div class="sub-title">Solid-State Electrolytes</div>
-                <div class="sub-desc">
-                    We combine DFT and machine-learning approaches to screen, design, and characterise solid-state electrolytes for Na and Li systems. Our recent ML study (PCCP 2025) screened thousands of candidates using graph neural networks trained on DFT data, identifying high-conductivity structures with wide electrochemical stability windows. We also study fluorination effects on ether-based electrolytes, revealing structural diffusion mechanisms beyond the vehicular transport picture.
-                </div>
-                <div class="sub-tags">
-                    <span class="sub-tag amber">AIMD</span>
-                    <span class="sub-tag amber">Graph Neural Nets</span>
-                    <span class="sub-tag amber">Ionic Conductivity</span>
-                    <span class="sub-tag amber">Na-ion</span>
-                    <span class="sub-tag amber">Li-metal</span>
-                </div>
-            </div>
-
-            <div class="subsection-card battery">
-                <div class="sub-num">01.B ——</div>
-                <div class="sub-title">Liquid Electrolytes & Solvation</div>
-                <div class="sub-desc">
-                    Classical MD simulations reveal how solvation structure of Na⁺ and Li⁺ in ether-based electrolytes dictates SEI composition, dendrite formation, and long-term cycling stability. We systematically study how fluorination of ether solvents tunes the solvation shell and suppresses dendrite growth — enabling room-temperature Na–S batteries with significantly improved reversibility.
-                </div>
-                <div class="sub-tags">
-                    <span class="sub-tag amber">Classical MD</span>
-                    <span class="sub-tag amber">Solvation Structure</span>
-                    <span class="sub-tag amber">Na–S Battery</span>
-                    <span class="sub-tag amber">Dendrite Suppression</span>
-                </div>
-            </div>
-
-            <div class="subsection-card battery">
-                <div class="sub-num">01.C ——</div>
-                <div class="sub-title">Composite Electrolytes & Interphases</div>
-                <div class="sub-desc">
-                    The solid-electrolyte interphase (SEI) determines battery lifetime but remains poorly understood at the molecular level. Using reactive MD and DFT, we decode SEI formation mechanisms — identifying decomposition pathways of ether and carbonate solvents and their role in building stable multiphasic interphases on Na and Li anodes. We also study MXene-based composite electrolyte interfaces for supercapacitor applications.
-                </div>
-                <div class="sub-tags">
-                    <span class="sub-tag amber">SEI Formation</span>
-                    <span class="sub-tag amber">ReaxFF MD</span>
-                    <span class="sub-tag amber">DFT</span>
-                    <span class="sub-tag amber">Interphase</span>
-                    <span class="sub-tag amber">MXene</span>
-                </div>
-            </div>
-
-            <div class="subsection-card battery">
-                <div class="sub-num">01.D ——</div>
-                <div class="sub-title">Electrode Materials</div>
-                <div class="sub-desc">
-                    DFT calculations guide the design of cathode and anode materials for Na-ion and Mg-ion batteries. We have studied Prussian blue analogue cathodes (Al-doped NaMnHCF), LiFePO₄ for fast-charging Li-ion batteries, Mg–Sn alloy anodes undergoing near-room-temperature phase transformation, and defective graphene-based anodes. Ab initio phase diagrams and voltage profiles directly inform experimental synthesis.
-                </div>
-                <div class="sub-tags">
-                    <span class="sub-tag amber">DFT</span>
-                    <span class="sub-tag amber">Phase Diagrams</span>
-                    <span class="sub-tag amber">Mg-ion</span>
-                    <span class="sub-tag amber">Na-ion Cathodes</span>
-                    <span class="sub-tag amber">LiFePO₄</span>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- TOOLS -->
-        <div class="tools-block">
-            <div class="tools-header battery">computational_toolkit --area=battery_materials</div>
-            <div class="tools-body">
-                <span class="tool-chip">VASP</span>
-                <span class="tool-chip">Quantum ESPRESSO</span>
-                <span class="tool-chip">LAMMPS</span>
-                <span class="tool-chip">GROMACS</span>
-                <span class="tool-chip">ReaxFF</span>
-                <span class="tool-chip">AIMD</span>
-                <span class="tool-chip">PyTorch / DGL</span>
-                <span class="tool-chip">Graph Neural Networks</span>
-                <span class="tool-chip">MLIP / NNP</span>
-                <span class="tool-chip">Materials Project API</span>
-                <span class="tool-chip">VESTA</span>
-                <span class="tool-chip">AMS / ADF</span>
-            </div>
-        </div>
-
-        <!-- KEY PUBLICATIONS -->
-        <div class="section-pubs">
-            <div class="pubs-label">key_publications</div>
-            <div class="pub-row">
-                <div>
-                    <div class="pub-t">Accelerating Discovery and Design of High-Performance Solid-State Electrolytes: A Machine Learning Approach</div>
-                    <div class="pub-a">Sewak, Sudarsanan, <strong>H. Kumar</strong></div>
-                </div>
-                <div class="pub-j amber">PCCP 27, 3834 (2025)</div>
-            </div>
-            <div class="pub-row">
-                <div>
-                    <div class="pub-t">Beyond Vehicular Transport: Fluorination-Induced Structural Diffusion in Ether Electrolytes</div>
-                    <div class="pub-a">Barik, <strong>H. Kumar</strong></div>
-                </div>
-                <div class="pub-j amber">J. Mater. Chem. A (2025)</div>
-            </div>
-            <div class="pub-row">
-                <div>
-                    <div class="pub-t">Tailoring Electrochemical Properties of Ether-based Solvents through Fluorination-Driven Solvation Control</div>
-                    <div class="pub-a">Barik, Das Adhikari, <strong>H. Kumar</strong></div>
-                </div>
-                <div class="pub-j amber">ACS Appl. Energy Mater. 8, 7673 (2025)</div>
-            </div>
-            <div class="pub-row">
-                <div>
-                    <div class="pub-t">Sodium Metal Anode with Multiphasic Interphase for Room-Temperature Na–S Pouch Cells</div>
-                    <div class="pub-a">Soni, Barik, Vineeth, Yadav, …, <strong>H. Kumar</strong>, V. Kumar</div>
-                </div>
-                <div class="pub-j amber">J. Mater. Chem. A 13, 6813 (2025)</div>
-            </div>
-            <div class="pub-row">
-                <div>
-                    <div class="pub-t">Bifunctional Current Collectors for Lean-Lithium Metal Batteries</div>
-                    <div class="pub-a">Rajsekharan, Nadarajan, Das, <strong>H. Kumar</strong>, Shaijumon</div>
-                </div>
-                <div class="pub-j amber">Adv. Funct. Mater. 2502473 (2025)</div>
-            </div>
-            <div class="pub-row">
-                <div>
-                    <div class="pub-t">Fundamental Mechanisms of Solvent Decomposition Involved in SEI Formation in Na-ion Batteries</div>
-                    <div class="pub-a"><strong>H. Kumar</strong>, Detsi, Abraham, Shenoy</div>
-                </div>
-                <div class="pub-j amber">Chem. Mater. 28, 8930 (2017)</div>
-            </div>
-            <div class="pub-row">
-                <div>
-                    <div class="pub-t">High-Rate Mg-Ion Battery Anode via Demagnesiation-Induced Solid–Liquid Phase Transformation</div>
-                    <div class="pub-a">Wang, Welborn, <strong>H. Kumar</strong>, Li, Wang, Shenoy, Detsi</div>
-                </div>
-                <div class="pub-j amber">Adv. Energy Mater. 1902086 (2019) — Cover</div>
-            </div>
+        <div class="r-tab" onclick="smoothScrollTo('tools')">
+            <span class="tab-num">04 ——</span>Computational Toolkit
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════
-         02 — GENOME ORGANIZATION
-    ════════════════════════════════════════════ -->
     <div class="research-section reveal" id="genome">
         <div class="section-header">
             <div class="section-bar-genome"></div>
             <div class="section-head-inner">
-                <div class="section-code genome">// 02 · Biophysics</div>
-                <h2 class="section-title">Genome Organization & Gene Regulation</h2>
-                <p class="section-subtitle">
-                    Inside every cell nucleus, ~2 metres of DNA is folded into a compact 3D structure that directly controls which genes are active. We build polymer-physics models of chromatin architecture — calibrated against Hi-C contact maps — to decode how 3D genome folding drives gene expression and how structural perturbations propagate to transcriptional change.
+                <div class="section-code genome">// 01 · Biophysics & Epigenomics</div>
+                <h2 class="section-title">Genome Organization</h2>
+            </div>
+        </div>
+
+        <div class="vision-layout">
+            <div class="vision-text">
+                <h3>The Grand Challenge</h3>
+                <p>
+                    The genome is not a static, linear string of letters; it is a highly dynamic, 2-meter-long 3D polymer operating inside a microscopic nucleus. <strong>How this molecule folds physically determines which genes are expressed and which remain silent.</strong> Understanding these structural mechanics is the key to unlocking the mysteries of cellular differentiation, evolutionary biology, and genetic diseases.
+                </p>
+                <h3>Our Computational Approach</h3>
+                <p>
+                    We approach the nucleus through the lens of statistical polymer physics. By building advanced, physics-based simulations calibrated with experimental Hi-C contact maps, we recreate the folding architecture of chromosomes. We model the molecular motors (like CTCF and cohesin) that drive loop extrusion, allowing us to actively perturb the genome *in silico* and mathematically predict the resulting shifts in transcriptional output.
                 </p>
             </div>
-        </div>
-
-        <!-- FIGURE SLOT -->
-        <div class="fig-ph">
-            <span class="fig-ph-icon">🧬</span>
-            <span class="fig-ph-label">Insert Research Figure</span>
-            <span class="fig-ph-hint">e.g. Hi-C contact map · TAD schematic · chromatin polymer model snapshot</span>
-        </div>
-
-        <div class="genome-layout">
-
-            <div class="genome-card">
-                <div class="sub-num">02.A ——</div>
-                <div class="sub-title" style="font-family:var(--font-serif);font-size:1.15rem;font-weight:600;color:#fff;margin-bottom:10px;">3D Chromatin Architecture</div>
-                <div class="sub-desc">
-                    Chromosomes are not random polymers — they adopt precise hierarchical structures: compartments (A/B), Topologically Associating Domains (TADs), and chromatin loops. We model these using bead-spring polymer simulations informed by experimental Hi-C data, capturing how architectural proteins like CTCF and cohesin organise the genome spatially and functionally.
-                </div>
-                <div class="sub-tags" style="margin-top:14px;">
-                    <span class="sub-tag violet">Polymer MD</span>
-                    <span class="sub-tag violet">Hi-C Analysis</span>
-                    <span class="sub-tag violet">TADs</span>
-                    <span class="sub-tag violet">CTCF / Cohesin</span>
-                    <span class="sub-tag violet">A/B Compartments</span>
-                </div>
-            </div>
-
-            <div class="genome-card">
-                <div class="sub-num">02.B ——</div>
-                <div class="sub-title" style="font-family:var(--font-serif);font-size:1.15rem;font-weight:600;color:#fff;margin-bottom:10px;">Gene Expression Prediction</div>
-                <div class="sub-desc">
-                    Our 2025 npj paper demonstrated that gene expression levels can be quantitatively predicted directly from the 3D chromatin contact probability of a locus — without knowing the underlying DNA sequence. This causal link between structure and transcription opens a new window into gene regulation in differentiation, disease, and development.
-                </div>
-                <div class="sub-tags" style="margin-top:14px;">
-                    <span class="sub-tag violet">Gene Expression</span>
-                    <span class="sub-tag violet">RNA-seq</span>
-                    <span class="sub-tag violet">Contact Probability</span>
-                    <span class="sub-tag violet">Transcription</span>
-                </div>
-            </div>
-
-            <div class="genome-card">
-                <div class="sub-num">02.C ——</div>
-                <div class="sub-title" style="font-family:var(--font-serif);font-size:1.15rem;font-weight:600;color:#fff;margin-bottom:10px;">Chromosome–Transcription Coupling</div>
-                <div class="sub-desc">
-                    Altering chromosome structure — through deletion of CTCF sites, cohesin mutations, or epigenetic reprogramming — reshapes TAD boundaries and rewires gene expression programmes. We model how these perturbations propagate, providing a quantitative, physics-based framework for understanding enhancer–promoter communication across genomic distances.
-                </div>
-                <div class="sub-tags" style="margin-top:14px;">
-                    <span class="sub-tag violet">Enhancer–Promoter</span>
-                    <span class="sub-tag violet">Structural Perturbation</span>
-                    <span class="sub-tag violet">Loop Extrusion</span>
-                    <span class="sub-tag violet">Epigenetics</span>
-                </div>
-            </div>
-
-            <div class="genome-card">
-                <div class="sub-num">02.D ——</div>
-                <div class="sub-title" style="font-family:var(--font-serif);font-size:1.15rem;font-weight:600;color:#fff;margin-bottom:10px;">Translation & Ribosome Dynamics</div>
-                <div class="sub-desc">
-                    Beyond the nucleus, we extend our quantitative modelling to translation — using ribosome profiling (Ribo-seq) data to build kinetic models of protein synthesis. These models capture ribosome stacking, codon usage effects, and rate-limiting steps, connecting genome-level information flow to protein production.
-                </div>
-                <div class="sub-tags" style="margin-top:14px;">
-                    <span class="sub-tag violet">Ribo-seq</span>
-                    <span class="sub-tag violet">Kinetic Modelling</span>
-                    <span class="sub-tag violet">Protein Synthesis</span>
-                    <span class="sub-tag violet">Codon Usage</span>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- TOOLS -->
-        <div class="tools-block">
-            <div class="tools-header genome">computational_toolkit --area=genome_biophysics</div>
-            <div class="tools-body">
-                <span class="tool-chip">LAMMPS (polymer MD)</span>
-                <span class="tool-chip">Python / NumPy / SciPy</span>
-                <span class="tool-chip">Hi-C data processing</span>
-                <span class="tool-chip">cooler / cooltools</span>
-                <span class="tool-chip">TADtools</span>
-                <span class="tool-chip">RNA-seq analysis</span>
-                <span class="tool-chip">Ribo-seq pipeline</span>
-                <span class="tool-chip">MATLAB</span>
-                <span class="tool-chip">Juicer / Juicebox</span>
-                <span class="tool-chip">Statistical mechanics</span>
+            
+            <div class="vision-img">
+                <img src="https://placehold.co/1000x800/111d2e/a78bfa?text=3D+Chromatin+Polymer+Model" alt="Genome Folding Schematic">
             </div>
         </div>
 
-        <!-- KEY PUBLICATIONS -->
-        <div class="section-pubs">
-            <div class="pubs-label">key_publications</div>
-            <div class="pub-row">
-                <div>
-                    <div class="pub-t">Predicting Gene Expression Changes from Chromatin Structure Modification</div>
-                    <div class="pub-a">Senapati, Irshad, Sharma, <strong>H. Kumar</strong></div>
-                </div>
-                <div class="pub-j violet">npj Syst. Biol. Appl. 11, 34 (2025)</div>
-            </div>
-            <div class="pub-row">
-                <div>
-                    <div class="pub-t">Fundamental Insights into the Correlation between Chromosome Configuration and Transcription</div>
-                    <div class="pub-a">Senapati, Irshad, Sharma, <strong>H. Kumar</strong></div>
-                </div>
-                <div class="pub-j violet">Physical Biology 20, 051002 (2023)</div>
-            </div>
-            <div class="pub-row">
-                <div>
-                    <div class="pub-t">Quantitative Modeling of Protein Synthesis Using Ribosome Profiling Data</div>
-                    <div class="pub-a">Yadav, Irshad, <strong>H. Kumar</strong>, Sharma</div>
-                </div>
-                <div class="pub-j violet">Front. Mol. Biosci. 8, 537 (2021)</div>
-            </div>
+        <div class="milestones-box genome">
+            <div class="milestones-title">Recent Proofs of Concept</div>
+            <ul class="milestone-list">
+                <li class="milestone-item genome">
+                    <strong>Predicting Transcription Directly from Structure</strong> 
+                    We established a computational framework that quantitatively predicts gene expression levels directly from the 3D chromatin contact probability—bypassing the need for DNA sequence data entirely. <em>[npj Syst. Biol. Appl., 2025]</em>
+                </li>
+                <li class="milestone-item genome">
+                    <strong>Ribosome Dynamics & Information Flow</strong> 
+                    Beyond the nucleus, we extend our modeling to translation, using Ribo-seq data to build kinetic models that capture ribosome stacking and rate-limiting steps in protein synthesis. <em>[Front. Mol. Biosci., 2021]</em>
+                </li>
+            </ul>
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════
-         03 — 2D MATERIALS & MXenes
-    ════════════════════════════════════════════ -->
-    <div class="research-section reveal" id="twod">
+    <div class="research-section reveal" id="electrolytes">
         <div class="section-header">
-            <div class="section-bar-2d"></div>
+            <div class="section-bar-electro"></div>
             <div class="section-head-inner">
-                <div class="section-code twod">// 03 · 2D Materials</div>
-                <h2 class="section-title">MXenes, 2D Spintronics & vdW Heterostructures</h2>
-                <p class="section-subtitle">
-                    Two-dimensional materials offer extraordinary tunability of electronic, magnetic, and mechanical properties. We use DFT and MD to design nitride MXenes for spintronics, explore twisted bilayer friction, and engineer Janus TMD heterostructures for next-generation spin field-effect transistors.
+                <div class="section-code electro">// 02 · Sustainable Energy</div>
+                <h2 class="section-title">Electrolytes & Interphases</h2>
+            </div>
+        </div>
+
+        <div class="vision-layout">
+            <div class="vision-text">
+                <h3>The Grand Challenge</h3>
+                <p>
+                    The global transition to a sustainable energy grid requires batteries that charge in minutes, hold massive amounts of energy, and will never catch fire. The primary bottleneck holding back this reality is the <strong>electrolyte and its highly reactive interface with the metal anode (the SEI).</strong> We must move beyond trial-and-error chemistry to rationally design ion-transport highways.
+                </p>
+                <h3>Our Computational Approach</h3>
+                <p>
+                    We explore the entire spectrum of ion transport. For liquid systems, we utilize classical MD to understand how manipulating solvent chemistry (like fluorination) alters atomic solvation shells and suppresses dendrite growth. For the future of batteries, we train <strong>Graph Neural Networks</strong> on quantum-mechanical DFT data to rapidly screen thousands of novel solid-state electrolyte structures, discovering safe, hyper-conductive ceramics.
                 </p>
             </div>
-        </div>
-
-        <div class="subsection-grid">
-            <div class="subsection-card">
-                <div class="sub-num">03.A ——</div>
-                <div class="sub-title">Nitride MXenes & Magnetism</div>
-                <div class="sub-desc">DFT calculations predict tunable magnetism and spin transport in Mn₂N and Cr₂N MXenes — our ACS Nano 2017 cover article established nitride MXenes as a new class of 2D magnetic materials. We study how surface terminations and electric fields control magnetic anisotropy and noncollinear spin structures.</div>
-                <div class="sub-tags">
-                    <span class="sub-tag cyan">DFT+U</span><span class="sub-tag cyan">Spin-orbit coupling</span><span class="sub-tag cyan">ACS Nano Cover</span>
-                </div>
-            </div>
-            <div class="subsection-card">
-                <div class="sub-num">03.B ——</div>
-                <div class="sub-title">Janus TMD Spin-FETs</div>
-                <div class="sub-desc">Janus transition-metal dichalcogenides break out-of-plane symmetry, enabling strong Rashba spin-orbit coupling. We design bilayer Janus TMD interfaces that optimise contact properties for spin field-effect transistors, quantifying spin injection efficiency and transport length using ab initio transport calculations.</div>
-                <div class="sub-tags">
-                    <span class="sub-tag cyan">Rashba SOC</span><span class="sub-tag cyan">NEGF-DFT</span><span class="sub-tag cyan">Spin Transport</span>
-                </div>
-            </div>
-            <div class="subsection-card">
-                <div class="sub-num">03.C ——</div>
-                <div class="sub-title">Moiré Friction in Twisted Bilayers</div>
-                <div class="sub-desc">MD simulations reveal that friction in twisted bilayer graphene operates simultaneously at two length scales — atomic stick-slip at the lattice scale, and a larger modulation at the Moiré supercell periodicity. This sub-Moiré friction, uncovered in ACS Nano 2024, has direct implications for 2D MEMS devices.</div>
-                <div class="sub-tags">
-                    <span class="sub-tag cyan">MD</span><span class="sub-tag cyan">Moiré</span><span class="sub-tag cyan">Tribology</span><span class="sub-tag cyan">AFM</span>
-                </div>
-            </div>
-            <div class="subsection-card">
-                <div class="sub-num">03.D ——</div>
-                <div class="sub-title">MXene Phase Stability & Devices</div>
-                <div class="sub-desc">We map the phase stability of M₂X and M₃X₂ MXenes as a function of transition metal, coordination symmetry, and surface termination — revealing design rules for synthesisable compositions. MXene alloys are also studied as low-resistance metal-semiconductor contacts for field-effect transistors.</div>
-                <div class="sub-tags">
-                    <span class="sub-tag cyan">Phase Stability</span><span class="sub-tag cyan">Formation Energy</span><span class="sub-tag cyan">FET Contacts</span>
-                </div>
+            
+            <div class="vision-img">
+                <img src="https://placehold.co/1000x800/111d2e/00e5ff?text=Solid-State+Electrolyte+Interface" alt="Electrolyte Simulation">
             </div>
         </div>
 
-        <div class="tools-block">
-            <div class="tools-header twod">computational_toolkit --area=2d_materials</div>
-            <div class="tools-body">
-                <span class="tool-chip">VASP</span>
-                <span class="tool-chip">Quantum ESPRESSO</span>
-                <span class="tool-chip">Wannier90</span>
-                <span class="tool-chip">LAMMPS</span>
-                <span class="tool-chip">NEGF / Landauer</span>
-                <span class="tool-chip">VESTA</span>
-                <span class="tool-chip">Phonopy</span>
-                <span class="tool-chip">DFT+U / HSE06</span>
-                <span class="tool-chip">AIRSS</span>
-                <span class="tool-chip">Python / ASE</span>
-            </div>
-        </div>
-
-        <div class="section-pubs">
-            <div class="pubs-label">key_publications</div>
-            <div class="pub-row">
-                <div><div class="pub-t">Tunable Magnetism and Transport Properties in Nitride MXenes</div><div class="pub-a"><strong>H. Kumar</strong>, Frey, Dong, Anasori, Gogotsi, Shenoy</div></div>
-                <div class="pub-j cyan">ACS Nano 11, 7648 (2017) — Cover</div>
-            </div>
-            <div class="pub-row">
-                <div><div class="pub-t">Resolving Atomic-Scale Stick-Slip and Sub-Moiré Frictional Modulation in Twisted Bilayers</div><div class="pub-a">Das, Mohapatra, <strong>H. Kumar</strong></div></div>
-                <div class="pub-j cyan">J. Phys.: Condens. Matter 37, 275001 (2025)</div>
-            </div>
-            <div class="pub-row">
-                <div><div class="pub-t">Tailoring Contact Properties in Janus TMD Spin-FETs for Enhanced Spin Transport</div><div class="pub-a">Bera, <strong>H. Kumar</strong></div></div>
-                <div class="pub-j cyan">ACS Appl. Electron. Mater. 7, 3324 (2025)</div>
-            </div>
-            <div class="pub-row">
-                <div><div class="pub-t">Phase Stability of MXenes: Role of Coordination Symmetries, Transition Metals, and Surface Terminations</div><div class="pub-a">Bera, <strong>H. Kumar</strong></div></div>
-                <div class="pub-j cyan">J. Phys. Chem. C 127, 20734 (2023)</div>
-            </div>
-            <div class="pub-row">
-                <div><div class="pub-t">Enhancing MXene Electrochemistry through Spatial Control of O and F Termination Distributions</div><div class="pub-a">Bera, Barik, <strong>H. Kumar</strong></div></div>
-                <div class="pub-j cyan">J. Energy Storage 139, 118594 (2025)</div>
-            </div>
+        <div class="milestones-box electro">
+            <div class="milestones-title">Recent Proofs of Concept</div>
+            <ul class="milestone-list">
+                <li class="milestone-item electro">
+                    <strong>AI-Accelerated Solid-State Discovery</strong> 
+                    We deployed machine learning to screen vast compositional spaces, identifying unprecedented solid-state sodium-ion conductors with ideal electrochemical stability windows. <em>[PCCP, 2025]</em>
+                </li>
+                <li class="milestone-item electro">
+                    <strong>Decoding Solvation Mechanics</strong> 
+                    By atomistically simulating fluorinated ether-based solvents, we discovered structural diffusion mechanisms that fundamentally change how we suppress dendrite growth in room-temperature batteries. <em>[J. Mater. Chem. A, 2025; ACS Appl. Energy Mater., 2025]</em>
+                </li>
+            </ul>
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════
-         04 — SOFT MATTER
-    ════════════════════════════════════════════ -->
-    <div class="research-section reveal" id="soft">
+    <div class="research-section reveal" id="electrodes">
         <div class="section-header">
-            <div class="section-bar-soft"></div>
+            <div class="section-bar-anode"></div>
             <div class="section-head-inner">
-                <div class="section-code soft">// 04 · Soft Matter</div>
-                <h2 class="section-title">Soft Matter & Confined Water</h2>
+                <div class="section-code anode">// 03 · Quantum Tunability</div>
+                <h2 class="section-title">Quantum Electrode Materials</h2>
+            </div>
+        </div>
+
+        <div class="vision-layout">
+            <div class="vision-text">
+                <h3>The Grand Challenge</h3>
+                <p>
+                    Storing energy and processing information at the ultimate physical limit requires entirely new classes of materials. 2D materials (like MXenes) and complex intercalation lattices offer unprecedented tunability—but only if we can <strong>master their behavior at the quantum-mechanical level</strong> before heading to the synthesis lab.
+                </p>
+                <h3>Our Computational Approach</h3>
+                <p>
+                    Acting as theoretical architects, we rely on First-Principles Density Functional Theory (DFT) to build materials atom by atom. We predict complex phase diagrams, calculate intercalation voltages, and map electron spin densities. This allows us to explicitly design surface terminations for enhanced supercapacitors, or engineer Janus interfaces for next-generation Spintronic logic devices.
+                </p>
+            </div>
+            
+            <div class="vision-img">
+                <img src="https://placehold.co/1000x800/111d2e/ffb300?text=MXene+Quantum+Lattice" alt="MXene Lattice">
+            </div>
+        </div>
+
+        <div class="milestones-box anode">
+            <div class="milestones-title">Recent Proofs of Concept</div>
+            <ul class="milestone-list">
+                <li class="milestone-item anode">
+                    <strong>Design Rules for MXene Stability</strong> 
+                    We established comprehensive predictive maps detailing how coordination symmetry, transition metals, and surface terminations dictate the phase stability and electrochemical limits of MXenes. <em>[J. Phys. Chem. C, 2023; J. Energy Storage, 2025]</em>
+                </li>
+                <li class="milestone-item anode">
+                    <strong>Nanoscale Tribology & Spintronics</strong> 
+                    We identified a novel "sub-Moiré" friction mechanism operating within twisted bilayer heterostructures, and designed highly efficient spin-injection contacts using Janus TMD interfaces. <em>[J. Phys. Condens. Matter, 2025; ACS Nano, 2024]</em>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="research-section reveal" id="tools">
+        <div class="section-header">
+            <div class="section-bar-tools"></div>
+            <div class="section-head-inner">
+                <div class="section-code tools">// 04 · The Engine</div>
+                <h2 class="section-title">The Computational Toolkit</h2>
                 <p class="section-subtitle">
-                    Water confined in nanoscale geometries — carbon nanotubes, Janus nanopores, biological channels — behaves radically differently from bulk water. Using all-atom and polarisable MD, we study thermodynamics, single-file dynamics, phase transitions, and entropy-driven phenomena in these extreme environments.
+                    Bridging the massive gap from quantum electron densities to mesoscale polymer dynamics requires a unified, high-performance stack of software, physics-based solvers, and AI frameworks.
                 </p>
             </div>
         </div>
 
-        <div class="subsection-grid">
-            <div class="subsection-card">
-                <div class="sub-num">04.A ——</div>
-                <div class="sub-title">Water in Carbon Nanotubes</div>
-                <div class="sub-desc">We established that entropy — not energy — drives water entry into hydrophobic CNTs. All-atom MD with polarisable water models reveals single-file water dynamics, dipole ordering under flow, and how nanotube chirality and diameter control thermodynamics of confinement.</div>
-                <div class="sub-tags"><span class="sub-tag green">All-atom MD</span><span class="sub-tag green">Entropy</span><span class="sub-tag green">Single-file</span></div>
-            </div>
-            <div class="subsection-card">
-                <div class="sub-num">04.B ——</div>
-                <div class="sub-title">Phase Transitions in Nanopores</div>
-                <div class="sub-desc">Monolayer water confined in Janus nanopores — where opposite walls have different wettabilities — undergoes a novel asymmetric phase transition not seen in symmetric pores. MD simulations map the full pressure–temperature phase diagram and reveal entropy-enthalpy compensation at the nanoscale.</div>
-                <div class="sub-tags"><span class="sub-tag green">Janus Nanopore</span><span class="sub-tag green">Phase Diagram</span><span class="sub-tag green">MD</span></div>
-            </div>
-        </div>
-
-        <div class="tools-block">
-            <div class="tools-header soft">computational_toolkit --area=soft_matter</div>
+        <div class="tools-unified">
             <div class="tools-body">
-                <span class="tool-chip">GROMACS</span>
-                <span class="tool-chip">LAMMPS</span>
-                <span class="tool-chip">TIP4P / SPC/E water</span>
-                <span class="tool-chip">Polarisable FF</span>
-                <span class="tool-chip">Free energy perturbation</span>
-                <span class="tool-chip">Umbrella sampling</span>
-                <span class="tool-chip">WHAM</span>
-                <span class="tool-chip">Python / MDAnalysis</span>
-            </div>
-        </div>
-
-        <div class="section-pubs">
-            <div class="pubs-label">key_publications</div>
-            <div class="pub-row">
-                <div><div class="pub-t">Thermodynamics of Water Entry in Hydrophobic Channels of Carbon Nanotubes</div><div class="pub-a"><strong>H. Kumar</strong>, Mukherjee, Dasgupta, Sood, Lin, Maiti</div></div>
-                <div class="pub-j green">J. Chem. Phys. 134, 124105 (2011)</div>
-            </div>
-            <div class="pub-row">
-                <div><div class="pub-t">Phase Transition in Monolayer Water Confined in Janus Nanopore</div><div class="pub-a"><strong>H. Kumar</strong>, Dasgupta, Maiti</div></div>
-                <div class="pub-j green">Langmuir 34, 12199 (2018)</div>
-            </div>
-            <div class="pub-row">
-                <div><div class="pub-t">Confined Water: Structure, Dynamics and Thermodynamics</div><div class="pub-a">Chakraborty, <strong>H. Kumar</strong>, Dasgupta, Maiti</div></div>
-                <div class="pub-j green">Acc. Chem. Res. 50, 2139 (2017)</div>
-            </div>
-            <div class="pub-row">
-                <div><div class="pub-t">Dipole Alignment of Water Molecules Flowing Through a Carbon Nanotube</div><div class="pub-a"><strong>H. Kumar</strong>, Bera, Dasgupta, Sood, Dasgupta, Maiti</div></div>
-                <div class="pub-j green">Phys. Rev. B 107, 165402 (2023)</div>
+                <span class="tool-chip-large">First-Principles DFT (VASP, Quantum ESPRESSO)</span>
+                <span class="tool-chip-large">Molecular Dynamics (LAMMPS, GROMACS)</span>
+                <span class="tool-chip-large">AI & Graph Neural Nets (PyTorch, DGL)</span>
+                <span class="tool-chip-large">Machine Learning Potentials (MLIP)</span>
+                <span class="tool-chip-large">Genomics Pipelines (Hi-C, RNA-seq)</span>
             </div>
         </div>
     </div>
@@ -764,71 +330,46 @@
         <div>
             <div class="footer-brand">SCALE · Computational Soft and Living Matter · IIT Bhubaneswar</div>
             <div class="footer-sub">
-                Simulating Complex Architectures across Lengths and Energies<br>
                 School of Basic Sciences · Dr. Hemant Kumar · hemant@iitbbs.ac.in
             </div>
-        </div>
-        <div class="footer-nav">
-            <a href="publications.html">publications</a>
-            <a href="team.html">team</a>
-            <a href="joinus.html">join_us</a>
         </div>
     </div>
 </footer>
 
 <script>
-// ── SCROLL TO SECTION ──
-function scrollTo(id) {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    document.querySelectorAll('.r-tab').forEach(t => t.classList.remove('active'));
-    event.currentTarget.classList.add('active');
+// ── SCROLL TO SECTION (FIXED FOR TABS) ──
+function smoothScrollTo(id) {
+    const element = document.getElementById(id);
+    if (element) {
+        // Scroll with an offset so the sticky header doesn't cover the title
+        const y = element.getBoundingClientRect().top + window.scrollY - 90;
+        window.scrollTo({top: y, behavior: 'smooth'});
+    }
 }
 
 // ── UPDATE ACTIVE TAB ON SCROLL ──
-const sections = ['battery','genome','twod','soft'];
+const sections = ['genome','electrolytes','electrodes','tools'];
 const tabs = document.querySelectorAll('.r-tab');
 window.addEventListener('scroll', () => {
     let current = sections[0];
     sections.forEach(id => {
         const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top < 120) current = id;
+        // Check if the section is near the top of the viewport
+        if (el && el.getBoundingClientRect().top < 200) current = id;
     });
     tabs.forEach((tab, i) => {
         tab.classList.toggle('active', sections[i] === current);
     });
 });
 
-// ── TYPING HEADINGS ──
-function prepTypeHeadings() {
-    document.querySelectorAll('.page-title, .section-title').forEach(el => {
-        el.classList.add('type-heading');
-        el.innerHTML = el.textContent.split('').map(c =>
-            `<span class="char">${c === ' ' ? '&nbsp;' : c}</span>`
-        ).join('');
-    });
-}
-function typeHeading(el) {
-    if (el.classList.contains('typed')) return;
-    el.classList.add('typed');
-    el.querySelectorAll('.char').forEach((ch, i) => {
-        ch.style.animationDelay = (i * 0.03) + 's';
-    });
-}
-prepTypeHeadings();
-
 // ── SCROLL REVEAL ──
 const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
         if (!e.isIntersecting) return;
         e.target.classList.add('visible');
-        e.target.querySelectorAll('.type-heading').forEach(typeHeading);
-        if (e.target.classList.contains('type-heading')) typeHeading(e.target);
     });
-}, { threshold: 0.06 });
+}, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-document.querySelectorAll('.type-heading').forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight) typeHeading(el);
-});
 </script>
 
 </body>
