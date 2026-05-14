@@ -1,921 +1,462 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="mist-alloy">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SCALE — Simulating Complex Architectures across Lengths and Energies. Computational Soft and Living Matter Group led by Dr. Hemant Kumar at IIT Bhubaneswar.">
-    <title>SCALE | Computational Soft and Living Matter · IIT Bhubaneswar</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --void: #060a10;
-            --deep: #0b1220;
-            --surface: #111d2e;
-            --surface-hi: #162638;
-            --cyan: #00e5ff;
-            --cyan-dim: rgba(0,229,255,0.1);
-            --cyan-glow: rgba(0,229,255,0.05);
-            --amber: #ffb300;
-            --amber-dim: rgba(255,179,0,0.1);
-            --green: #00ff88;
-            --green-dim: rgba(0,255,136,0.07);
-            --paper: #e8f0f7;
-            --paper-dim: #7a93ad;
-            --border-c: rgba(0,229,255,0.1);
-            --border-a: rgba(255,179,0,0.18);
-            --font-serif: 'EB Garamond', serif;
-            --font-sans: 'IBM Plex Sans', sans-serif;
-            --font-mono: 'IBM Plex Mono', monospace;
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: var(--font-sans);
-            background: var(--void);
-            color: var(--paper);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* grid background */
-        body::before {
-            content: '';
-            position: fixed; inset: 0; z-index: 0;
-            background-image:
-                linear-gradient(rgba(0,229,255,0.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,229,255,0.025) 1px, transparent 1px);
-            background-size: 44px 44px;
-            pointer-events: none;
-        }
-
-        a { color: var(--cyan); text-decoration: none; transition: .2s; }
-        a:hover { color: #fff; }
-
-        /* ─── NAV ─── */
-        nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-            height: 60px;
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 0 48px;
-            background: rgba(6,10,16,0.88);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-c);
-        }
-        .nav-logo {
-            font-family: var(--font-mono);
-            font-size: .78rem; font-weight: 500;
-            color: var(--cyan); letter-spacing: .5px;
-            display: flex; align-items: center; gap: 8px;
-        }
-        .nav-logo-b { color: var(--paper-dim); }
-        .nav-logo::before { content: '▸ '; color: var(--green); animation: blink 1.2s step-end infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
-
-        .nav-links { display: flex; list-style: none; }
-        .nav-links a {
-            font-family: var(--font-mono); font-size: .7rem; letter-spacing: .3px;
-            color: var(--paper-dim); padding: 6px 16px;
-            border-right: 1px solid var(--border-c); transition: .2s;
-        }
-        .nav-links li:first-child a { border-left: 1px solid var(--border-c); }
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--cyan); background: var(--cyan-dim);
-        }
-
-        /* ─── HERO ─── */
-        .hero {
-            position: relative; z-index: 1;
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding-top: 60px;
-            overflow: hidden;
-        }
-
-        /* ambient glows */
-        .glow-1 {
-            position: absolute; top: 20%; left: 10%;
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(0,229,255,0.05) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .glow-2 {
-            position: absolute; bottom: 10%; right: 5%;
-            width: 350px; height: 350px;
-            background: radial-gradient(circle, rgba(255,179,0,0.05) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        /* Left: text */
-        .hero-left {
-            position: relative; z-index: 2;
-            padding: 80px 56px 60px;
-            display: flex; flex-direction: column; justify-content: center;
-            border-right: 1px solid var(--border-c);
-        }
-
-        .terminal-bar {
-            display: flex; align-items: center; gap: 6px; margin-bottom: 32px;
-        }
-        .t-dot { width: 9px; height: 9px; border-radius: 50%; }
-        .t-dot-r { background: #ff5f56; } .t-dot-y { background: #ffbd2e; } .t-dot-g { background: #27c93f; }
-        .t-path {
-            font-family: var(--font-mono); font-size: .65rem; color: var(--paper-dim); margin-left: 8px;
-        }
-        .t-path span { color: var(--cyan); }
-
-        .typewriter-wrap {
-            font-family: var(--font-mono); font-size: .72rem;
-            color: var(--green); margin-bottom: 20px; min-height: 1.4em;
-        }
-        .typewriter-wrap::after {
-            content: '█'; color: var(--cyan);
-            animation: blink 1s step-end infinite;
-        }
-
-        .hero-title {
-            font-family: var(--font-serif);
-            font-size: clamp(2.4rem, 4.5vw, 4.4rem);
-            font-weight: 700; line-height: 1.08;
-            color: #fff; letter-spacing: -.5px; margin-bottom: 20px;
-        }
-        .hero-title em { font-style: italic; color: var(--amber); }
-        .hero-title .hl { color: var(--cyan); text-shadow: 0 0 24px rgba(0,229,255,0.35); }
-
-        .hero-tagline {
-            font-size: 1rem; color: var(--paper-dim); line-height: 1.75;
-            max-width: 440px; margin-bottom: 40px; font-weight: 300;
-        }
-
-        /* Breakthrough paper in hero */
-        .latest-label {
-            font-family: var(--font-mono); font-size: .62rem; letter-spacing: 2.5px;
-            text-transform: uppercase; color: var(--amber);
-            display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
-        }
-        .pulse-dot {
-            width: 6px; height: 6px; border-radius: 50%;
-            background: var(--amber); box-shadow: 0 0 8px var(--amber);
-            animation: pdot 2s ease-in-out infinite;
-        }
-        @keyframes pdot { 50% { box-shadow: 0 0 18px var(--amber); opacity: .5; } }
-
-        .hero-paper {
-            border: 1px solid var(--border-a);
-            background: var(--amber-dim);
-            border-radius: 2px; padding: 18px 22px; margin-bottom: 32px;
-            position: relative;
-        }
-        .hero-paper::before {
-            content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-            width: 3px; background: var(--amber); box-shadow: 0 0 10px var(--amber);
-        }
-        .hp-title {
-            font-family: var(--font-serif); font-size: 1.05rem; font-weight: 600;
-            color: #fff; line-height: 1.4; margin-bottom: 7px;
-        }
-        .hp-authors { font-size: .76rem; color: var(--paper-dim); margin-bottom: 5px; }
-        .hp-authors strong { color: var(--amber); font-weight: 600; }
-        .hp-journal { font-family: var(--font-mono); font-size: .66rem; color: var(--cyan); }
-
-        .hero-links { display: flex; gap: 10px; flex-wrap: wrap; }
-        .btn {
-            font-family: var(--font-mono); font-size: .72rem; font-weight: 500;
-            letter-spacing: .8px; padding: 10px 22px; border-radius: 2px;
-            transition: all .25s; display: inline-flex; align-items: center; gap: 8px;
-        }
-        .btn-cyan {
-            border: 1px solid var(--cyan); color: var(--cyan); background: transparent;
-        }
-        .btn-cyan:hover {
-            background: var(--cyan); color: var(--void);
-            box-shadow: 0 0 20px rgba(0,229,255,0.25);
-        }
-        .btn-ghost {
-            border: 1px solid rgba(255,255,255,0.12); color: var(--paper-dim);
-            background: transparent;
-        }
-        .btn-ghost:hover { border-color: rgba(255,255,255,0.35); color: #fff; }
-
-        /* Right: research schematic showcase */
-        .hero-right {
-            position: relative; z-index: 2;
-            display: grid;
-            grid-template-rows: 1fr 1fr;
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .schematic-cell {
-            position: relative; overflow: hidden;
-            border-bottom: 1px solid var(--border-c);
-            border-right: 1px solid var(--border-c);
-            cursor: default;
-            transition: background .3s;
-        }
-        .schematic-cell:nth-child(2n) { border-right: none; }
-        .schematic-cell:nth-child(3), .schematic-cell:nth-child(4) { border-bottom: none; }
-        .schematic-cell:hover { background: var(--cyan-glow); }
-
-        .schematic-cell img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            filter: saturate(0.7) contrast(1.1) brightness(0.85);
-            transition: filter .4s, transform .5s;
-        }
-        .schematic-cell:hover img {
-            filter: saturate(1.1) contrast(1.05) brightness(0.95);
-            transform: scale(1.03);
-        }
-
-        /* overlay label on each image */
-        .schematic-overlay {
-            position: absolute; bottom: 0; left: 0; right: 0;
-            padding: 28px 16px 14px;
-            background: linear-gradient(to top, rgba(6,10,16,0.92) 0%, transparent 100%);
-        }
-        .schematic-tag {
-            font-family: var(--font-mono); font-size: .58rem; letter-spacing: 2px;
-            text-transform: uppercase; color: var(--cyan); margin-bottom: 4px;
-        }
-        .schematic-name {
-            font-family: var(--font-serif); font-size: .95rem; font-weight: 600;
-            color: #fff; line-height: 1.3;
-        }
-
-        /* placeholder when no real image */
-        .schematic-placeholder {
-            width: 100%; height: 100%; min-height: 200px;
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            background: var(--surface);
-            position: relative;
-        }
-        .schematic-placeholder::before {
-            content: '';
-            position: absolute; inset: 0;
-            background-image:
-                linear-gradient(rgba(0,229,255,0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,229,255,0.04) 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-        .ph-icon { font-size: 2.2rem; margin-bottom: 10px; opacity: .5; position: relative; z-index: 1; }
-        .ph-label {
-            font-family: var(--font-mono); font-size: .6rem; letter-spacing: 2px;
-            color: var(--paper-dim); text-align: center; position: relative; z-index: 1;
-        }
-        .ph-hint {
-            font-size: .6rem; color: rgba(255,255,255,0.2);
-            margin-top: 6px; position: relative; z-index: 1; text-align: center;
-        }
-
-        /* ─── SECTION BASE ─── */
-        .section {
-            position: relative; z-index: 1;
-            padding: 80px 0;
-        }
-        .section-alt {
-            background: rgba(11,18,32,0.7);
-            border-top: 1px solid var(--border-c);
-            border-bottom: 1px solid var(--border-c);
-        }
-        .wrap { max-width: 1240px; margin: 0 auto; padding: 0 48px; }
-
-        .eyebrow {
-            font-family: var(--font-mono); font-size: .62rem; letter-spacing: 3px;
-            text-transform: uppercase; color: var(--green); margin-bottom: 8px;
-            display: flex; align-items: center; gap: 8px;
-        }
-        .eyebrow::before { content: '//'; color: var(--paper-dim); font-weight: 400; }
-        .s-title {
-            font-family: var(--font-serif);
-            font-size: clamp(1.6rem, 2.8vw, 2.4rem);
-            font-weight: 700; color: #fff; margin-bottom: 48px;
-            letter-spacing: -.3px;
-        }
-
-        /* ─── RESEARCH HIGHLIGHTS ─── */
-        /* Big featured card + 2 side cards */
-        .highlights-layout {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            grid-template-rows: auto auto;
-            gap: 1px;
-            background: var(--border-c);
-            border: 1px solid var(--border-c);
-            border-radius: 2px; overflow: hidden;
-        }
-
-        .hl-card {
-            background: var(--deep);
-            display: flex; flex-direction: column;
-            transition: background .3s;
-            cursor: default;
-        }
-        .hl-card:hover { background: var(--surface-hi); }
-
-        .hl-card.featured { grid-row: 1 / 3; }
-
-        .hl-img {
-            width: 100%; overflow: hidden;
-            flex-shrink: 0;
-        }
-        .hl-img.tall { height: 320px; }
-        .hl-img.short { height: 180px; }
-        .hl-img img {
-            width: 100%; height: 100%; object-fit: cover;
-            filter: saturate(0.8) brightness(0.85) contrast(1.1);
-            transition: filter .4s, transform .5s;
-        }
-        .hl-card:hover .hl-img img {
-            filter: saturate(1.1) brightness(0.92);
-            transform: scale(1.04);
-        }
-
-        /* placeholder for highlight images */
-        .hl-img-ph {
-            width: 100%;
-            display: flex; align-items: center; justify-content: center;
-            background: var(--surface);
-            position: relative; overflow: hidden;
-        }
-        .hl-img-ph::before {
-            content: '';
-            position: absolute; inset: 0;
-            background-image:
-                linear-gradient(rgba(0,229,255,0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,229,255,0.04) 1px, transparent 1px);
-            background-size: 18px 18px;
-        }
-        .hl-img-ph-inner {
-            text-align: center; position: relative; z-index: 1; padding: 24px;
-        }
-        .hl-img-ph-icon { font-size: 2.5rem; opacity: .4; display: block; margin-bottom: 8px; }
-        .hl-img-ph-text {
-            font-family: var(--font-mono); font-size: .6rem; letter-spacing: 1.5px;
-            color: var(--paper-dim); display: block;
-        }
-        .hl-img-ph-hint {
-            font-size: .55rem; color: rgba(255,255,255,0.18); margin-top: 4px; display: block;
-        }
-
-        .hl-body { padding: 24px 28px; flex: 1; display: flex; flex-direction: column; }
-        .hl-theme {
-            font-family: var(--font-mono); font-size: .6rem; letter-spacing: 2px;
-            text-transform: uppercase; color: var(--cyan); margin-bottom: 10px;
-        }
-        .hl-title {
-            font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600;
-            color: #fff; line-height: 1.4; margin-bottom: 10px;
-        }
-        .hl-card.featured .hl-title { font-size: 1.5rem; }
-        .hl-desc { font-size: .85rem; color: var(--paper-dim); line-height: 1.7; flex: 1; }
-        .hl-card.featured .hl-desc { font-size: .9rem; }
-        .hl-footer {
-            margin-top: 18px; padding-top: 14px;
-            border-top: 1px solid var(--border-c);
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .hl-pub {
-            font-family: var(--font-mono); font-size: .65rem; color: var(--amber);
-        }
-        .hl-arrow {
-            font-family: var(--font-mono); font-size: .68rem;
-            color: var(--cyan); letter-spacing: 1px;
-        }
-        .hl-card:hover .hl-arrow { text-shadow: 0 0 8px var(--cyan); }
-
-        /* ─── NEWS ─── */
-        .news-list { display: flex; flex-direction: column; gap: 0; }
-        .news-item {
-            display: grid; grid-template-columns: 100px 1fr;
-            gap: 20px; padding: 20px 0;
-            border-bottom: 1px solid rgba(0,229,255,0.07);
-            transition: padding-left .2s;
-        }
-        .news-item:first-child { border-top: 1px solid rgba(0,229,255,0.07); }
-        .news-item:hover { padding-left: 8px; }
-        .news-date {
-            font-family: var(--font-mono); font-size: .65rem;
-            color: var(--paper-dim); line-height: 1.4; padding-top: 3px;
-        }
-        .news-date strong { display: block; color: var(--green); font-size: .75rem; }
-        .news-body { }
-        .news-tag {
-            font-family: var(--font-mono); font-size: .58rem; letter-spacing: 1.5px;
-            text-transform: uppercase; padding: 2px 8px; border-radius: 1px;
-            border: 1px solid var(--border-c); color: var(--cyan);
-            display: inline-block; margin-bottom: 7px;
-        }
-        .news-tag.amber { color: var(--amber); border-color: var(--border-a); }
-        .news-tag.green { color: var(--green); border-color: rgba(0,255,136,0.2); }
-        .news-title {
-            font-family: var(--font-serif); font-size: 1.05rem; font-weight: 600;
-            color: #fff; line-height: 1.35; margin-bottom: 5px;
-        }
-        .news-desc { font-size: .82rem; color: var(--paper-dim); line-height: 1.6; }
-
-        /* ─── RESEARCH SUMMARY ─── */
-        .summary-grid {
-            display: grid; grid-template-columns: repeat(4, 1fr);
-            gap: 1px; background: var(--border-c);
-            border: 1px solid var(--border-c); border-radius: 2px; overflow: hidden;
-        }
-        .summary-card {
-            background: var(--deep); padding: 30px 24px;
-            transition: background .3s; position: relative; overflow: hidden;
-        }
-        .summary-card::after {
-            content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-            height: 2px; background: var(--cyan);
-            transform: scaleX(0); transform-origin: left; transition: transform .4s;
-        }
-        .summary-card:hover { background: var(--cyan-glow); }
-        .summary-card:hover::after { transform: scaleX(1); }
-        .sc-num {
-            font-family: var(--font-mono); font-size: .6rem; color: var(--cyan);
-            letter-spacing: 2px; margin-bottom: 14px;
-        }
-        .sc-title {
-            font-family: var(--font-serif); font-size: 1.05rem; font-weight: 600;
-            color: #fff; margin-bottom: 10px; line-height: 1.3;
-        }
-        .sc-desc { font-size: .8rem; color: var(--paper-dim); line-height: 1.65; margin-bottom: 14px; }
-        .sc-tags { display: flex; flex-wrap: wrap; gap: 4px; }
-        .sc-tag {
-            font-family: var(--font-mono); font-size: .58rem; padding: 2px 8px;
-            border: 1px solid var(--border-c); color: var(--cyan); border-radius: 1px;
-        }
-
-        /* ─── FOOTER ─── */
-        .site-footer {
-            position: relative; z-index: 1;
-            border-top: 1px solid var(--border-c);
-            padding: 48px;
-        }
-        .footer-inner {
-            max-width: 1240px; margin: 0 auto;
-            display: flex; justify-content: space-between; align-items: flex-end;
-        }
-        .footer-brand {
-            font-family: var(--font-mono); font-size: .78rem;
-            color: var(--cyan); margin-bottom: 8px;
-        }
-        .footer-brand::before { content: '// '; color: var(--paper-dim); }
-        .footer-sub { font-size: .75rem; color: var(--paper-dim); line-height: 1.7; }
-        .footer-nav { display: flex; gap: 0; }
-        .footer-nav a {
-            font-family: var(--font-mono); font-size: .68rem;
-            color: var(--paper-dim); padding: 6px 14px;
-            border-right: 1px solid var(--border-c); transition: .2s;
-        }
-        .footer-nav a:first-child { border-left: 1px solid var(--border-c); }
-        .footer-nav a:hover { color: var(--cyan); background: var(--cyan-dim); }
-
-        /* ─── ANIMATIONS ─── */
-        .fade-in { opacity: 0; animation: fi .7s ease forwards; }
-        @keyframes fi { to { opacity: 1; } }
-        .slide-up { opacity: 0; transform: translateY(18px); animation: su .65s ease forwards; }
-        @keyframes su { to { opacity: 1; transform: none; } }
-        .d1{animation-delay:.1s} .d2{animation-delay:.25s} .d3{animation-delay:.4s}
-        .d4{animation-delay:.55s} .d5{animation-delay:.7s}
-
-        .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s, transform .65s; }
-        .reveal.visible { opacity: 1; transform: none; }
-
-        /* ─── RESPONSIVE ─── */
-        @media (max-width: 1024px) {
-            .hero { grid-template-columns: 1fr; min-height: auto; }
-            .hero-left { border-right: none; border-bottom: 1px solid var(--border-c); padding: 80px 32px 48px; }
-            .hero-right { grid-template-columns: 1fr 1fr; height: 380px; }
-            .summary-grid { grid-template-columns: 1fr 1fr; }
-            .highlights-layout { grid-template-columns: 1fr; }
-            .hl-card.featured { grid-row: auto; }
-        }
-        @media (max-width: 640px) {
-            nav { padding: 0 16px; }
-            .nav-links { display: none; }
-            .hero-left { padding: 80px 20px 40px; }
-            .wrap { padding: 0 20px; }
-            .hero-right { grid-template-columns: 1fr 1fr; height: 260px; }
-            .summary-grid { grid-template-columns: 1fr; }
-            .news-item { grid-template-columns: 80px 1fr; }
-            .site-footer { padding: 40px 20px; }
-            .footer-inner { flex-direction: column; gap: 24px; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The SCALE Group led by Dr. Hemant Kumar at IIT Bhubaneswar develops multiscale simulations, molecular dynamics, machine-learning potentials, and kinetic models for electrolytes, energy materials, genome biophysics, and nanoscale interfaces.">
+  <meta name="keywords" content="SCALE Group IIT Bhubaneswar, Hemant Kumar, computational materials science, soft matter physics, molecular dynamics, machine learning potentials, battery electrolytes, genome biophysics, nanoscale interfaces">
+  <meta name="author" content="Dr. Hemant Kumar, SCALE Group, IIT Bhubaneswar">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#3f4a54">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The SCALE Group">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:title" content="Home | SCALE IITBBS">
+  <meta property="og:description" content="The SCALE Group led by Dr. Hemant Kumar at IIT Bhubaneswar develops multiscale simulations, molecular dynamics, machine-learning potentials, and kinetic models for electrolytes, energy materials, genome biophysics, and nanoscale interfaces.">
+  <meta property="og:image" content="https://thescale-group.github.io/assets/images/homepage.png">
+  <meta property="og:image:alt" content="SCALE Group computational research illustration">
+  <meta property="og:url" content="https://thescale-group.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Home | SCALE IITBBS">
+  <meta name="twitter:description" content="The SCALE Group led by Dr. Hemant Kumar at IIT Bhubaneswar develops multiscale simulations, molecular dynamics, machine-learning potentials, and kinetic models for electrolytes, energy materials, genome biophysics, and nanoscale interfaces.">
+  <meta name="twitter:image" content="https://thescale-group.github.io/assets/images/homepage.png">
+  <link rel="canonical" href="https://thescale-group.github.io/">
+  <title>Home | SCALE IITBBS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script id="theme-bootstrap">{const t=new URLSearchParams(location.search).get('theme')||'mist-alloy'; if(t&&t!=='default'&&t!=='reset') document.documentElement.dataset.theme=t;}</script>
+  <link rel="stylesheet" href="scale.css?v=20260513-theme2">
+<script type="application/ld+json" id="news-jsonld">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "SCALE Group news and highlights",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "NewsArticle",
+        "headline": "Kinetic Model of E-P Condensates Dynamics Reveals Transcriptional Speed, Noise, and Energy Trade-offs",
+        "datePublished": "2026-02-15",
+        "url": "https://doi.org/10.1016/j.bpj.2026.02.015",
+        "author": {
+          "@type": "Organization",
+          "name": "SCALE Group, IIT Bhubaneswar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "SCALE Group, IIT Bhubaneswar"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "NewsArticle",
+        "headline": "Beyond Vehicular Transport: Fluorination-Induced Structural Diffusion in Ether Electrolytes",
+        "datePublished": "2025-08-01",
+        "url": "https://doi.org/10.1039/d5ta04224k",
+        "author": {
+          "@type": "Organization",
+          "name": "SCALE Group, IIT Bhubaneswar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "SCALE Group, IIT Bhubaneswar"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "NewsArticle",
+        "headline": "Enhancing MXene Electrochemistry through Spatial Control of O and F Termination Distributions",
+        "datePublished": "2025-07-15",
+        "url": "https://doi.org/10.1016/j.est.2025.118594",
+        "author": {
+          "@type": "Organization",
+          "name": "SCALE Group, IIT Bhubaneswar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "SCALE Group, IIT Bhubaneswar"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "NewsArticle",
+        "headline": "Bifunctional Current Collectors for Lean-Lithium Metal Batteries",
+        "datePublished": "2025-04-20",
+        "url": "https://doi.org/10.1002/adfm.202502473",
+        "author": {
+          "@type": "Organization",
+          "name": "SCALE Group, IIT Bhubaneswar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "SCALE Group, IIT Bhubaneswar"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "NewsArticle",
+        "headline": "Predicting Gene Expression Changes from Chromatin Structure Modification",
+        "datePublished": "2025-03-10",
+        "url": "https://doi.org/10.1038/s41540-025-00510-4",
+        "author": {
+          "@type": "Organization",
+          "name": "SCALE Group, IIT Bhubaneswar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "SCALE Group, IIT Bhubaneswar"
+        }
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json" id="page-jsonld">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://thescale-group.github.io/#website",
+      "name": "The SCALE Group",
+      "alternateName": "Simulation of Complex Systems Across Length and Energy Group",
+      "url": "https://thescale-group.github.io/",
+      "publisher": {
+        "@id": "https://thescale-group.github.io/#organization"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "ResearchOrganization",
+      "@id": "https://thescale-group.github.io/#organization",
+      "name": "The SCALE Group, IIT Bhubaneswar",
+      "alternateName": "Simulation of Complex Systems Across Length and Energy Group",
+      "url": "https://thescale-group.github.io/",
+      "image": "https://thescale-group.github.io/assets/images/homepage.png",
+      "description": "The SCALE Group led by Dr. Hemant Kumar at IIT Bhubaneswar develops multiscale simulations, molecular dynamics, machine-learning potentials, and kinetic models for electrolytes, energy materials, genome biophysics, and nanoscale interfaces.",
+      "parentOrganization": {
+        "@type": "CollegeOrUniversity",
+        "name": "Indian Institute of Technology Bhubaneswar"
+      },
+      "department": {
+        "@type": "Organization",
+        "name": "Department of Physics, School of Basic Sciences"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Room 133, Department of Physics,",
+        "addressLocality": "Argul, Jatni",
+        "addressRegion": "Odisha",
+        "postalCode": "752050",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://scholar.google.com/citations?user=oaTIUtkAAAAJ&hl=en",
+        "https://sbs.iitbbs.ac.in/index.php/hemantkumar/",
+        "https://www.linkedin.com/in/hemant-kumar-b3969862"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Dr. Hemant Kumar",
+        "affiliation": "IIT Bhubaneswar",
+        "sameAs": [
+          "https://scholar.google.com/citations?user=oaTIUtkAAAAJ&hl=en",
+          "https://www.linkedin.com/in/hemant-kumar-b3969862"
+        ]
+      },
+      "knowsAbout": [
+        "Molecular dynamics",
+        "Multiscale modelling",
+        "Soft matter physics",
+        "Battery electrolytes",
+        "Ionic transport",
+        "Solid electrolytes",
+        "Machine learning potentials",
+        "Kinetic Monte Carlo",
+        "Genome biophysics",
+        "Polymer models of DNA",
+        "Nanoscale interfaces",
+        "Two-dimensional materials",
+        "MXenes",
+        "Confined water"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://thescale-group.github.io/#webpage",
+      "url": "https://thescale-group.github.io/",
+      "name": "Home | SCALE IITBBS",
+      "description": "The SCALE Group led by Dr. Hemant Kumar at IIT Bhubaneswar develops multiscale simulations, molecular dynamics, machine-learning potentials, and kinetic models for electrolytes, energy materials, genome biophysics, and nanoscale interfaces.",
+      "isPartOf": {
+        "@id": "https://thescale-group.github.io/#website"
+      },
+      "about": {
+        "@id": "https://thescale-group.github.io/#organization"
+      },
+      "keywords": "SCALE Group IIT Bhubaneswar, Hemant Kumar, computational materials science, soft matter physics, molecular dynamics, machine learning potentials, battery electrolytes, genome biophysics, nanoscale interfaces",
+      "inLanguage": "en-IN"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-    <div class="nav-logo">
-        <span class="nav-logo-b">[</span>SCALE<span class="nav-logo-b">]</span>
-    </div>
+<header class="site-header">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo"><strong>SCALE Group</strong><span>Simulation of Complex Systems Across Length and Energy</span></a>
     <ul class="nav-links">
-        <li><a href="index.html" class="active">home</a></li>
-        <li><a href="research.html">research</a></li>
-        <li><a href="publications.html">publications</a></li>
-        <li><a href="team.html">team</a></li>
-        <li><a href="teaching.html">teaching</a></li>
-        <li><a href="joinus.html">join_us</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="joinus.html">Join Us</a></li>
     </ul>
-</nav>
+  </div>
+</header>
 
-<!-- ═══════════════════════════════════
-     HERO — split: text left, schematics right
-═══════════════════════════════════ -->
-<section class="hero">
-    <div class="glow-1"></div>
-    <div class="glow-2"></div>
+<main>
 
-    <!-- LEFT: text + breakthrough paper -->
-    <div class="hero-left">
-        <div class="terminal-bar fade-in">
-            <div class="t-dot t-dot-r"></div>
-            <div class="t-dot t-dot-y"></div>
-            <div class="t-dot t-dot-g"></div>
-            <span class="t-path">~/<span>iitbbs</span>/physics/SCALE</span>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-tag">School of Basic Sciences · IIT Bhubaneswar</div>
+        <h1 class="hero-title">SCALE <em>Group</em></h1>
+        <p class="hero-desc"><strong>SCALE</strong> stands for Simulation of Complex Systems Across Length and Energy. We use electronic-structure theory, molecular dynamics, statistical mechanics, and machine-learning models to connect microscopic interactions with function in energy materials, interfaces, and living systems.</p>
+        <div class="btn-group">
+          <a href="#contact" class="btn btn-primary">Contact Us</a>
+          <a href="joinus.html" class="btn btn-secondary">Join Us</a>
         </div>
-
-        <div class="typewriter-wrap fade-in d1" id="typewriter"></div>
-
-        <h1 class="hero-title slide-up d2">
-            <span class="hl">SCALE</span><br>
-            <em>Simulating Complex<br>Architectures across<br>Lengths and Energies</em>
-        </h1>
-
-        <p class="hero-tagline slide-up d2">
-            Computational Soft and Living Matter — quantum to mesoscale, 
-            atoms to genomes. We build and apply multiscale simulation 
-            frameworks to engineer tomorrow's functional materials and 
-            decode the physics of living systems.
-        </p>
-
-        <div class="latest-label slide-up d3">
-            <div class="pulse-dot"></div>
-            Latest Publication
-        </div>
-        <div class="hero-paper slide-up d3">
-            <div class="hp-title">Predicting Gene Expression Changes from Chromatin Structure Modification</div>
-            <div class="hp-authors">Senapati · Irshad · Sharma · <strong>H. Kumar</strong></div>
-            <div class="hp-journal">npj Systems Biology and Applications 11, 34 (2025)</div>
-        </div>
-
-        <div class="hero-links slide-up d4">
-            <a href="research.html" class="btn btn-cyan">$ explore_research →</a>
-            <a href="publications.html" class="btn btn-ghost">publications</a>
-            <a href="joinus.html" class="btn btn-ghost">join_us</a>
-        </div>
+      </div>
+      <div class="hero-visual-wrap">
+        <figure class="hero-system-card">
+          <img src="assets/images/homepage.png" alt="SCALE Group illustration">
+          <figcaption>
+            <span>Structure</span>
+            <span>Dynamics</span>
+            <span>Prediction</span>
+          </figcaption>
+        </figure>
+      </div>
     </div>
+  </section>
 
-    <!-- RIGHT: 2×2 schematic grid -->
-    <div class="hero-right">
-
-        <!-- Cell 1: Battery / Energy materials -->
-        <div class="schematic-cell">
-            <!--
-                REPLACE this placeholder with your actual research figure, e.g.:
-                <img src="figures/battery-schematic.png" alt="Battery DFT schematic">
-            -->
-            <div class="schematic-placeholder" style="height:100%">
-                <div style="position:relative;z-index:1;text-align:center;padding:20px;">
-                    <div class="ph-icon">🔋</div>
-                    <div class="ph-label">BATTERY MATERIALS</div>
-                    <div class="ph-hint">Replace with DFT/MD figure</div>
-                </div>
-            </div>
-            <div class="schematic-overlay">
-                <div class="schematic-tag">01 · Energy</div>
-                <div class="schematic-name">Solid-State Electrolytes</div>
-            </div>
-        </div>
-
-        <!-- Cell 2: MXenes -->
-        <div class="schematic-cell">
-            <!--
-                REPLACE: <img src="figures/mxene-structure.png" alt="MXene crystal structure">
-            -->
-            <div class="schematic-placeholder" style="height:100%">
-                <div style="position:relative;z-index:1;text-align:center;padding:20px;">
-                    <div class="ph-icon">⚛️</div>
-                    <div class="ph-label">MXene STRUCTURE</div>
-                    <div class="ph-hint">Replace with DFT band structure / crystal</div>
-                </div>
-            </div>
-            <div class="schematic-overlay">
-                <div class="schematic-tag">02 · 2D Materials</div>
-                <div class="schematic-name">Nitride MXenes</div>
-            </div>
-        </div>
-
-        <!-- Cell 3: Genome folding -->
-        <div class="schematic-cell">
-            <!--
-                REPLACE: <img src="figures/chromatin-model.png" alt="3D chromatin model">
-            -->
-            <div class="schematic-placeholder" style="height:100%">
-                <div style="position:relative;z-index:1;text-align:center;padding:20px;">
-                    <div class="ph-icon">🧬</div>
-                    <div class="ph-label">GENOME ARCHITECTURE</div>
-                    <div class="ph-hint">Replace with Hi-C / chromatin figure</div>
-                </div>
-            </div>
-            <div class="schematic-overlay">
-                <div class="schematic-tag">03 · Biophysics</div>
-                <div class="schematic-name">Chromatin Folding</div>
-            </div>
-        </div>
-
-        <!-- Cell 4: Confined water -->
-        <div class="schematic-cell">
-            <!--
-                REPLACE: <img src="figures/cnt-water.png" alt="Water in CNT MD simulation">
-            -->
-            <div class="schematic-placeholder" style="height:100%">
-                <div style="position:relative;z-index:1;text-align:center;padding:20px;">
-                    <div class="ph-icon">💧</div>
-                    <div class="ph-label">CONFINED WATER</div>
-                    <div class="ph-hint">Replace with MD simulation snapshot</div>
-                </div>
-            </div>
-            <div class="schematic-overlay">
-                <div class="schematic-tag">04 · Soft Matter</div>
-                <div class="schematic-name">Nanoscale Water</div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════
-     RESEARCH SUMMARY (overview — first after hero)
-═══════════════════════════════════ -->
-<section class="section section-alt">
-    <div class="wrap">
-        <div class="eyebrow reveal">research_overview</div>
-        <h2 class="s-title reveal">Research Summary</h2>
-        <div class="summary-grid reveal">
-            <div class="summary-card">
-                <div class="sc-num">// 01</div>
-                <div class="sc-title">Functional Energy Materials</div>
-                <div class="sc-desc">DFT, MD, and machine-learning interatomic potentials for battery electrode and electrolyte design. Na-ion, Mg-ion, Li-metal, and solid-state systems.</div>
-                <div class="sc-tags">
-                    <span class="sc-tag">DFT</span><span class="sc-tag">Na-ion</span>
-                    <span class="sc-tag">ML Potentials</span><span class="sc-tag">SEI</span>
-                </div>
-            </div>
-            <div class="summary-card">
-                <div class="sc-num">// 02</div>
-                <div class="sc-title">MXenes & 2D Spintronics</div>
-                <div class="sc-desc">First-principles study of nitride MXene phase stability, surface termination effects, Moiré friction, and spintronic transport in Janus TMD heterostructures.</div>
-                <div class="sc-tags">
-                    <span class="sc-tag">MXenes</span><span class="sc-tag">Moiré</span>
-                    <span class="sc-tag">Spin-FETs</span><span class="sc-tag">vdW</span>
-                </div>
-            </div>
-            <div class="summary-card">
-                <div class="sc-num">// 03</div>
-                <div class="sc-title">Genome Folding</div>
-                <div class="sc-desc">Polymer physics models of 3D chromatin organization and its causal impact on gene expression — linking structural biophysics to epigenomics.</div>
-                <div class="sc-tags">
-                    <span class="sc-tag">Chromatin</span><span class="sc-tag">Hi-C</span>
-                    <span class="sc-tag">TADs</span><span class="sc-tag">Gene Expr.</span>
-                </div>
-            </div>
-            <div class="summary-card">
-                <div class="sc-num">// 04</div>
-                <div class="sc-title">Soft Matter & Confined Water</div>
-                <div class="sc-desc">All-atom MD of water in carbon nanotubes, Janus nanopores, and biological channels — thermodynamics, phase transitions, and entropy-driven confinement effects.</div>
-                <div class="sc-tags">
-                    <span class="sc-tag">MD</span><span class="sc-tag">CNTs</span>
-                    <span class="sc-tag">Nanopores</span><span class="sc-tag">Phase Trans.</span>
-                </div>
-            </div>
-        </div>
-        <div style="text-align:center; margin-top:32px;">
-            <a href="research.html" class="btn btn-cyan">$ view full research →</a>
-        </div>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════
-     RESEARCH HIGHLIGHTS
-═══════════════════════════════════ -->
-<section class="section">
-    <div class="wrap">
-        <div class="eyebrow reveal">research_highlights</div>
-        <h2 class="s-title reveal">Key Research Results</h2>
-
-        <div class="highlights-layout reveal">
-
-            <!-- FEATURED -->
-            <div class="hl-card featured">
-                <div class="hl-img tall">
-                    <!--
-                        REPLACE with your figure, e.g.:
-                        <img src="figures/chromatin-gene-expr.png" alt="Chromatin gene expression model">
-                    -->
-                    <div class="hl-img-ph" style="height:320px">
-                        <div class="hl-img-ph-inner">
-                            <span class="hl-img-ph-icon">🧬</span>
-                            <span class="hl-img-ph-text">INSERT FIGURE HERE</span>
-                            <span class="hl-img-ph-hint">e.g. chromatin contact map / TAD structure</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="hl-body">
-                    <div class="hl-theme">Biophysics · 2025</div>
-                    <div class="hl-title">Predicting Gene Expression Directly from Genome 3D Structure</div>
-                    <div class="hl-desc">
-                        We developed a biophysical model that quantitatively predicts how changes in 3D chromatin architecture — the way DNA folds inside the nucleus — alter the expression of nearby genes. This work bridges statistical polymer physics with epigenomics, offering a new computational route to understanding gene regulation in development and disease.
-                    </div>
-                    <div class="hl-footer">
-                        <span class="hl-pub">npj Syst. Biol. Appl. 11, 34 (2025)</span>
-                        <a href="publications.html" class="hl-arrow">read more →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SIDE CARD 1 -->
-            <div class="hl-card">
-                <div class="hl-img short">
-                    <!--
-                        REPLACE: <img src="figures/solid-state-electrolyte-ml.png" alt="ML electrolyte screening">
-                    -->
-                    <div class="hl-img-ph" style="height:180px">
-                        <div class="hl-img-ph-inner">
-                            <span class="hl-img-ph-icon">🤖</span>
-                            <span class="hl-img-ph-text">INSERT FIGURE</span>
-                            <span class="hl-img-ph-hint">ML workflow / parity plot</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="hl-body">
-                    <div class="hl-theme">Energy Materials · 2025</div>
-                    <div class="hl-title">ML-Accelerated Solid-State Electrolyte Discovery</div>
-                    <div class="hl-desc">
-                        Using graph neural networks trained on DFT data, we screened thousands of candidate solid-state electrolytes, identifying promising Na-ion conductors with high ionic conductivity and electrochemical stability.
-                    </div>
-                    <div class="hl-footer">
-                        <span class="hl-pub">PCCP 27, 3834 (2025)</span>
-                        <a href="publications.html" class="hl-arrow">read more →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SIDE CARD 2 -->
-            <div class="hl-card">
-                <div class="hl-img short">
-                    <!--
-                        REPLACE: <img src="figures/mxene-termination.png" alt="MXene surface termination DFT">
-                    -->
-                    <div class="hl-img-ph" style="height:180px">
-                        <div class="hl-img-ph-inner">
-                            <span class="hl-img-ph-icon">⚛️</span>
-                            <span class="hl-img-ph-text">INSERT FIGURE</span>
-                            <span class="hl-img-ph-hint">MXene surface / DOS plot</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="hl-body">
-                    <div class="hl-theme">2D Materials · 2025</div>
-                    <div class="hl-title">Surface Terminations Control MXene Electrochemistry</div>
-                    <div class="hl-desc">
-                        DFT calculations reveal that spatially controlling the distribution of O and F surface terminations on Ti₃C₂ MXene dramatically alters its electrochemical performance — a design knob for next-gen supercapacitors.
-                    </div>
-                    <div class="hl-footer">
-                        <span class="hl-pub">J. Energy Storage 139, 118594 (2025)</span>
-                        <a href="publications.html" class="hl-arrow">read more →</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════
-     NEWS
-═══════════════════════════════════ -->
-<section class="section section-alt">
-    <div class="wrap">
-        <div class="eyebrow reveal">news_and_updates</div>
-        <h2 class="s-title reveal">Latest News</h2>
-        <div class="news-list reveal">
-
-            <div class="news-item">
-                <div class="news-date"><strong>Feb 2025</strong>npj Systems Biology</div>
-                <div class="news-body">
-                    <span class="news-tag green">New Paper</span>
-                    <div class="news-title">Chromatin-to-Gene-Expression Model Published in npj Systems Biology</div>
-                    <div class="news-desc">Swayamshree Senapati's work on predicting gene expression from 3D chromatin structure modification is now published. A significant step forward in biophysical modeling of gene regulation.</div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-date"><strong>Jan 2025</strong>Adv. Funct. Mater.</div>
-                <div class="news-body">
-                    <span class="news-tag amber">Collaboration</span>
-                    <div class="news-title">Bifunctional Current Collectors for Li-Metal Batteries — in Advanced Functional Materials</div>
-                    <div class="news-desc">In collaboration with Prof. Shaijumon's group (IISER TVM), we demonstrated that engineered current collector architectures enable lean-lithium metal batteries with significantly improved cycle life.</div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-date"><strong>Jan 2025</strong>PCCP</div>
-                <div class="news-body">
-                    <span class="news-tag green">New Paper</span>
-                    <div class="news-title">Machine Learning Accelerates Solid-State Electrolyte Discovery</div>
-                    <div class="news-desc">Ram Sewak and Vishnu Sudarsanan's ML study on high-performance solid-state electrolytes is published in Physical Chemistry Chemical Physics — a framework now being extended to sulfide electrolytes.</div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-date"><strong>2025</strong>DST India</div>
-                <div class="news-body">
-                    <span class="news-tag">Funding</span>
-                    <div class="news-title">DST IC-MAP Project on AI/ML-Assisted Solid-State Battery Technology Ongoing</div>
-                    <div class="news-desc">Our DST-funded collaboration on automating solid-state battery development through AI/ML is entering its second year, with new results on fluorinated ether electrolytes and sodium-metal anodes.</div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-date"><strong>2024</strong>ACS Nano</div>
-                <div class="news-body">
-                    <span class="news-tag green">New Paper</span>
-                    <div class="news-title">Sub-Moiré Friction in Twisted Bilayer Graphene Resolved for the First Time</div>
-                    <div class="news-desc">Sweta Das's MD study reveals that friction in twisted bilayer graphene operates at two distinct length scales — atomic stick-slip and the larger Moiré periodicity — with implications for 2D material tribology.</div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-date"><strong>2024</strong>Open</div>
-                <div class="news-body">
-                    <span class="news-tag amber">Hiring</span>
-                    <div class="news-title">PhD Positions Available — Computational Battery Materials & Biophysics</div>
-                    <div class="news-desc">We are actively recruiting motivated Ph.D. students for projects in ML-driven electrolyte design and genome biophysics. GATE/NET qualified candidates encouraged to apply.</div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="site-footer">
-    <div class="footer-inner">
+  <!-- RESEARCH OVERVIEW -->
+  <section class="research-atlas" id="research-programmes">
+    <div class="container">
+      <div class="research-atlas-hero">
         <div>
-            <div class="footer-brand">SCALE · Computational Soft and Living Matter · IIT Bhubaneswar</div>
-            <div class="footer-sub">
-                Simulating Complex Architectures across Lengths and Energies<br>
-                School of Basic Sciences · Dr. Hemant Kumar · hemant@iitbbs.ac.in
-            </div>
+          <span class="section-label">Research</span>
+          <h2>Research Highlights</h2>
         </div>
-        <div class="footer-nav">
-            <a href="research.html">research</a>
-            <a href="publications.html">publications</a>
-            <a href="team.html">team</a>
-            <a href="teaching.html">teaching</a>
-            <a href="joinus.html">join_us</a>
-        </div>
+      </div>
+
+      <div class="research-atlas-grid">
+        <article class="atlas-card">
+          <div class="project-art project-art-interface" aria-hidden="true">
+            <div class="layer layer-a"></div><div class="layer layer-b"></div><div class="layer layer-c"></div>
+            <div class="ion i1"></div><div class="ion i2"></div><div class="ion i3"></div><div class="ion i4"></div>
+          </div>
+          <div class="atlas-copy">
+            <div class="project-index">Ion Transport</div>
+            <h3>Solvation and ionic transport</h3>
+            <p>Liquid and solid electrolytes are studied through solvation structure, ion diffusion, and interfacial transport mechanisms.</p>
+          </div>
+        </article>
+
+        <article class="atlas-card">
+          <div class="project-art project-art-battery" aria-hidden="true">
+            <div class="layer layer-a"></div><div class="layer layer-b"></div><div class="layer layer-c"></div>
+            <div class="ion i1"></div><div class="ion i2"></div><div class="ion i3"></div><div class="ion i4"></div>
+          </div>
+          <div class="atlas-copy">
+            <div class="project-index">Material Design</div>
+            <h3>Battery materials and mechanisms</h3>
+            <p>Mechanistic insight is used to design electrodes and electrolytes for next-generation batteries, with emphasis on sodium-metal and sodium-sulfur systems.</p>
+          </div>
+        </article>
+
+        <article class="atlas-card">
+          <div class="project-art project-art-ml" aria-hidden="true">
+            <div class="ml-grid"></div>
+            <div class="ml-point p1"></div><div class="ml-point p2"></div><div class="ml-point p3"></div><div class="ml-point p4"></div>
+          </div>
+          <div class="atlas-copy">
+            <div class="project-index">Data-Driven Design</div>
+            <h3>Machine learning for materials</h3>
+            <p>Data, neural-network potentials, and simulation-derived descriptors accelerate discovery and optimization of battery materials.</p>
+          </div>
+        </article>
+
+        <article class="atlas-card">
+          <div class="project-art project-art-genome" aria-hidden="true">
+            <div class="chromatin-loop"></div>
+            <div class="project-node n1"></div><div class="project-node n2"></div><div class="project-node n3"></div><div class="project-node n4"></div>
+          </div>
+          <div class="atlas-copy">
+            <div class="project-index">Gene Regulation</div>
+            <h3>Genome organization and regulation</h3>
+            <p>Polymer models, kinetic modelling, and chromosome-structure data connect genome organization with transcriptional regulation.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="research-atlas-action">
+        <a href="research.html" class="btn btn-primary">View Full Research Page →</a>
+      </div>
     </div>
+  </section>
+
+  <!-- TEAM PREVIEW -->
+  <section class="home-team-preview" aria-labelledby="home-team-heading">
+    <div class="container">
+      <div class="home-team-header">
+        <div>
+          <span class="section-label">People</span>
+          <h2 id="home-team-heading">Current team</h2>
+        </div>
+        <a href="team.html" class="home-team-link">Full team</a>
+      </div>
+
+      <div class="home-team-grid">
+        <a class="home-team-card" href="team.html#hemant-kumar">
+          <span class="home-team-portrait home-team-photo"><img src="assets/images/hemant.png" alt="Dr. Hemant Kumar"></span>
+          <span class="home-team-name">Hemant</span>
+        </a>
+        <a class="home-team-card" href="team.html#swayamshree-senapati">
+          <span class="home-team-portrait home-team-photo member-photo-genome"><img src="assets/images/swayamshree.webp" alt="Swayamshree Senapati"></span>
+          <span class="home-team-name">Swayamshree</span>
+        </a>
+        <a class="home-team-card" href="team.html#sidhant-kumar-barik">
+          <span class="home-team-portrait home-team-photo member-photo-battery"><img src="assets/images/sidhant.png" alt="Sidhant Kumar Barik"></span>
+          <span class="home-team-name">Sidhant</span>
+        </a>
+        <a class="home-team-card" href="team.html#soumyashree-das-adhikari">
+          <span class="home-team-portrait home-team-photo member-photo-battery"><img src="assets/images/soumyashree.webp" alt="Soumyashree Das Adhikari"></span>
+          <span class="home-team-name">Soumyashree</span>
+        </a>
+        <a class="home-team-card" href="team.html#itipragnya-pati">
+          <span class="home-team-portrait home-team-photo member-photo-battery"><img src="assets/images/iti.webp" alt="Itipragnya Pati"></span>
+          <span class="home-team-name">Itipragnya</span>
+        </a>
+        <a class="home-team-card" href="team.html#rashmita-sahoo">
+          <span class="home-team-portrait home-team-photo member-photo-genome"><img src="assets/images/rashmita.webp" alt="Rashmita Sahoo"></span>
+          <span class="home-team-name">Rashmita</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENT HIGHLIGHTS -->
+  <section class="section" id="news">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Updates</span>
+        <h2 class="section-title">News and Highlights</h2>
+      </div>
+      <!-- NEWS_DATA_START -->
+      <div class="featured-pub">
+        <span class="featured-pub-badge">New Publication</span>
+        <div class="featured-pub-body">
+          <div class="featured-pub-title"><a href="https://doi.org/10.1016/j.bpj.2026.02.015" target="_blank" rel="noopener">Kinetic Model of E-P Condensates Dynamics Reveals Transcriptional Speed, Noise, and Energy Trade-offs</a></div>
+          <div class="featured-pub-authors">Swayamshree Senapati, Ajeet K Sharma, <span class="pi-highlight">Hemant Kumar</span></div>
+          <div class="featured-pub-journal"><em>Biophysical Journal</em>, Just Accepted, DOI: 10.1016/j.bpj.2026.02.015</div>
+        </div>
+      </div>
+      <div class="featured-pub">
+        <span class="featured-pub-badge">New Publication</span>
+        <div class="featured-pub-body">
+          <div class="featured-pub-title"><a href="https://doi.org/10.1039/d5ta04224k" target="_blank" rel="noopener">Beyond Vehicular Transport: Fluorination-Induced Structural Diffusion in Ether Electrolytes</a></div>
+          <div class="featured-pub-authors">Sidhant Kumar Barik, <span class="pi-highlight">Hemant Kumar</span></div>
+          <div class="featured-pub-journal"><em>Journal of Materials Chemistry A</em> <strong>13</strong>, 30224-30234 (2025)</div>
+        </div>
+      </div>
+      <div class="featured-pub">
+        <span class="featured-pub-badge">New Publication</span>
+        <div class="featured-pub-body">
+          <div class="featured-pub-title"><a href="https://doi.org/10.1016/j.est.2025.118594" target="_blank" rel="noopener">Enhancing MXene Electrochemistry through Spatial Control of O and F Termination Distributions</a></div>
+          <div class="featured-pub-authors">Saheb Bera, Sidhant Kumar Barik, <span class="pi-highlight">Hemant Kumar</span></div>
+          <div class="featured-pub-journal"><em>Journal of Energy Storage</em> <strong>139</strong>, 118594 (2025)</div>
+        </div>
+      </div>
+      <div class="featured-pub">
+        <span class="featured-pub-badge">New Publication</span>
+        <div class="featured-pub-body">
+          <div class="featured-pub-title"><a href="https://doi.org/10.1002/adfm.202502473" target="_blank" rel="noopener">Bifunctional Current Collectors for Lean-Lithium Metal Batteries</a></div>
+          <div class="featured-pub-authors">R. Rajsekharan, R. Nadarajan, Sweta Das, <span class="pi-highlight">Hemant Kumar</span>, Manikoth M. Shaijumon</div>
+          <div class="featured-pub-journal"><em>Advanced Functional Materials</em>, 2502473 (2025)</div>
+        </div>
+      </div>
+      <div class="featured-pub">
+        <span class="featured-pub-badge">New Publication</span>
+        <div class="featured-pub-body">
+          <div class="featured-pub-title"><a href="https://doi.org/10.1038/s41540-025-00510-4" target="_blank" rel="noopener">Predicting Gene Expression Changes from Chromatin Structure Modification</a></div>
+          <div class="featured-pub-authors">Swayamshree Senapati, Innayat Irshad, Ajeet K Sharma, <span class="pi-highlight">Hemant Kumar</span></div>
+          <div class="featured-pub-journal"><em>npj Systems Biology and Applications</em> <strong>11</strong>, 34 (2025)</div>
+        </div>
+      </div>
+      <!-- NEWS_DATA_END -->
+    </div>
+  </section>
+
+  <section class="pre-footer-band" aria-label="Footer transition">
+    <div class="container">
+      <div class="pre-footer-line"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner" id="contact">
+      <div>
+        <div class="footer-logo">SCALE Group · IIT Bhubaneswar</div>
+        <div class="footer-tagline">Simulation of Complex Systems Across Length and Energy (SCALE) Group<br>Room 133, Department of Physics,<br>SBS, IIT Bhubaneswar<br>Argul, Jatni, Odisha 752050</div>
+        <div class="footer-contact">
+          <div><span class="contact-obfuscated">hemant [at] iitbbs [dot] ac [dot] in</span> · +91 674 713 5404</div>
+        </div>
+      </div>
+      <div>
+        <div class="footer-nav-title">Navigation</div>
+        <ul class="footer-nav-links"><li><a href="research.html">Research</a></li><li><a href="publications.html">Publications</a></li><li><a href="team.html">Team</a></li><li><a href="joinus.html">Join Us</a></li></ul>
+      </div>
+      <div>
+        <div class="footer-nav-title">Connect</div>
+        <ul class="footer-nav-links">
+          <li><a href="https://scholar.google.com/citations?user=oaTIUtkAAAAJ&amp;hl=en" target="_blank">Google Scholar</a></li>
+          <li><a href="https://sbs.iitbbs.ac.in/index.php/hemantkumar/" target="_blank">Faculty Page</a></li>
+          <li><a href="https://www.linkedin.com/in/hemant-kumar-b3969862" target="_blank">LinkedIn</a></li>
+          <li><span class="contact-obfuscated">hemant [at] iitbbs [dot] ac [dot] in</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-text">© 2026 SCALE Group · IIT Bhubaneswar · Department of Physics</div>
+      <div class="footer-socials">
+        <a href="https://scholar.google.com/citations?user=oaTIUtkAAAAJ&amp;hl=en" target="_blank">Scholar</a>
+        <a href="https://www.linkedin.com/in/hemant-kumar-b3969862" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
-<script>
-// ── TYPEWRITER ──
-const phrases = [
-    'SCALE --method=multiscale-simulation',
-    'battery_design --solid-state --ml-accelerated',
-    'genome_folding --chromatin-polymer-model',
-    'mxene_spintronics --first-principles-DFT',
-    'confined_water --molecular-dynamics',
-];
-let pi = 0, ci = 0, del = false;
-const tw = document.getElementById('typewriter');
-function type() {
-    const cur = phrases[pi];
-    if (!del) {
-        tw.textContent = '$ ' + cur.slice(0, ++ci);
-        if (ci === cur.length) { del = true; setTimeout(type, 2000); return; }
-    } else {
-        tw.textContent = '$ ' + cur.slice(0, --ci);
-        if (ci === 0) { del = false; pi = (pi + 1) % phrases.length; }
-    }
-    setTimeout(type, del ? 25 : 45);
-}
-setTimeout(type, 800);
-
-// ── SCROLL REVEAL ──
-const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
-
+<script src="theme-switcher.js"></script>
 </body>
 </html>

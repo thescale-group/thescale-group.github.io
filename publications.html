@@ -1,274 +1,1101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="mist-alloy">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Publications of the SCALE Group at IIT Bhubaneswar.">
-    <title>Publications | SCALE Group · IIT Bhubaneswar</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-    <style>
-        /* SHARED CORE STYLES */
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --void: #060a10; --deep: #0b1220; --surface: #111d2e; --surface-hi: #162638;
-            --cyan: #00e5ff; --cyan-dim: rgba(0,229,255,0.1); --cyan-glow: rgba(0,229,255,0.05);
-            --amber: #ffb300; --green: #00ff88;
-            --paper: #e8f0f7; --paper-dim: #7a93ad;
-            --border-c: rgba(0,229,255,0.1); --border-a: rgba(255,179,0,0.18);
-            --font-serif: 'EB Garamond', serif; --font-sans: 'IBM Plex Sans', sans-serif; --font-mono: 'IBM Plex Mono', monospace;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Peer-reviewed publications from Dr. Hemant Kumar and the SCALE Group at IIT Bhubaneswar on battery electrolytes, electrode interfaces, solid electrolytes, genome biophysics, MXenes, confined water, and two-dimensional materials.">
+  <meta name="keywords" content="Hemant Kumar publications, SCALE Group publications, IIT Bhubaneswar physics, battery electrolyte publications, genome biophysics publications, MXene simulations, confined water, two dimensional materials">
+  <meta name="author" content="Dr. Hemant Kumar, SCALE Group, IIT Bhubaneswar">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#3f4a54">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The SCALE Group">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:title" content="Publications | SCALE IITBBS">
+  <meta property="og:description" content="Peer-reviewed publications from Dr. Hemant Kumar and the SCALE Group at IIT Bhubaneswar on battery electrolytes, electrode interfaces, solid electrolytes, genome biophysics, MXenes, confined water, and two-dimensional materials.">
+  <meta property="og:image" content="https://thescale-group.github.io/assets/images/homepage.png">
+  <meta property="og:image:alt" content="SCALE Group computational research illustration">
+  <meta property="og:url" content="https://thescale-group.github.io/publications.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Publications | SCALE IITBBS">
+  <meta name="twitter:description" content="Peer-reviewed publications from Dr. Hemant Kumar and the SCALE Group at IIT Bhubaneswar on battery electrolytes, electrode interfaces, solid electrolytes, genome biophysics, MXenes, confined water, and two-dimensional materials.">
+  <meta name="twitter:image" content="https://thescale-group.github.io/assets/images/homepage.png">
+  <link rel="canonical" href="https://thescale-group.github.io/publications.html">
+  <title>Publications | SCALE IITBBS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script id="theme-bootstrap">{const t=new URLSearchParams(location.search).get('theme')||'mist-alloy'; if(t&&t!=='default'&&t!=='reset') document.documentElement.dataset.theme=t;}</script>
+  <link rel="stylesheet" href="scale.css?v=20260513-theme2">
+<script type="application/ld+json" id="publications-jsonld">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "SCALE Group publications",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Kinetic Model of E-P Condensates Dynamics Reveals Transcriptional Speed, Noise, and Energy Trade-offs",
+        "headline": "Kinetic Model of E-P Condensates Dynamics Reveals Transcriptional Speed, Noise, and Energy Trade-offs",
+        "datePublished": "2026",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Biophysical Journal"
+        },
+        "url": "https://doi.org/10.1016/j.bpj.2026.02.015",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Biophysical Journal"
         }
-
-        html { scroll-behavior: smooth; }
-        body { font-family: var(--font-sans); background: var(--void); color: var(--paper); line-height: 1.6; }
-        body::before { content: ''; position: fixed; inset: 0; z-index: 0; background-image: linear-gradient(rgba(0,229,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.025) 1px, transparent 1px); background-size: 44px 44px; pointer-events: none; }
-        a { color: var(--cyan); text-decoration: none; transition: .2s; }
-        a:hover { color: #fff; }
-
-        /* NAV */
-        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; background: rgba(6,10,16,0.88); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-c); }
-        .nav-logo { font-family: var(--font-mono); font-size: .78rem; font-weight: 500; color: var(--cyan); letter-spacing: .5px; display: flex; align-items: center; gap: 8px; }
-        .nav-logo-b { color: var(--paper-dim); }
-        .nav-logo::before { content: '▸ '; color: var(--green); animation: blink 1.2s step-end infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
-
-        .nav-links { display: flex; list-style: none; }
-        .nav-links a { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .3px; color: var(--paper-dim); padding: 6px 16px; border-right: 1px solid var(--border-c); transition: .2s; }
-        .nav-links li:first-child a { border-left: 1px solid var(--border-c); }
-        .nav-links a:hover, .nav-links a.active { color: var(--cyan); background: var(--cyan-dim); }
-
-        /* PAGE STRUCTURE */
-        .page-wrap { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 120px 24px 80px; }
-        .eyebrow { font-family: var(--font-mono); font-size: .65rem; letter-spacing: 3px; text-transform: uppercase; color: var(--green); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-        .eyebrow::before { content: '//'; color: var(--paper-dim); font-weight: 400; }
-        .s-title { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 48px; }
-
-        /* HIGHLIGHT CARDS (2x2 Grid) */
-        .hl-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 80px; }
-        .hl-card { background: var(--surface); border: 1px solid var(--border-c); border-radius: 2px; display: flex; flex-direction: column; overflow: hidden; transition: .3s; }
-        .hl-card:hover { border-color: var(--cyan); box-shadow: 0 10px 30px var(--cyan-glow); transform: translateY(-3px); }
-        
-        .hl-img { height: 200px; width: 100%; border-bottom: 1px solid var(--border-c); background: var(--deep); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .hl-img img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.8) brightness(0.85); transition: .5s; }
-        .hl-card:hover .hl-img img { filter: saturate(1.1) brightness(1); transform: scale(1.04); }
-        .hl-img-ph { font-family: var(--font-mono); font-size: .7rem; color: var(--paper-dim); letter-spacing: 2px; }
-        
-        .hl-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
-        .hl-tag { font-family: var(--font-mono); font-size: .6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 10px; }
-        .hl-title { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 600; color: #fff; line-height: 1.35; margin-bottom: 10px; }
-        .hl-authors { font-size: .85rem; color: var(--paper-dim); margin-bottom: 16px; line-height: 1.5; }
-        .hl-authors strong { color: var(--cyan); font-weight: 600; }
-        .hl-journal { font-family: var(--font-mono); font-size: .75rem; color: var(--green); margin-top: auto; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.05); }
-
-        /* LIST CATEGORIES */
-        .cat-title { font-family: var(--font-mono); font-size: 1.2rem; color: #fff; margin: 64px 0 24px; border-bottom: 1px solid var(--border-c); padding-bottom: 12px; display: flex; justify-content: space-between; align-items: baseline; }
-        .cat-count { font-size: .75rem; color: var(--amber); background: var(--amber-dim); padding: 2px 10px; border-radius: 12px; border: 1px solid var(--border-a); }
-
-        /* PUBLICATION LIST */
-        .pub-list { display: flex; flex-direction: column; gap: 1px; background: var(--border-c); border: 1px solid var(--border-c); border-radius: 2px; }
-        .pub-item { background: var(--deep); padding: 20px 24px; display: flex; gap: 20px; transition: .2s; }
-        .pub-item:hover { background: var(--surface); }
-        .pub-num { font-family: var(--font-mono); font-size: .85rem; color: var(--cyan); margin-top: 2px; min-width: 25px; }
-        .pub-data { flex: 1; }
-        .pub-title { font-family: var(--font-serif); font-size: 1.15rem; color: #fff; margin-bottom: 8px; font-weight: 600; line-height: 1.3; }
-        .pub-authors { font-size: .85rem; color: var(--paper-dim); margin-bottom: 6px; }
-        .pub-authors strong { color: var(--amber); font-weight: 600; }
-        .pub-journal { font-family: var(--font-mono); font-size: .75rem; color: var(--green); }
-
-        /* TERMINAL COLLAPSE TOGGLE */
-        .toggle-btn { background: var(--deep); border: 1px solid var(--border-c); color: var(--paper-dim); font-family: var(--font-mono); font-size: .8rem; letter-spacing: 1px; width: 100%; padding: 20px; text-align: left; cursor: pointer; display: flex; align-items: center; margin-top: 64px; transition: .2s; border-radius: 2px; }
-        .toggle-btn:hover { background: var(--surface); color: var(--cyan); border-color: var(--cyan); box-shadow: 0 0 15px var(--cyan-glow); }
-        .toggle-btn span.blink { color: var(--cyan); margin-left: 8px; animation: blink 1s step-end infinite; }
-        
-        .collapse-content { display: none; margin-top: 24px; }
-        .collapse-content.open { display: block; animation: fi .4s ease; }
-        @keyframes fi { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }
-
-        /* FOOTER */
-        .site-footer { position: relative; z-index: 1; border-top: 1px solid var(--border-c); padding: 48px; background: rgba(6,10,16,0.9); margin-top: 60px; }
-        .footer-inner { max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; }
-        .footer-brand { font-family: var(--font-mono); font-size: .78rem; color: var(--cyan); margin-bottom: 8px; }
-        .footer-sub { font-size: .75rem; color: var(--paper-dim); line-height: 1.7; }
-
-        @media (max-width: 768px) {
-            .hl-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .pub-item { flex-direction: column; gap: 8px; }
-            .pub-num { border-bottom: 1px solid var(--border-c); padding-bottom: 4px; display: inline-block; width: max-content; }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Solvation Sheath Exchange with Weak-Solvent Molecules Enables the Development of Sodium dual-Ion pouch Cells",
+        "headline": "Solvation Sheath Exchange with Weak-Solvent Molecules Enables the Development of Sodium dual-Ion pouch Cells",
+        "datePublished": "2026",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "ACS Energy Letters"
+        },
+        "url": "https://doi.org/10.1021/acsenergylett.5c03388",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "ACS Energy Letters"
         }
-    </style>
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "MXene alloy-based metal-semiconductor contact for low-resistive field-effect transistors",
+        "headline": "MXene alloy-based metal-semiconductor contact for low-resistive field-effect transistors",
+        "datePublished": "2025",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Communication Engineering"
+        },
+        "url": "https://doi.org/10.1038/s44172-025-00522-2",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Communication Engineering"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Enhancing MXene Electrochemistry through Spatial Control of O and F Termination Distributions",
+        "headline": "Enhancing MXene Electrochemistry through Spatial Control of O and F Termination Distributions",
+        "datePublished": "2025",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Journal of Energy Storage"
+        },
+        "url": "https://doi.org/10.1016/j.est.2025.118594",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Journal of Energy Storage"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Ultra high-rate performance LiFePO4 cathode material for next generation fast charging Li-ion batteries",
+        "headline": "Ultra high-rate performance LiFePO4 cathode material for next generation fast charging Li-ion batteries",
+        "datePublished": "2025",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Journal of Power Sources"
+        },
+        "url": "https://doi.org/10.1016/j.jpowsour.2025.238537",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Journal of Power Sources"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Beyond Vehicular Transport: Fluorination-Induced Structural Diffusion in Ether Electrolytes",
+        "headline": "Beyond Vehicular Transport: Fluorination-Induced Structural Diffusion in Ether Electrolytes",
+        "datePublished": "2025",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Journal of Materials Chemistry A"
+        },
+        "url": "https://doi.org/10.1039/d5ta04224k",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Journal of Materials Chemistry A"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Tailoring Electrochemical Properties of Ether-based Solvents through Fluorination-Driven Solvation Control.",
+        "headline": "Tailoring Electrochemical Properties of Ether-based Solvents through Fluorination-Driven Solvation Control.",
+        "datePublished": "2025",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "ACS Applied Energy Materials"
+        },
+        "url": "https://doi.org/10.1021/acsaem.5c00893",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "ACS Applied Energy Materials"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Bifunctional Current Collectors for Lean-Lithium Metal Batteries.",
+        "headline": "Bifunctional Current Collectors for Lean-Lithium Metal Batteries.",
+        "datePublished": "2025",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Advanced Functional Materials"
+        },
+        "url": "https://doi.org/10.1002/adfm.202502473",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Advanced Functional Materials"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Room-Temperature Ferromagnetism and Nonlinear Phonon Dynamics in Atomically Thin 2H-CrS2 Nanosheets: Implications for Spintronics Applications.",
+        "headline": "Room-Temperature Ferromagnetism and Nonlinear Phonon Dynamics in Atomically Thin 2H-CrS2 Nanosheets: Implications for Spintronics Applications.",
+        "datePublished": "2025",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "ACS Applied Nano Materials"
+        },
+        "url": "https://doi.org/10.1021/acsanm.5c03395",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "ACS Applied Nano Materials"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "An aluminium-doped sodium manganese hexacyano ferrate cathode for high-rate safe Na-ion batteries",
+        "headline": "An aluminium-doped sodium manganese hexacyano ferrate cathode for high-rate safe Na-ion batteries",
+        "datePublished": "2025",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Chemical Communications"
+        },
+        "url": "https://doi.org/10.1039/d5cc03102h",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Chemical Communications"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Tailoring Contact Properties in Janus TMD Spin-FETs for Enhanced Spin Transport: A Bilayer Interface Approach.",
+        "headline": "Tailoring Contact Properties in Janus TMD Spin-FETs for Enhanced Spin Transport: A Bilayer Interface Approach.",
+        "datePublished": "2025",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "ACS Applied Electronic Materials"
+        },
+        "url": "https://doi.org/10.1021/acsaelm.5c00019",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "ACS Applied Electronic Materials"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Sodium Metal Anode with Multiphasic Interphase for Room Temperature Sodium-Sulfur Pouch Cells.",
+        "headline": "Sodium Metal Anode with Multiphasic Interphase for Room Temperature Sodium-Sulfur Pouch Cells.",
+        "datePublished": "2025",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Journal of Materials Chemistry A"
+        },
+        "url": "https://doi.org/10.1039/d4ta08118h",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Journal of Materials Chemistry A"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Predicting Gene Expression Changes from Chromatin Structure Modification.",
+        "headline": "Predicting Gene Expression Changes from Chromatin Structure Modification.",
+        "datePublished": "2025",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "npj Systems Biology and Applications"
+        },
+        "url": "https://doi.org/10.1038/s41540-025-00510-4",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "npj Systems Biology and Applications"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Accelerating Discovery of Solid-State Electrolytes: Machine Learning Approach.",
+        "headline": "Accelerating Discovery of Solid-State Electrolytes: Machine Learning Approach.",
+        "datePublished": "2025",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Physical Chemistry Chemical Physics"
+        },
+        "url": "https://doi.org/10.1039/d4cp04043k",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Physical Chemistry Chemical Physics"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Resolving Atomic-Scale Stick-Slip and Sub-Moiré Frictional Modulation in Twisted Bilayers with Variable Tip Sizes",
+        "headline": "Resolving Atomic-Scale Stick-Slip and Sub-Moiré Frictional Modulation in Twisted Bilayers with Variable Tip Sizes",
+        "datePublished": "2025",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Journal of Physics: Condensed Matter"
+        },
+        "url": "https://doi.org/10.1088/1361-648x/ade756",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Journal of Physics: Condensed Matter"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Tuning the local chemistry of SPAN to realize the development of room-temperature sodium–sulfur pouch cells.",
+        "headline": "Tuning the local chemistry of SPAN to realize the development of room-temperature sodium–sulfur pouch cells.",
+        "datePublished": "2024",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Journal of Materials Chemistry A"
+        },
+        "url": "https://doi.org/10.1039/d4ta05581k",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Journal of Materials Chemistry A"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 17,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Direct observation of sodium dendrites to decipher the complicated behavior of electrolyte systems.",
+        "headline": "Direct observation of sodium dendrites to decipher the complicated behavior of electrolyte systems.",
+        "datePublished": "2024",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Electrochimica Acta"
+        },
+        "url": "https://doi.org/10.1016/j.electacta.2024.145212",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Electrochimica Acta"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 18,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Altering Na-ion solvation to regulate dendrite growth for a reversible and stable room-temperature sodium-sulfur battery.",
+        "headline": "Altering Na-ion solvation to regulate dendrite growth for a reversible and stable room-temperature sodium-sulfur battery.",
+        "datePublished": "2024",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Journal of Materials Chemistry A"
+        },
+        "url": "https://doi.org/10.1039/d4ta03187c",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Journal of Materials Chemistry A"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 19,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Fundamental insights into the correlation between chromosome configuration and transcription.",
+        "headline": "Fundamental insights into the correlation between chromosome configuration and transcription.",
+        "datePublished": "2023",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Physical Biology"
+        },
+        "url": "https://doi.org/10.1088/1478-3975/ace8e5",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Physical Biology"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 20,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Novel organic molecule enabling a highly-stable sodium metal anode for room-temperature sodium-metal batteries.",
+        "headline": "Novel organic molecule enabling a highly-stable sodium metal anode for room-temperature sodium-metal batteries.",
+        "datePublished": "2023",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Journal of Energy Storage"
+        },
+        "url": "https://doi.org/10.1016/j.est.2023.108132",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Journal of Energy Storage"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 21,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Phase Stability of MXenes: Role of Coordination Symmetries, Transition Metals, and Surface Terminations.",
+        "headline": "Phase Stability of MXenes: Role of Coordination Symmetries, Transition Metals, and Surface Terminations.",
+        "datePublished": "2023",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Journal of Physical Chemistry C"
+        },
+        "url": "https://doi.org/10.1021/acs.jpcc.3c04183",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Journal of Physical Chemistry C"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 22,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Dipole alignment of water molecules flowing through a carbon nanotube.",
+        "headline": "Dipole alignment of water molecules flowing through a carbon nanotube.",
+        "datePublished": "2023",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Physical Review B"
+        },
+        "url": "https://doi.org/10.1103/physrevb.107.165402",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Physical Review B"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 23,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Flexible and wearable photonic-crystal fiber interferometer for physiological monitoring.",
+        "headline": "Flexible and wearable photonic-crystal fiber interferometer for physiological monitoring.",
+        "datePublished": "2023",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "ACS Applied Optical Materials"
+        },
+        "url": "https://doi.org/10.1021/acsaom.2c00137",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "ACS Applied Optical Materials"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 24,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Human Pulse and Respiration Monitoring: Reconfigurable and Scalable Balloon-Shaped Fiber Wearables.",
+        "headline": "Human Pulse and Respiration Monitoring: Reconfigurable and Scalable Balloon-Shaped Fiber Wearables.",
+        "datePublished": "2023",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Advanced Materials Technologies"
+        },
+        "url": "https://doi.org/10.1002/admt.202300429",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Advanced Materials Technologies"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 25,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Narrow-Bandgap LaMO3 (M = Ni, Co) nanomaterials for interfacial solar steam generation.",
+        "headline": "Narrow-Bandgap LaMO3 (M = Ni, Co) nanomaterials for interfacial solar steam generation.",
+        "datePublished": "2022",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Journal of Colloid and Interface Science"
+        },
+        "url": "https://doi.org/10.1016/j.jcis.2021.12.158",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Journal of Colloid and Interface Science"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 26,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Flexible and Wearable Optical System Based on U-shaped Cascaded Microfiber Interferometer.",
+        "headline": "Flexible and Wearable Optical System Based on U-shaped Cascaded Microfiber Interferometer.",
+        "datePublished": "2022",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Advanced Materials Technologies"
+        },
+        "url": "https://doi.org/10.1002/admt.202200661",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Advanced Materials Technologies"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 27,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Quantitative Modeling of Protein Synthesis Using Ribosome Profiling Data.",
+        "headline": "Quantitative Modeling of Protein Synthesis Using Ribosome Profiling Data.",
+        "datePublished": "2021",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Frontiers in Molecular Biosciences"
+        },
+        "url": "https://doi.org/10.3389/fmolb.2021.688700",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Frontiers in Molecular Biosciences"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 28,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Tunable strain soliton networks confine electrons in Van der Waals materials.",
+        "headline": "Tunable strain soliton networks confine electrons in Van der Waals materials.",
+        "datePublished": "2020",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Nature Physics"
+        },
+        "url": "https://doi.org/10.1038/s41567-020-0953-2",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Nature Physics"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 29,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Biomolecule Sensing by Surface-Enhanced Raman Scattering of Monolayer Janus Transition Metal Dichalcogenide.",
+        "headline": "Biomolecule Sensing by Surface-Enhanced Raman Scattering of Monolayer Janus Transition Metal Dichalcogenide.",
+        "datePublished": "2020",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Nanoscale"
+        },
+        "url": "https://doi.org/10.1039/d0nr00300j",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Nanoscale"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 30,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Surface-Engineered MXenes: Electric Field Control of Magnetism.",
+        "headline": "Surface-Engineered MXenes: Electric Field Control of Magnetism.",
+        "datePublished": "2019",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "ACS Nano"
+        },
+        "url": "https://scholar.google.com/scholar?q=Surface-Engineered%20MXenes%3A%20Electric%20Field%20Control%20of%20Magnetism.",
+        "author": {
+          "@type": "Person",
+          "name": "Hemant Kumar"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "ACS Nano"
+        }
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json" id="page-jsonld">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://thescale-group.github.io/#website",
+      "name": "The SCALE Group",
+      "alternateName": "Simulation of Complex Systems Across Length and Energy Group",
+      "url": "https://thescale-group.github.io/",
+      "publisher": {
+        "@id": "https://thescale-group.github.io/#organization"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "ResearchOrganization",
+      "@id": "https://thescale-group.github.io/#organization",
+      "name": "The SCALE Group, IIT Bhubaneswar",
+      "alternateName": "Simulation of Complex Systems Across Length and Energy Group",
+      "url": "https://thescale-group.github.io/",
+      "image": "https://thescale-group.github.io/assets/images/homepage.png",
+      "description": "Peer-reviewed publications from Dr. Hemant Kumar and the SCALE Group at IIT Bhubaneswar on battery electrolytes, electrode interfaces, solid electrolytes, genome biophysics, MXenes, confined water, and two-dimensional materials.",
+      "parentOrganization": {
+        "@type": "CollegeOrUniversity",
+        "name": "Indian Institute of Technology Bhubaneswar"
+      },
+      "department": {
+        "@type": "Organization",
+        "name": "Department of Physics, School of Basic Sciences"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Room 133, Department of Physics,",
+        "addressLocality": "Argul, Jatni",
+        "addressRegion": "Odisha",
+        "postalCode": "752050",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://scholar.google.com/citations?user=oaTIUtkAAAAJ&hl=en",
+        "https://sbs.iitbbs.ac.in/index.php/hemantkumar/",
+        "https://www.linkedin.com/in/hemant-kumar-b3969862"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Dr. Hemant Kumar",
+        "affiliation": "IIT Bhubaneswar",
+        "sameAs": [
+          "https://scholar.google.com/citations?user=oaTIUtkAAAAJ&hl=en",
+          "https://www.linkedin.com/in/hemant-kumar-b3969862"
+        ]
+      },
+      "knowsAbout": [
+        "Molecular dynamics",
+        "Multiscale modelling",
+        "Soft matter physics",
+        "Battery electrolytes",
+        "Ionic transport",
+        "Solid electrolytes",
+        "Machine learning potentials",
+        "Kinetic Monte Carlo",
+        "Genome biophysics",
+        "Polymer models of DNA",
+        "Nanoscale interfaces",
+        "Two-dimensional materials",
+        "MXenes",
+        "Confined water"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://thescale-group.github.io/publications.html#webpage",
+      "url": "https://thescale-group.github.io/publications.html",
+      "name": "Publications | SCALE IITBBS",
+      "description": "Peer-reviewed publications from Dr. Hemant Kumar and the SCALE Group at IIT Bhubaneswar on battery electrolytes, electrode interfaces, solid electrolytes, genome biophysics, MXenes, confined water, and two-dimensional materials.",
+      "isPartOf": {
+        "@id": "https://thescale-group.github.io/#website"
+      },
+      "about": {
+        "@id": "https://thescale-group.github.io/#organization"
+      },
+      "keywords": "Hemant Kumar publications, SCALE Group publications, IIT Bhubaneswar physics, battery electrolyte publications, genome biophysics publications, MXene simulations, confined water, two dimensional materials",
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://thescale-group.github.io/publications.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://thescale-group.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Publications",
+          "item": "https://thescale-group.github.io/publications.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-logo">
-            <span class="nav-logo-b">[</span>SCALE<span class="nav-logo-b">]</span>
+<header class="site-header">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo"><strong>SCALE Group</strong><span>Simulation of Complex Systems Across Length and Energy</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="publications.html" class="active">Publications</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="joinus.html">Join Us</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="page-hero publication-hero">
+  <div class="container page-hero-inner research-simple-hero">
+    <h1 class="page-title">Publications</h1>
+  </div>
+</div>
+
+<main>
+  <section class="section publications-section">
+    <div class="container">
+      <!-- PUBLICATIONS_DATA_START -->
+      <div class="publication-highlights" aria-label="Representative publications">
+        <a class="publication-highlight-card" href="https://doi.org/10.1016/j.bpj.2026.02.015" target="_blank" rel="noopener">
+          <div class="highlight-topic">Gene regulation</div>
+          <h2>Kinetic model of enhancer-promoter condensates</h2>
+          <p>Links transcriptional speed, noise, and energetic trade-offs through a physics-based model of condensate dynamics.</p>
+          <div class="highlight-meta">Biophysical Journal · 2026</div>
+        </a>
+        <a class="publication-highlight-card" href="https://doi.org/10.1021/acsenergylett.5c03388" target="_blank" rel="noopener">
+          <div class="highlight-topic">Battery electrolytes</div>
+          <h2>Weak-solvent exchange in sodium dual-ion pouch cells</h2>
+          <p>Connects solvation-sheath exchange and electrolyte design to improved sodium dual-ion cell behavior.</p>
+          <div class="highlight-meta">ACS Energy Letters · 2026</div>
+        </a>
+        <a class="publication-highlight-card" href="https://doi.org/10.1039/d4cp04043k" target="_blank" rel="noopener">
+          <div class="highlight-topic">Materials discovery</div>
+          <h2>Machine learning for solid-state electrolytes</h2>
+          <p>Uses simulation-derived descriptors and ML to accelerate the search for fast ion-conducting solid electrolytes.</p>
+          <div class="highlight-meta">Physical Chemistry Chemical Physics · 2025</div>
+        </a>
+      </div>
+<div class="filter-bar topic-filter-bar" id="filterBar" aria-label="Filter publications by research area">
+        <button class="filter-btn active" data-topic="all">All Papers</button>
+        <button class="filter-btn" data-topic="electrodes">Electrodes</button>
+        <button class="filter-btn" data-topic="liquid-electrolyte">Liquid Electrolyte</button>
+        <button class="filter-btn" data-topic="solid-electrolyte">Solid Electrolyte</button>
+        <button class="filter-btn" data-topic="gene-regulation">Gene Regulation</button>
+        <button class="filter-btn" data-topic="nanoscale-physics">Nanoscale Physics</button>
+      </div>
+<div class="publication-topic-showcase" id="topicShowcase" hidden aria-live="polite">
+        <a class="topic-paper-card" data-topic="gene-regulation" href="https://doi.org/10.1016/j.bpj.2026.02.015" target="_blank" rel="noopener">
+          <div class="topic-paper-art topic-paper-art-gene" aria-hidden="true"><span></span></div>
+          <div class="topic-paper-body">
+            <div class="topic-paper-meta">Biophysical Journal · 2026</div>
+            <h2>Kinetic model of E-P condensate dynamics</h2>
+            <p>S. Senapati, A. K. Sharma, <strong>H. Kumar</strong>. Models transcriptional speed, noise, and energetic trade-offs.</p>
+          </div>
+        </a>
+        <a class="topic-paper-card" data-topic="liquid-electrolyte" href="https://doi.org/10.1021/acsenergylett.5c03388" target="_blank" rel="noopener">
+          <div class="topic-paper-art topic-paper-art-liquid" aria-hidden="true"><span></span></div>
+          <div class="topic-paper-body">
+            <div class="topic-paper-meta">ACS Energy Letters · 2026</div>
+            <h2>Weak-solvent exchange enables sodium dual-ion pouch cells</h2>
+            <p>C. Sanjaykumar, S. D. Adhikari, M. Chandra, K. K. Mishra, et al., <strong>H. Kumar</strong>.</p>
+          </div>
+        </a>
+        <a class="topic-paper-card" data-topic="nanoscale-physics" href="https://doi.org/10.1038/s44172-025-00522-2" target="_blank" rel="noopener">
+          <div class="topic-paper-art topic-paper-art-nano" aria-hidden="true"><span></span></div>
+          <div class="topic-paper-body">
+            <div class="topic-paper-meta">Communication Engineering · 2025</div>
+            <h2>MXene alloy metal-semiconductor contact for low-resistive FETs</h2>
+            <p>S. Bera, D. Koushik, <strong>H. Kumar</strong>. Interface engineering for electronic devices.</p>
+          </div>
+        </a>
+        <a class="topic-paper-card" data-topic="electrodes" href="https://doi.org/10.1016/j.est.2025.118594" target="_blank" rel="noopener">
+          <div class="topic-paper-art topic-paper-art-electrode" aria-hidden="true"><span></span></div>
+          <div class="topic-paper-body">
+            <div class="topic-paper-meta">Journal of Energy Storage · 2025</div>
+            <h2>Enhancing MXene electrochemistry through O/F termination control</h2>
+            <p>S. Bera, S. K. Barik, <strong>H. Kumar</strong>. Spatial control of surface terminations is used to tune MXene electrochemical behavior.</p>
+          </div>
+        </a>
+        <a class="topic-paper-card" data-topic="electrodes" href="https://doi.org/10.1016/j.jpowsour.2025.238537" target="_blank" rel="noopener">
+          <div class="topic-paper-art topic-paper-art-electrode" aria-hidden="true"><span></span></div>
+          <div class="topic-paper-body">
+            <div class="topic-paper-meta">Journal of Power Sources · 2025</div>
+            <h2>Ultra high-rate LiFePO4 cathodes for fast charging Li-ion batteries</h2>
+            <p>Ch Gowthami, A. Venu Vinod, Manorama Pandey, <strong>H. Kumar</strong>, R. Vijay, S. Anandan.</p>
+          </div>
+        </a>
+        <a class="topic-paper-card" data-topic="liquid-electrolyte" href="https://doi.org/10.1039/d5ta04224k" target="_blank" rel="noopener">
+          <div class="topic-paper-art topic-paper-art-liquid" aria-hidden="true"><span></span></div>
+          <div class="topic-paper-body">
+            <div class="topic-paper-meta">Journal of Materials Chemistry A · 2025</div>
+            <h2>Fluorination-induced structural diffusion in ether electrolytes</h2>
+            <p>S. K. Barik, <strong>H. Kumar</strong>. A mechanism-focused electrolyte paper beyond vehicular transport.</p>
+          </div>
+        </a>
+        <a class="topic-paper-card" data-topic="gene-regulation" href="https://doi.org/10.1038/s41540-025-00510-4" target="_blank" rel="noopener">
+          <div class="topic-paper-art topic-paper-art-gene" aria-hidden="true"><span></span></div>
+          <div class="topic-paper-body">
+            <div class="topic-paper-meta">npj Systems Biology and Applications · 2025</div>
+            <h2>Predicting gene expression changes from chromatin structure</h2>
+            <p>S. Senapati, I. Irshad, A. K. Sharma, <strong>H. Kumar</strong>. Connects structural modification to expression output.</p>
+          </div>
+        </a>
+        <a class="topic-paper-card" data-topic="solid-electrolyte" href="https://doi.org/10.1039/d4cp04043k" target="_blank" rel="noopener">
+          <div class="topic-paper-art topic-paper-art-solid" aria-hidden="true"><span></span></div>
+          <div class="topic-paper-body">
+            <div class="topic-paper-meta">Physical Chemistry Chemical Physics · 2025</div>
+            <h2>Accelerating discovery of solid-state electrolytes with machine learning</h2>
+            <p>R. Sewak, V. Sudarsanan, <strong>H. Kumar</strong>. ML-assisted screening for fast ion-conducting solids.</p>
+          </div>
+        </a>
+        <a class="topic-paper-card" data-topic="nanoscale-physics" href="https://doi.org/10.1038/s41567-020-0953-2" target="_blank" rel="noopener">
+          <div class="topic-paper-art topic-paper-art-nano" aria-hidden="true"><span></span></div>
+          <div class="topic-paper-body">
+            <div class="topic-paper-meta">Nature Physics · 2020</div>
+            <h2>Tunable strain soliton networks confine electrons</h2>
+            <p>D. Edelberg, <strong>H. Kumar</strong>, V. Shenoy, H. Ochoa, A. N. Pasupathy. Strain networks in van der Waals materials.</p>
+          </div>
+        </a>
+      </div>
+<ol class="paper-list publication-list" id="journalPapers">
+        <li class="paper-item" data-topic="gene-regulation" data-featured-topic="gene-regulation"><div class="paper-citation">S. Senapati, A. K. Sharma, <span class="pi-name">H. Kumar</span>, (2026), &ldquo;<a class="paper-title-link" href="https://doi.org/10.1016/j.bpj.2026.02.015" target="_blank" rel="noopener">Kinetic Model of E-P Condensates Dynamics Reveals Transcriptional Speed, Noise, and Energy Trade-offs</a>&rdquo; <strong>Biophysical Journal</strong>, Just Accepted, DOI: 10.1016/j.bpj.2026.02.015</div></li>
+        <li class="paper-item" data-topic="liquid-electrolyte" data-featured-topic="liquid-electrolyte"><div class="paper-citation">C. Sanjaykumar, S. D. Adhikari, M. Chandra, K. K. Mishra, Sungjemmenla, R. Singh, S. K. Vineeth, <span class="pi-name">H. Kumar</span>, S. K. Chauhan, R. Singh, V. Kumar, (2026), &ldquo;<a class="paper-title-link" href="https://doi.org/10.1021/acsenergylett.5c03388" target="_blank" rel="noopener">Solvation Sheath Exchange with Weak-Solvent Molecules Enables the Development of Sodium dual-Ion pouch Cells</a>&rdquo; <strong>ACS Energy Letters</strong>, 11, DOI: 10.1021/acsenergylett.5c03388</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics" data-featured-topic="nanoscale-physics"><div class="paper-citation">S. Bera, D Koushik, <span class="pi-name">H. Kumar</span>, (2025), &ldquo;<a class="paper-title-link" href="https://doi.org/10.1038/s44172-025-00522-2" target="_blank" rel="noopener">MXene alloy-based metal-semiconductor contact for low-resistive field-effect transistors</a>" <strong>Communication Engineering</strong>, 4,190</div></li>
+        <li class="paper-item" data-topic="electrodes" data-featured-topic="electrodes"><div class="paper-citation">S. Bera, S. K. Barik, <span class="pi-name">H. Kumar</span>, (2025)&ldquo;<a class="paper-title-link" href="https://doi.org/10.1016/j.est.2025.118594" target="_blank" rel="noopener">Enhancing MXene Electrochemistry through Spatial Control of O and F Termination Distributions</a>", <strong>Journal of Energy Storage</strong>, 139 (20), 118594.</div></li>
+        <li class="paper-item" data-topic="electrodes" data-featured-topic="electrodes"><div class="paper-citation">Ch Gowthami, A Venu Vinod, Manorama Pandey, <span class="pi-name">H. Kumar</span>, R Vijay, S Anandan (2025). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1016/j.jpowsour.2025.238537" target="_blank" rel="noopener">Ultra high-rate performance LiFePO4 cathode material for next generation fast charging Li-ion batteries</a>" <strong>Journal of Power Sources</strong>, 660, 238537.</div></li>
+        <li class="paper-item" data-topic="liquid-electrolyte" data-featured-topic="liquid-electrolyte"><div class="paper-citation">S. K. Barik, <span class="pi-name">H. Kumar</span> (2025). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1039/d5ta04224k" target="_blank" rel="noopener">Beyond Vehicular Transport: Fluorination-Induced Structural Diffusion in Ether Electrolytes</a>" , <strong>Journal of Materials Chemistry A</strong>,13, 30224-30234.</div></li>
+        <li class="paper-item" data-topic="liquid-electrolyte"><div class="paper-citation">S. K. Barik, S. D. Adhikari, <span class="pi-name">H. Kumar</span> (2025). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1021/acsaem.5c00893" target="_blank" rel="noopener">Tailoring Electrochemical Properties of Ether-based Solvents through Fluorination-Driven Solvation Control.</a>&rdquo; <strong>ACS Applied Energy Materials</strong>, 8, 5182&ndash;5190.</div></li>
+        <li class="paper-item" data-topic="electrodes"><div class="paper-citation">R. Rajsekharan, R. Nadarajan, S. Das, <span class="pi-name">H. Kumar</span>, M. M. Shaijumon (2025). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1002/adfm.202502473" target="_blank" rel="noopener">Bifunctional Current Collectors for Lean-Lithium Metal Batteries.</a>&rdquo; <strong>Advanced Functional Materials</strong>, 2502473.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">S. Das, S. Sahoo, P. K. Sahoo, <span class="pi-name">H. Kumar</span>, N. Mohapatra (2025). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1021/acsanm.5c03395" target="_blank" rel="noopener">Room-Temperature Ferromagnetism and Nonlinear Phonon Dynamics in Atomically Thin 2H-CrS2 Nanosheets: Implications for Spintronics Applications.</a>&rdquo; <strong>ACS Applied Nano Materials</strong>, 8, 35, 17276–17286.</div></li>
+        <li class="paper-item" data-topic="electrodes"><div class="paper-citation">Mohana Sundaram Palvannan, S.K. Vineeth, Soumyashree Das Adhikari, Sanjay Kumar, Sennu Palanichamy, Chhail Bihari Soni, Mahesh Chandra, Sungjemmenla, <span class="pi-name">H. Kumar</span>, and Vipin Kumar,(2025), &ldquo;<a class="paper-title-link" href="https://doi.org/10.1039/d5cc03102h" target="_blank" rel="noopener">An aluminium-doped sodium manganese hexacyano ferrate cathode for high-rate safe Na-ion batteries</a>", <strong>Chemical Communications</strong>, 61, 12980</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">S. Bera, <span class="pi-name">H. Kumar</span> (2025). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1021/acsaelm.5c00019" target="_blank" rel="noopener">Tailoring Contact Properties in Janus TMD Spin-FETs for Enhanced Spin Transport: A Bilayer Interface Approach.</a>&rdquo; <strong>ACS Applied Electronic Materials</strong>, 7, 3324&ndash;3332.</div></li>
+        <li class="paper-item" data-topic="liquid-electrolyte"><div class="paper-citation">C. B. Soni, S. K. Barik, S. K. Vineeth, B. Yadav, M. Chandra, Sungjemmenla, S. Kumar, <span class="pi-name">H. Kumar</span>, V. Kumar (2025). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1039/d4ta08118h" target="_blank" rel="noopener">Sodium Metal Anode with Multiphasic Interphase for Room Temperature Sodium-Sulfur Pouch Cells.</a>&rdquo; <strong>Journal of Materials Chemistry A</strong>, 13, 1500&ndash;1510.</div></li>
+        <li class="paper-item" data-topic="gene-regulation" data-featured-topic="gene-regulation"><div class="paper-citation">S. Senapati, I. Irshad, A. K. Sharma, <span class="pi-name">H. Kumar</span> (2025). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1038/s41540-025-00510-4" target="_blank" rel="noopener">Predicting Gene Expression Changes from Chromatin Structure Modification.</a>&rdquo; <strong>npj Systems Biology and Applications</strong>, 11, 34.</div></li>
+        <li class="paper-item" data-topic="solid-electrolyte" data-featured-topic="solid-electrolyte"><div class="paper-citation">R. Sewak, V. Sudarsanan, <span class="pi-name">H. Kumar</span> (2025). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1039/d4cp04043k" target="_blank" rel="noopener">Accelerating Discovery of Solid-State Electrolytes: Machine Learning Approach.</a>&rdquo; <strong>Physical Chemistry Chemical Physics</strong>, 27, 12345&ndash;12353.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">Sweta Das, Niharika Mohapatra, and <span class="pi-name">H. Kumar</span>, (2025) &ldquo;<a class="paper-title-link" href="https://doi.org/10.1088/1361-648x/ade756" target="_blank" rel="noopener">Resolving Atomic-Scale Stick-Slip and Sub-Moiré Frictional Modulation in Twisted Bilayers with Variable Tip Sizes</a>", <strong>Journal of Physics: Condensed Matter</strong>,37, 275001.</div></li>
+        <li class="paper-item" data-topic="liquid-electrolyte"><div class="paper-citation">C. Sanjaykumar, Sungjemmenla, M. Chandra, C. B. Soni, S. K. Vineeth, S. Das, N. Cohen, <span class="pi-name">H. Kumar</span>, D. Mandler, V. Kumar (2024). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1039/d4ta05581k" target="_blank" rel="noopener">Tuning the local chemistry of SPAN to realize the development of room-temperature sodium–sulfur pouch cells.</a>&rdquo; <strong>Journal of Materials Chemistry A</strong>, 12, 25000&ndash;25010.</div></li>
+        <li class="paper-item" data-topic="liquid-electrolyte"><div class="paper-citation">B. Yadav, C. B. Soni, S. Bera, <span class="pi-name">H. Kumar</span>, V. Kumar (2024). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1016/j.electacta.2024.145212" target="_blank" rel="noopener">Direct observation of sodium dendrites to decipher the complicated behavior of electrolyte systems.</a>&rdquo; <strong>Electrochimica Acta</strong>, 507, 145212.</div></li>
+        <li class="paper-item" data-topic="liquid-electrolyte"><div class="paper-citation">C. B. Soni, S. Bera, M. Chandra, S. K. Vineeth, S. Kumar, <span class="pi-name">H. Kumar</span>, V. Kumar (2024). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1039/d4ta03187c" target="_blank" rel="noopener">Altering Na-ion solvation to regulate dendrite growth for a reversible and stable room-temperature sodium-sulfur battery.</a>&rdquo; <strong>Journal of Materials Chemistry A</strong>, 12, 21853&ndash;21863.</div></li>
+        <li class="paper-item" data-topic="gene-regulation"><div class="paper-citation">S. Senapati, I. Irshad, A. K. Sharma, <span class="pi-name">H. Kumar</span> (2023). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1088/1478-3975/ace8e5" target="_blank" rel="noopener">Fundamental insights into the correlation between chromosome configuration and transcription.</a>&rdquo; <strong>Physical Biology</strong>, 20, 051002.</div></li>
+        <li class="paper-item" data-topic="liquid-electrolyte"><div class="paper-citation">C. B. Soni, S. Bera, S. K. Vineeth, <span class="pi-name">H. Kumar</span>, V. Kumar (2023). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1016/j.est.2023.108132" target="_blank" rel="noopener">Novel organic molecule enabling a highly-stable sodium metal anode for room-temperature sodium-metal batteries.</a>&rdquo; <strong>Journal of Energy Storage</strong>, 71, 108132.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">S. Bera, <span class="pi-name">H. Kumar</span> (2023). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1021/acs.jpcc.3c04183" target="_blank" rel="noopener">Phase Stability of MXenes: Role of Coordination Symmetries, Transition Metals, and Surface Terminations.</a>&rdquo; <strong>Journal of Physical Chemistry C</strong>, 127, 20734&ndash;20741.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation"><span class="pi-name">H. Kumar</span>, S. Bera, S. Dasgupta, A. K. Sood, C. Dasgupta, P. K. Maiti (2023). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1103/physrevb.107.165402" target="_blank" rel="noopener">Dipole alignment of water molecules flowing through a carbon nanotube.</a>&rdquo; <strong>Physical Review B</strong>, 107, 165402.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">P. Mishra, K. Chatterjee, <span class="pi-name">H. Kumar</span>, R. Jha (2023). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1021/acsaom.2c00137" target="_blank" rel="noopener">Flexible and wearable photonic-crystal fiber interferometer for physiological monitoring.</a>&rdquo; <strong>ACS Applied Optical Materials</strong>, 1, 569&ndash;577.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">P. Mishra, <span class="pi-name">H. Kumar</span>, S. Sahu, R. Jha (2023). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1002/admt.202300429" target="_blank" rel="noopener">Human Pulse and Respiration Monitoring: Reconfigurable and Scalable Balloon-Shaped Fiber Wearables.</a>&rdquo; <strong>Advanced Materials Technologies</strong>, 8, 2300429.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">T. A. Wani, P. Garg, S. Bera, S. Bhattacharya, S. Dutta, <span class="pi-name">H. Kumar</span>, A. Bera (2022). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1016/j.jcis.2021.12.158" target="_blank" rel="noopener">Narrow-Bandgap LaMO3 (M = Ni, Co) nanomaterials for interfacial solar steam generation.</a>&rdquo; <strong>Journal of Colloid and Interface Science</strong>, 612, 203&ndash;212.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">P. Mishra, <span class="pi-name">H. Kumar</span>, S. Sahu, R. Jha (2022). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1002/admt.202200661" target="_blank" rel="noopener">Flexible and Wearable Optical System Based on U-shaped Cascaded Microfiber Interferometer.</a>&rdquo; <strong>Advanced Materials Technologies</strong>, 8, 2200661.</div></li>
+        <li class="paper-item" data-topic="gene-regulation"><div class="paper-citation">V. Yadav, I. U. Irshad, <span class="pi-name">H. Kumar</span>, A. K. Sharma (2021). &ldquo;<a class="paper-title-link" href="https://doi.org/10.3389/fmolb.2021.688700" target="_blank" rel="noopener">Quantitative Modeling of Protein Synthesis Using Ribosome Profiling Data.</a>&rdquo; <strong>Frontiers in Molecular Biosciences</strong>, 8, 537.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics" data-featured-topic="nanoscale-physics"><div class="paper-citation">D. Edelberg, <span class="pi-name">H. Kumar</span>, V. Shenoy, H. Ochoa, A. N. Pasupathy (2020). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1038/s41567-020-0953-2" target="_blank" rel="noopener">Tunable strain soliton networks confine electrons in Van der Waals materials.</a>&rdquo; <strong>Nature Physics</strong>, 16, 1097&ndash;1102.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">S. Jia, A. Bandyopadhyay, <span class="pi-name">H. Kumar</span>, J. Zhang, W. Wang, T. Zhai, V. B. Shenoy, J. Lou (2020). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1039/d0nr00300j" target="_blank" rel="noopener">Biomolecule Sensing by Surface-Enhanced Raman Scattering of Monolayer Janus Transition Metal Dichalcogenide.</a>&rdquo; <strong>Nanoscale</strong>, 12, 10723.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">N. C. Frey, A. Bandyopadhyay, <span class="pi-name">H. Kumar</span>, B. Anasori, Y. Gogotsi, V. B. Shenoy (2019). &ldquo;<a class="paper-title-link" href="https://scholar.google.com/scholar?q=Surface-Engineered%20MXenes%3A%20Electric%20Field%20Control%20of%20Magnetism." target="_blank" rel="noopener">Surface-Engineered MXenes: Electric Field Control of Magnetism.</a>&rdquo; <strong>ACS Nano</strong>, 13, 2831&ndash;2839.</div></li>
+        <li class="paper-item" data-topic="electrodes"><div class="paper-citation">L. Wang, S. S. Welborn, <span class="pi-name">H. Kumar</span>, M. Li, Z. Wang, V. B. Shenoy, E. Detsi (2019). &ldquo;<a class="paper-title-link" href="https://scholar.google.com/scholar?q=High-Rate%20and%20Long%20Cycle-Life%20Alloy-Type%20Magnesium-Ion%20Battery%20Anode." target="_blank" rel="noopener">High-Rate and Long Cycle-Life Alloy-Type Magnesium-Ion Battery Anode.</a>&rdquo; <strong>Advanced Energy Materials</strong>, 4, 1902086, Cover Article.</div></li>
+        <li class="paper-item" data-topic="liquid-electrolyte"><div class="paper-citation">Z. Wang, A. Bandyopadhyay, <span class="pi-name">H. Kumar</span>, M. Li, A. Venkatakrishnan, V. B. Shenoy, E. Detsi (2019). &ldquo;<a class="paper-title-link" href="https://scholar.google.com/scholar?q=Degradation%20of%20magnesium-ion%20battery%20anodes%20in%20all-phenyl%20complex%20electrolyte." target="_blank" rel="noopener">Degradation of magnesium-ion battery anodes in all-phenyl complex electrolyte.</a>&rdquo; <strong>Journal of Energy Storage</strong>, 23, 195&ndash;201.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation"><span class="pi-name">H. Kumar</span>, C. Dasgupta, P. K. Maiti (2018). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1021/acs.langmuir.8b02147" target="_blank" rel="noopener">Phase Transition in Monolayer Water Confined in Janus Nanopore.</a>&rdquo; <strong>Langmuir</strong>, 34(40), 12199&ndash;12205.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">N. C. Frey, <span class="pi-name">H. Kumar</span>, B. Anasori, Y. Gogotsi, V. B. Shenoy (2018). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1021/acsnano.8b03472" target="_blank" rel="noopener">Tuning noncollinear spin structure in ferromagnetic nitride MXenes.</a>&rdquo; <strong>ACS Nano</strong>, 12, 6319&ndash;6325.</div></li>
+        <li class="paper-item" data-topic="electrodes"><div class="paper-citation">K. Ghatak, S. Basu, T. Das, <span class="pi-name">H. Kumar</span>, D. Datta (2018). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1039/c8cp03237h" target="_blank" rel="noopener">Effect of Cobalt Content on Electrochemical Properties of NCA Type Cathode Materials.</a>&rdquo; <strong>Physical Chemistry Chemical Physics</strong>, 20, 22805&ndash;22817.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">D. Er, H. Ye, N. C. Frey, <span class="pi-name">H. Kumar</span>, J. Lou, V. B. Shenoy (2018). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1021/acs.nanolett.8b01335" target="_blank" rel="noopener">Prediction of Enhanced Catalytic Activity for Hydrogen Evolution Reaction in Janus Transition Metal Dichalcogenides.</a>&rdquo; <strong>Nano Letters</strong>, 18, 3943&ndash;3949.</div></li>
+        <li class="paper-item" data-topic="electrodes"><div class="paper-citation">N. C. Frey, B. Byles, <span class="pi-name">H. Kumar</span>, E. Pomerantseva, V. B. Shenoy (2018). &ldquo;<a class="paper-title-link" href="https://scholar.google.com/scholar?q=Prediction%20of%20optimal%20structural%20water%20concentration%20in%20transition-metal%20oxide%20electrodes." target="_blank" rel="noopener">Prediction of optimal structural water concentration in transition-metal oxide electrodes.</a>&rdquo; <strong>Physical Chemistry Chemical Physics</strong>, 20, 9480&ndash;9487.</div></li>
+        <li class="paper-item" data-topic="electrodes"><div class="paper-citation">H. Y. Asl, J. Fu, <span class="pi-name">H. Kumar</span>, S. S. Welborn, V. B. Shenoy, E. Detsi (2018). &ldquo;<a class="paper-title-link" href="https://scholar.google.com/scholar?q=In-situ%20Dealloying%20of%20Bulk%20Mg2Sn%20in%20Mg-Ion%20Half%20Cell%20for%20High-Performance%20Mg-Ion%20Battery%20Anodes." target="_blank" rel="noopener">In-situ Dealloying of Bulk Mg2Sn in Mg-Ion Half Cell for High-Performance Mg-Ion Battery Anodes.</a>&rdquo; <strong>ACS Chemistry of Materials</strong>, 30, 1815&ndash;1824, Cover Article.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation"><span class="pi-name">H. Kumar</span>, N. C. Frey, L. Dong, B. Anasori, Y. Gogotsi, V. B. Shenoy (2017). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1021/acsnano.7b02578" target="_blank" rel="noopener">Tunable Magnetism and Transport Properties in Nitride MXenes.</a>&rdquo; <strong>ACS Nano</strong>, 11, 7648&ndash;7655, Cover Article.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">L. Dong, <span class="pi-name">H. Kumar</span>, B. Anasori, Y. Gogotsi, V. B. Shenoy (2017). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1021/acs.jpclett.6b02751" target="_blank" rel="noopener">Rational Design of 2D Metallic and Semiconducting Spintronic Materials in Double-Transition-Metal MXenes.</a>&rdquo; <strong>Journal of Physical Chemistry Letters</strong>, 8, 422&ndash;428.</div></li>
+        <li class="paper-item" data-topic="liquid-electrolyte"><div class="paper-citation"><span class="pi-name">H. Kumar</span>, E. Detsi, D. Abraham, V. B. Shenoy (2017). &ldquo;<a class="paper-title-link" href="https://scholar.google.com/scholar?q=Fundamental%20Mechanisms%20of%20Solvent%20Decomposition%20in%20SEI%20Formation%20in%20Sodium-Ion%20Batteries." target="_blank" rel="noopener">Fundamental Mechanisms of Solvent Decomposition in SEI Formation in Sodium-Ion Batteries.</a>&rdquo; <strong>ACS Chemistry of Materials</strong>, 28(24), 8930&ndash;8941.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">S. Chakraborty, <span class="pi-name">H. Kumar</span>, C. Dasgupta, P. K. Maiti (2017). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1021/acs.accounts.6b00617" target="_blank" rel="noopener">Confined Water: Structure, Dynamics and Thermodynamics.</a>&rdquo; <strong>Accounts of Chemical Research</strong>, 50(9), 2139&ndash;2146.</div></li>
+        <li class="paper-item" data-topic="electrodes"><div class="paper-citation">D. Er, E. Detsi, <span class="pi-name">H. Kumar</span>, V. B. Shenoy (2016). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1021/acsenergylett.6b00308" target="_blank" rel="noopener">Defective Graphene and Graphene Allotropes as High Capacity Anode Materials for Mg-ion Batteries.</a>&rdquo; <strong>ACS Energy Letters</strong>, 1, 638&ndash;645.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation"><span class="pi-name">H. Kumar</span>, L. Dong, V. B. Shenoy (2016). &ldquo;<a class="paper-title-link" href="https://scholar.google.com/scholar?q=Limits%20of%20Coherency%20and%20Strain%20Transfer%20in%20Flexible%202D%20van%20der%20Waals%20Heterostructures." target="_blank" rel="noopener">Limits of Coherency and Strain Transfer in Flexible 2D van der Waals Heterostructures.</a>&rdquo; <strong>Scientific Reports</strong>, 5, 21516.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation"><span class="pi-name">H. Kumar</span>, D. Er, L. Dong, J. Li, V. B. Shenoy (2015). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1038/srep10872" target="_blank" rel="noopener">Elastic deformations in 2D van der Waals heterostructures and their impact on optoelectronic properties.</a>&rdquo; <strong>Scientific Reports</strong>, 5, 10872.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation"><span class="pi-name">H. Kumar</span>, C. Dasgupta, P. K. Maiti (2014). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1039/c4ra08730e" target="_blank" rel="noopener">Structure, Dynamics and Thermodynamics of Single-file Water Under Confinement.</a>&rdquo; <strong>RSC Advances</strong>, 5, 1893&ndash;1901.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation"><span class="pi-name">H. Kumar</span>, C. Dasgupta, P. K. Maiti (2014). &ldquo;<a class="paper-title-link" href="https://scholar.google.com/scholar?q=Driving%20Force%20for%20Water%20Entry%20in%20Hydrophobic%20Carbon%20Nanotube." target="_blank" rel="noopener">Driving Force for Water Entry in Hydrophobic Carbon Nanotube.</a>&rdquo; <strong>Molecular Simulation</strong>, 41, 504&ndash;511.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">R. Shivanna, D. Pramanik, <span class="pi-name">H. Kumar</span>, et al. (2013). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1039/c3sm51313k" target="_blank" rel="noopener">Confinement Induced Stochastic Sensing of Charged Coronene and Perylene Aggregates in alpha-Hemolysin Nanochannel.</a>&rdquo; <strong>Soft Matter</strong>, 9, 10196&ndash;10202.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation"><span class="pi-name">H. Kumar</span>, Y. Lansac, M. Glaser, P. K. Maiti (2011). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1039/c0sm01517b" target="_blank" rel="noopener">Biopolymers in nanopores: challenges and opportunities.</a>&rdquo; <strong>Soft Matter</strong>, 7, 5898&ndash;5907.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation"><span class="pi-name">H. Kumar</span>, B. Mukherjee, C. Dasgupta, A. K. Sood, S. T. Lin, P. K. Maiti (2011). &ldquo;<a class="paper-title-link" href="https://doi.org/10.1063/1.3571007" target="_blank" rel="noopener">Thermodynamics of water entry in hydrophobic channels of carbon nanotubes.</a>&rdquo; <strong>Journal of Chemical Physics</strong>, 134, 124105.</div></li>
+      </ol>
+<hr class="divider publications-books-divider">
+
+      <div class="section-header publications-books-header">
+        <span class="section-label">Books</span>
+        <h2 class="section-title">Peer-Reviewed Book Chapters</h2>
+      </div>
+      <ol class="paper-list publication-list book-list" id="bookList">
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">Kumar, H., et al. &ldquo;Graphene and Carbon Nanotube-based Nanomaterial.&rdquo; <em>Handbook of Carbon Nanomaterials</em>, Vol. 6, edited by F. D’Souza and K. M. Kadish, World Scientific.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">Kumar, H., Maiti, P. &ldquo;Introduction to Molecular Dynamics Simulations.&rdquo; <em>Computational Statistical Physics</em>, edited by S. B. Santra and P. Ray, Hindustan Book Agency.</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">Nathan C Frey, Christopher C Price, Arkamita Bandyopadhyay, <span class="pi-name">Hemant Kumar</span>, Vivek B Shenoy, Predicted Magnetic Properties of MXenes in the book <em> 2D Metal Carbides and Nitrides (MXenes)</em>, edited by Anasori B., and Gogotsi Y. Springer Nature, Switzerland</div></li>
+        <li class="paper-item" data-topic="nanoscale-physics"><div class="paper-citation">Chakraborty, S., Kumar, H. &ldquo;Molecular Modeling of 2D Materials.&rdquo; <em>Synthesis, Modelling, and Characterization of 2D Materials</em>, edited by E. H. Yang, Elsevier.</div></li>
+      </ol>
+      <!-- PUBLICATIONS_DATA_END -->
+    </div>
+  </section>
+
+  <section class="pre-footer-band" aria-label="Footer transition">
+    <div class="container">
+      <div class="pre-footer-line"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner" id="contact">
+      <div>
+        <div class="footer-logo">SCALE Group · IIT Bhubaneswar</div>
+        <div class="footer-tagline">Simulation of Complex Systems Across Length and Energy (SCALE) Group<br>Room 133, Department of Physics,<br>SBS, IIT Bhubaneswar<br>Argul, Jatni, Odisha 752050</div>
+        <div class="footer-contact">
+          <div><span class="contact-obfuscated">hemant [at] iitbbs [dot] ac [dot] in</span> · +91 674 713 5404</div>
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html">home</a></li>
-            <li><a href="research.html">research</a></li>
-            <li><a href="publications.html" class="active">publications</a></li>
-            <li><a href="team.html">team</a></li>
-            <li><a href="teaching.html">teaching</a></li>
-            <li><a href="joinus.html">join_us</a></li>
+      </div>
+      <div>
+        <div class="footer-nav-title">Navigation</div>
+        <ul class="footer-nav-links"><li><a href="research.html">Research</a></li><li><a href="publications.html">Publications</a></li><li><a href="team.html">Team</a></li><li><a href="joinus.html">Join Us</a></li></ul>
+      </div>
+      <div>
+        <div class="footer-nav-title">Connect</div>
+        <ul class="footer-nav-links">
+          <li><a href="https://scholar.google.com/citations?user=oaTIUtkAAAAJ&amp;hl=en" target="_blank">Google Scholar</a></li>
+          <li><a href="https://sbs.iitbbs.ac.in/index.php/hemantkumar/" target="_blank">Faculty Page</a></li>
+          <li><a href="https://www.linkedin.com/in/hemant-kumar-b3969862" target="_blank">LinkedIn</a></li>
+          <li><span class="contact-obfuscated">hemant [at] iitbbs [dot] ac [dot] in</span></li>
         </ul>
-    </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-text">© 2026 SCALE Group · IIT Bhubaneswar · Department of Physics</div>
+      <div class="footer-socials">
+        <a href="https://scholar.google.com/citations?user=oaTIUtkAAAAJ&amp;hl=en" target="_blank">Scholar</a>
+        <a href="https://www.linkedin.com/in/hemant-kumar-b3969862" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
-    <main class="page-wrap">
-        
-        <div class="eyebrow">publication_record</div>
-        <h1 class="s-title">Selected Highlights</h1>
+<script>
+(function () {
+  const buttons = [...document.querySelectorAll('.filter-btn[data-topic]')];
+  const papers = [...document.querySelectorAll('.paper-item[data-topic]')];
+  const topicCards = [...document.querySelectorAll('.topic-paper-card[data-topic]')];
+  const showcase = document.getElementById('topicShowcase');
 
-        <div class="hl-grid">
-            
-            <article class="hl-card">
-                <div class="hl-img">
-                    <img src="https://placehold.co/600x300/111d2e/00e5ff?text=Battery+Materials" alt="Battery Cathode">
-                </div>
-                <div class="hl-body">
-                    <div class="hl-tag">Energy Materials · 2025</div>
-                    <h3 class="hl-title">Ultra High-Rate Performance LiFePO₄ Cathode Material for Next Generation Fast Charging Li-ion Batteries</h3>
-                    <p class="hl-authors">Srinivasan, Gowthami, Vinod, Pandey, <strong>H. Kumar</strong>, Vijay</p>
-                    <div class="hl-journal">Journal of Power Sources (Just Accepted)</div>
-                </div>
-            </article>
+  function setTopic(topic) {
+    buttons.forEach((button) => button.classList.toggle('active', button.dataset.topic === topic));
+    papers.forEach((paper) => {
+      paper.hidden = topic !== 'all' && paper.dataset.topic !== topic;
+    });
+    topicCards.forEach((card) => {
+      card.hidden = topic !== 'all' && card.dataset.topic !== topic;
+    });
+    if (showcase) {
+      showcase.hidden = topic === 'all';
+    }
+  }
 
-            <article class="hl-card">
-                <div class="hl-img">
-                    <img src="https://placehold.co/600x300/111d2e/00ff88?text=Chromatin+Architecture" alt="Chromatin">
-                </div>
-                <div class="hl-body">
-                    <div class="hl-tag">Genome Organization · 2025</div>
-                    <h3 class="hl-title">Predicting Gene Expression Changes from Chromatin Structure Modification</h3>
-                    <p class="hl-authors">Senapati, Irshad, Sharma, <strong>H. Kumar</strong></p>
-                    <div class="hl-journal">npj Systems Biology and Applications 11, 34 (2025)</div>
-                </div>
-            </article>
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => setTopic(button.dataset.topic));
+  });
 
-            <article class="hl-card">
-                <div class="hl-img">
-                    <img src="https://placehold.co/600x300/111d2e/00e5ff?text=ML+Electrolytes" alt="Solid State ML">
-                </div>
-                <div class="hl-body">
-                    <div class="hl-tag">Energy Materials · 2025</div>
-                    <h3 class="hl-title">Accelerating discovery and design of high-performance solid-state electrolytes: a machine learning approach</h3>
-                    <p class="hl-authors">Sewak, Sudarsanan, <strong>H. Kumar</strong></p>
-                    <div class="hl-journal">Phys. Chem. Chem. Phys. 27, 3834-3843 (2025)</div>
-                </div>
-            </article>
-
-            <article class="hl-card">
-                <div class="hl-img">
-                    <img src="https://placehold.co/600x300/111d2e/ffb300?text=MXene+DFT" alt="MXene">
-                </div>
-                <div class="hl-body">
-                    <div class="hl-tag">Energy Materials · 2025</div>
-                    <h3 class="hl-title">Enhancing MXene electrochemistry through spatial control of O and F termination distributions</h3>
-                    <p class="hl-authors">Bera, Barik, <strong>H. Kumar</strong></p>
-                    <div class="hl-journal">Journal of Energy Storage 139, 118594 (2025)</div>
-                </div>
-            </article>
-
-        </div>
-
-        <div class="cat-title">
-            > Energy Materials & Devices <span class="cat-count">23 Papers</span>
-        </div>
-        <div class="pub-list">
-            <div class="pub-item"><div class="pub-num">51.</div><div class="pub-data"><h4 class="pub-title">Ultra High-Rate Performance LiFePO₄ Cathode Material for Next Generation Fast Charging Li-ion Batteries</h4><p class="pub-authors">Anandan Srinivasan, Ch. Gowthami, A. Venu Vinod, Manorama Pandey, <strong>Hemant Kumar</strong>, R. Vijay</p><p class="pub-journal">Journal of Power Sources — Just Accepted</p></div></div>
-            <div class="pub-item"><div class="pub-num">50.</div><div class="pub-data"><h4 class="pub-title">Enhancing MXene Electrochemistry through Spatial Control of O and F Termination Distributions</h4><p class="pub-authors">Saheb Bera, Sidhant Kumar Barik, <strong>Hemant Kumar</strong></p><p class="pub-journal">Journal of Energy Storage 139, 118594 (2025)</p></div></div>
-            <div class="pub-item"><div class="pub-num">49.</div><div class="pub-data"><h4 class="pub-title">Beyond Vehicular Transport: Fluorination-Induced Structural Diffusion in Ether Electrolytes</h4><p class="pub-authors">Sidhant Kumar Barik, <strong>Hemant Kumar</strong></p><p class="pub-journal">Journal of Materials Chemistry A — Just Accepted</p></div></div>
-            <div class="pub-item"><div class="pub-num">48.</div><div class="pub-data"><h4 class="pub-title">An aluminium-doped sodium manganese hexacyano ferrate cathode for high-rate safe Na-ion batteries</h4><p class="pub-authors">Mohana Sundaram Palvannan, S.K. Vineeth, Soumyashree Das Adhikari, Sanjay Kumar, Sennu Palanichamy, Chhail Bihari Soni, Mahesh Chandra, Sungjemmenla, <strong>Hemant Kumar</strong>, Vipin Kumar</p><p class="pub-journal">Chemical Communications (2025)</p></div></div>
-            <div class="pub-item"><div class="pub-num">47.</div><div class="pub-data"><h4 class="pub-title">Tailoring Electrochemical Properties of Ether-based Solvents through Fluorination-Driven Solvation Control</h4><p class="pub-authors">Sidhant Kumar Barik, Soumyashree Das Adhikari, <strong>Hemant Kumar</strong></p><p class="pub-journal">ACS Applied Energy Materials 8, 7673-7683 (2025)</p></div></div>
-            <div class="pub-item"><div class="pub-num">46.</div><div class="pub-data"><h4 class="pub-title">Bifunctional Current Collectors for Lean-Lithium Metal Batteries</h4><p class="pub-authors">Rajesh Rajsekharan, Renjith Nadarajan, Sweta Das, <strong>Hemant Kumar</strong>, Manikoth M. Shaijumon</p><p class="pub-journal">Advanced Functional Materials, 2502473 (2025)</p></div></div>
-            <div class="pub-item"><div class="pub-num">45.</div><div class="pub-data"><h4 class="pub-title">Accelerating discovery and design of high-performance solid-state electrolytes: a machine learning approach</h4><p class="pub-authors">Ram Sewak, Vishnu Sudarsanan, <strong>Hemant Kumar</strong></p><p class="pub-journal">Physical Chemistry Chemical Physics 27, 3834-3843 (2025)</p></div></div>
-            <div class="pub-item"><div class="pub-num">44.</div><div class="pub-data"><h4 class="pub-title">Sodium Metal Anode with Multiphasic Interphase for Room Temperature Sodium-Sulfur Pouch Cells</h4><p class="pub-authors">Chhail Bihari Soni, Sidhant Kumar Barik, Vineeth S.K., Bhupendra Yadav, Mahesh Chandra, Sungjemmenla, Sanjay Kumar, <strong>Hemant Kumar</strong>, Vipin Kumar</p><p class="pub-journal">Journal of Materials Chemistry A 13, 6813-6825 (2025)</p></div></div>
-            <div class="pub-item"><div class="pub-num">42.</div><div class="pub-data"><h4 class="pub-title">Enhancing MXene electrochemistry through spatial control of O and F termination distributions</h4><p class="pub-authors">Saheb Bera, Sidhant Kumar Barik, <strong>Hemant Kumar</strong></p><p class="pub-journal">Journal of Energy Storage 139, 118594 (2025)</p></div></div>
-            <div class="pub-item"><div class="pub-num">41.</div><div class="pub-data"><h4 class="pub-title">MXene Alloy-Based Metal-Semiconductor Contact for Low-Resistive Field-Effect Transistors</h4><p class="pub-authors">Saheb Bera, Deepanshu Koushik, <strong>Hemant Kumar</strong></p><p class="pub-journal">Communications Engineering — Just Accepted</p></div></div>
-            <div class="pub-item"><div class="pub-num">40.</div><div class="pub-data"><h4 class="pub-title">Room-Temperature Ferromagnetism and Nonlinear Phonon Dynamics in Atomically Thin 2H-CrS2 Nanosheets: Implications for Spintronics Applications</h4><p class="pub-authors">S Das, S Sahoo, PK Sahoo, <strong>H Kumar</strong>, N Mohapatra</p><p class="pub-journal">ACS Applied Nano Materials — Just accepted</p></div></div>
-            <div class="pub-item"><div class="pub-num">39.</div><div class="pub-data"><h4 class="pub-title">Resolving Atomic-Scale Stick-Slip and Sub-Moiré Frictional Modulation in Twisted Bilayers with Variable Tip Sizes</h4><p class="pub-authors">Sweta Das, Niharika Mohapatra, <strong>Hemant Kumar</strong></p><p class="pub-journal">Journal of Physics: Condensed Matter 37, 275001 (2025)</p></div></div>
-            <div class="pub-item"><div class="pub-num">38.</div><div class="pub-data"><h4 class="pub-title">Tailoring Contact Properties in Janus TMD Spin-FETs for Enhanced Spin Transport: A Bilayer Interface Approach</h4><p class="pub-authors">Saheb Bera, <strong>Hemant Kumar</strong></p><p class="pub-journal">ACS Applied Electronic Materials 7, 3324-3332 (2025)</p></div></div>
-            <div class="pub-item"><div class="pub-num">37.</div><div class="pub-data"><h4 class="pub-title">Tuning the local chemistry of SPAN to realize the development of room-temperature sodium–sulfur pouch cells</h4><p class="pub-authors">C. Sanjaykumar, Sungjemmenla, Mahesh Chandra, Chhail Bihari Soni, S. K. Vineeth, Sweta Das, Nevo Cohen, <strong>Hemant Kumar</strong>, Daniel Mandler, Vipin Kumar</p><p class="pub-journal">Journal of Materials Chemistry A 13, 1420-1429 (2024)</p></div></div>
-            <div class="pub-item"><div class="pub-num">36.</div><div class="pub-data"><h4 class="pub-title">Direct observation of sodium dendrites to decipher the complicated behavior of electrolyte systems</h4><p class="pub-authors">Bhupendra Yadav, Chhail Bihari Soni, Saheb Bera, <strong>Hemant Kumar</strong>, Vipin Kumar</p><p class="pub-journal">Electrochimica Acta 507, 145212 (2024)</p></div></div>
-            <div class="pub-item"><div class="pub-num">35.</div><div class="pub-data"><h4 class="pub-title">Altering Na-ion solvation to regulate dendrite growth for a reversible and stable room-temperature sodium-sulfur battery</h4><p class="pub-authors">Chhail Bihari Soni, Saheb Bera, Sungjemmenla, Mahesh Chandra, Vineeth S. K., Sanjay Kumar, <strong>Hemant Kumar</strong>, Vipin Kumar</p><p class="pub-journal">Journal of Materials Chemistry A 12, 21853-21863 (2024)</p></div></div>
-            <div class="pub-item"><div class="pub-num">34.</div><div class="pub-data"><h4 class="pub-title">Novel organic molecule enabling a highly-stable and reversible sodium metal anode for room-temperature sodium-metal batteries</h4><p class="pub-authors">Chhail Bihari Soni, Saheb Bera, SK Vineeth, <strong>Hemant Kumar</strong>, Vipin Kumar</p><p class="pub-journal">Journal of Energy Storage 71, 108132 (2023)</p></div></div>
-            <div class="pub-item"><div class="pub-num">32.</div><div class="pub-data"><h4 class="pub-title">Dipole Alignment of Water Molecules Flowing Through a Carbon Nanotube</h4><p class="pub-authors"><strong>Hemant Kumar</strong>, Saheb Bera, Subhadeep Dasgupta, A Sood, Chandan Dasgupta, Prabal Maiti</p><p class="pub-journal">Physical Review B 107, 165402 (2023)</p></div></div>
-            <div class="pub-item"><div class="pub-num">31.</div><div class="pub-data"><h4 class="pub-title">Flexible and wearable photonic-crystal fiber interferometer for physiological monitoring and healthcare</h4><p class="pub-authors">Pratik Mishra, Kalipada Chatterjee, <strong>Hemant Kumar</strong>, Rajan Jha</p><p class="pub-journal">ACS Applied Optical Materials 1, 569-577 (2023)</p></div></div>
-            <div class="pub-item"><div class="pub-num">30.</div><div class="pub-data"><h4 class="pub-title">Human Pulse and Respiration Monitoring: Reconfigurable and Scalable Balloon‐Shaped Fiber Wearables</h4><p class="pub-authors">P Mishra, <strong>H Kumar</strong>, S Sahu, R Jha</p><p class="pub-journal">Advanced Materials Technologies 8, 2300429 (2023)</p></div></div>
-            <div class="pub-item"><div class="pub-num">29.</div><div class="pub-data"><h4 class="pub-title">Flexible and Wearable Optical System Based on U-shaped Cascaded Microfiber Interferometer</h4><p class="pub-authors">Pratik Mishra, <strong>Hemant Kumar</strong>, Subrat Sahu, Rajan Jha</p><p class="pub-journal">Advanced Materials Technologies 8, 2200661 (2023)</p></div></div>
-            <div class="pub-item"><div class="pub-num">28.</div><div class="pub-data"><h4 class="pub-title">Phase Stability of MXenes: Understanding the Role of Coordination Symmetries, Transition Metals, and Surface Terminations</h4><p class="pub-authors">Saheb Bera, <strong>Hemant Kumar</strong></p><p class="pub-journal">Journal of Physical Chemistry C 127, 20734-20741 (2023)</p></div></div>
-            <div class="pub-item"><div class="pub-num">27.</div><div class="pub-data"><h4 class="pub-title">Narrow-Bandgap LaMO3 (M = Ni, Co) nanomaterials for an efficient interfacial solar steam generation</h4><p class="pub-authors">Tawseef Ahmad Wani, Parul Garg, Saheb Bera, Sanchari Bhattacharya, Sanjoy Dutta, <strong>Hemant Kumar</strong>, Ashok Bera</p><p class="pub-journal">Journal of Colloid and Interface Science 612, 203-212 (2022)</p></div></div>
-        </div>
-
-        <div class="cat-title">
-            > Genome Organization & Biophysics <span class="cat-count">3 Papers</span>
-        </div>
-        <div class="pub-list">
-            <div class="pub-item"><div class="pub-num">43.</div><div class="pub-data"><h4 class="pub-title">Predicting Gene Expression Changes from Chromatin Structure Modification</h4><p class="pub-authors">Swayamshree Senapati, Innayat Irshad, Ajeet K Sharma, <strong>Hemant Kumar</strong></p><p class="pub-journal">npj Systems Biology and Applications 11, 34 (2025)</p></div></div>
-            <div class="pub-item"><div class="pub-num">33.</div><div class="pub-data"><h4 class="pub-title">Fundamental insights into the correlation between chromosome configuration and transcription</h4><p class="pub-authors">Swayamshree Senapati, Innayat Irshad, Ajeet K Sharma, <strong>Hemant Kumar</strong></p><p class="pub-journal">Physical Biology 20, 051002 (2023)</p></div></div>
-            <div class="pub-item"><div class="pub-num">26.</div><div class="pub-data"><h4 class="pub-title">Quantitative Modeling of Protein Synthesis Using Ribosome Profiling Data</h4><p class="pub-authors">Vandana Yadav, Inayat Ullah Irshad, <strong>Hemant Kumar</strong>, Ajeet K Sharma</p><p class="pub-journal">Frontiers in Molecular Biosciences 8, 537 (2021)</p></div></div>
-        </div>
-
-        <button class="toggle-btn" id="toggle-btn" onclick="toggleBefore()">
-            $ <span id="btn-text">expand_archive --before-iitbbs</span><span class="blink">█</span>
-        </button>
-        
-        <div class="collapse-content" id="before-content">
-            <div class="pub-list">
-                <div class="pub-item"><div class="pub-num">25.</div><div class="pub-data"><h4 class="pub-title">Tunable strain soliton networks confine electrons in Van der Waals materials</h4><p class="pub-authors">Drew Edelberg, <strong>Hemant Kumar</strong>, Vivek Shenoy, Héctor Ochoa, Abhay N Pasupathy</p><p class="pub-journal">Nature Physics 16, 1097-1102 (2020)</p></div></div>
-                <div class="pub-item"><div class="pub-num">24.</div><div class="pub-data"><h4 class="pub-title">Biomolecule Sensing by Surface-Enhanced Raman Scattering of Monolayer Janus Transition Metal Dichalcogenide</h4><p class="pub-authors">S. Jia, A. Bandyopadhyay, <strong>Hemant Kumar</strong>, Jing Zhang, Weipeng Wang, Tianshu Zhai, Vivek B Shenoy, Jun Lou</p><p class="pub-journal">Nanoscale 12, 10723-10729 (2020)</p></div></div>
-                <div class="pub-item"><div class="pub-num">23.</div><div class="pub-data"><h4 class="pub-title">High‐Rate and Long Cycle‐Life Alloy‐Type Magnesium‐Ion Battery Anode Enabled Through Demagnesiation Induced Near‐Room‐Temperature Solid-Liquid Phase Transformation</h4><p class="pub-authors">L Wang, SS Welborn, <strong>Hemant Kumar</strong>, M Li, Z Wang, V. Shenoy, Eric Detsi</p><p class="pub-journal">Advanced Energy Materials 4, 1902086 (2019) — Cover Article</p></div></div>
-                <div class="pub-item"><div class="pub-num">22.</div><div class="pub-data"><h4 class="pub-title">Magnesium-Ion batteries: High-rate and Long cycle-Life Alloy-Type Magnesium-Ion battery Anode</h4><p class="pub-authors">Eric Detsi, Lin Wang, Samuel S Welborn, <strong>Hemant Kumar</strong>, Manni Li, Zeya Wang, Vivek B Shenoy</p><p class="pub-journal">Advanced Energy Materials 9, 1970180 (2019)</p></div></div>
-                <div class="pub-item"><div class="pub-num">21.</div><div class="pub-data"><h4 class="pub-title">Degradation of magnesium-ion battery anodes by galvanic replacement reaction in all-phenyl complex electrolyte</h4><p class="pub-authors">Zeyu Wang, Arkamita Bandyopadhyay, <strong>Hemant Kumar</strong>, Manni Li, Akshaya Venkatakrishnan, Vivek B Shenoy, Eric Detsi</p><p class="pub-journal">Journal of Energy Storage 23, 195–201 (2019)</p></div></div>
-                <div class="pub-item"><div class="pub-num">20.</div><div class="pub-data"><h4 class="pub-title">Surface-Engineered MXenes: Electric Field Control of Magnetism and Enhanced Magnetic Anisotropy</h4><p class="pub-authors">Nathan C. Frey, Arkamita Bandyopadhyay, <strong>Hemant Kumar</strong>, Babak Anasori, Yury Gogotsi, Vivek B. Shenoy</p><p class="pub-journal">ACS Nano 13, 2831–2839 (2019)</p></div></div>
-                <div class="pub-item"><div class="pub-num">19.</div><div class="pub-data"><h4 class="pub-title">Effect of Cobalt Content on the Electrochemical Properties and Structural Stability of NCA Type Cathode Materials</h4><p class="pub-authors">Kamalika Ghatak, Swastik Basu, Tridip Das, <strong>Hemant Kumar</strong>, Dibakar Datta</p><p class="pub-journal">Physical Chemistry Chemical Physics 20, 22805-22817 (2018)</p></div></div>
-                <div class="pub-item"><div class="pub-num">18.</div><div class="pub-data"><h4 class="pub-title">Prediction of Enhanced Catalytic Activity for Hydrogen Evolution Reaction in Janus Transition Metal Dichalcogenides</h4><p class="pub-authors">Dequan Er, Han Ye, Nathan C. Frey, <strong>Hemant Kumar</strong>, Jun Lou, Vivek B. Shenoy</p><p class="pub-journal">Nano Letters 18, 3943–3949 (2018)</p></div></div>
-                <div class="pub-item"><div class="pub-num">17.</div><div class="pub-data"><h4 class="pub-title">Prediction of optimal structural water concentration for maximized performance in transition-metal oxide electrodes</h4><p class="pub-authors">Nathan C. Frey, Bryan Byles, <strong>Hemant Kumar</strong>, Ekaterina Pomerantseva, Vivek B. Shenoy</p><p class="pub-journal">Physical Chemistry Chemical Physics 20, 9480–9487 (2018)</p></div></div>
-                <div class="pub-item"><div class="pub-num">16.</div><div class="pub-data"><h4 class="pub-title">In-situ Dealloying of Bulk Mg2Sn in Mg-Ion Half Cell as an Effective Route to Nanostructured Sn for High-Performance Mg-Ion Battery Anodes</h4><p class="pub-authors">Hooman Yaghoobnejad Asl, Jintao Fu, <strong>Hemant Kumar</strong>, Samuel S. Welborn, Vivek B. Shenoy, Eric Detsi</p><p class="pub-journal">ACS Chemistry of Materials 30, 1815-1824 (2018) — Cover Article</p></div></div>
-                <div class="pub-item"><div class="pub-num">15.</div><div class="pub-data"><h4 class="pub-title">Fundamental Mechanisms of Solvent Decomposition Involved in SEI Formation in Sodium-Ion Batteries</h4><p class="pub-authors"><strong>Hemant Kumar</strong>, Eric Detsi, Daniel Abraham, Vivek B. Shenoy</p><p class="pub-journal">ACS Chemistry of Materials 28, 8930–8941 (2017)</p></div></div>
-                <div class="pub-item"><div class="pub-num">14.</div><div class="pub-data"><h4 class="pub-title">Defective Graphene and Graphene Allotropes as High Capacity Anode Materials for Mg-ion Batteries</h4><p class="pub-authors">D. Er, Eric Detsi, <strong>Hemant Kumar</strong>, Vivek B. Shenoy</p><p class="pub-journal">ACS Energy Letters 1, 638–645 (2016)</p></div></div>
-                <div class="pub-item"><div class="pub-num">13.</div><div class="pub-data"><h4 class="pub-title">Phase Transition in Monolayer Water Confined in Janus Nanopore</h4><p class="pub-authors"><strong>Hemant Kumar</strong>, Chandan Dasgupta, Prabal K. Maiti</p><p class="pub-journal">Langmuir 34, 12199–12205 (2018)</p></div></div>
-                <div class="pub-item"><div class="pub-num">12.</div><div class="pub-data"><h4 class="pub-title">Confined Water: Structure, Dynamics and Thermodynamics</h4><p class="pub-authors">Sudip Chakraborty, <strong>Hemant Kumar</strong>, Chandan Dasgupta, Prabal K. Maiti</p><p class="pub-journal">Accounts of Chem. Res. 50, 2139–2146 (2017)</p></div></div>
-                <div class="pub-item"><div class="pub-num">11.</div><div class="pub-data"><h4 class="pub-title">Tuning noncollinear spin structure and anisotropy in ferromagnetic nitride MXenes</h4><p class="pub-authors">Nathan C. Frey, <strong>Hemant Kumar</strong>, Babak Anasori, Yury Gogotsi, Vivek B. Shenoy</p><p class="pub-journal">ACS Nano 12, 6319-6325 (2018)</p></div></div>
-                <div class="pub-item"><div class="pub-num">10.</div><div class="pub-data"><h4 class="pub-title">Tunable Magnetism and Transport Properties in Nitride MXenes</h4><p class="pub-authors"><strong>Hemant Kumar</strong>, Nathan C. Frey, Liang Dong, Babak Anasori, Yury Gogotsi, Vivek B. Shenoy</p><p class="pub-journal">ACS Nano 11, 7648-7655 (2017) — Featured on cover</p></div></div>
-                <div class="pub-item"><div class="pub-num">9.</div><div class="pub-data"><h4 class="pub-title">Rational Design of 2-Dimensional Metallic and Semiconducting Spintronic Materials Based on Ordered Double-Transition-Metal MXenes</h4><p class="pub-authors">Liang Dong, <strong>Hemant Kumar</strong>, Babak Anasori, Yury Gogotsi, Vivek B. Shenoy</p><p class="pub-journal">J. Phys. Chem. Lett. 8, 422-428 (2017)</p></div></div>
-                <div class="pub-item"><div class="pub-num">8.</div><div class="pub-data"><h4 class="pub-title">Limits of Coherency and Strain Transfer in Flexible 2D van der Waals Heterostructures: Formation of Strain Solitons and Interlayer Debonding</h4><p class="pub-authors"><strong>Hemant Kumar</strong>, Liang Dong, Vivek B. Shenoy</p><p class="pub-journal">Scientific Reports 5, 21516 (2016)</p></div></div>
-                <div class="pub-item"><div class="pub-num">7.</div><div class="pub-data"><h4 class="pub-title">Elastic deformations in 2D van der Waals heterostructures and their impact on optoelectronic properties: predictions from a multiscale computational approach</h4><p class="pub-authors"><strong>Hemant Kumar</strong>, Dequan Er, Liang Dong, Junwen Li, Vivek B Shenoy</p><p class="pub-journal">Scientific Reports 5, 10872 (2015)</p></div></div>
-                <div class="pub-item"><div class="pub-num">6.</div><div class="pub-data"><h4 class="pub-title">Driving Force for water entry in hydrophobic carbon nanotube: Energy or Entropy</h4><p class="pub-authors"><strong>Hemant Kumar</strong>, Chandan Dasgupta, Prabal K. Maiti</p><p class="pub-journal">Molecular Simulation 41, 504-511 (2015)</p></div></div>
-                <div class="pub-item"><div class="pub-num">5.</div><div class="pub-data"><h4 class="pub-title">Structure, Dynamics and Thermodynamics of Single-file Water Under Confinement: Effects of Polarizability of Water Molecules</h4><p class="pub-authors"><strong>Hemant Kumar</strong>, Chandan Dasgupta, Prabal K. Maiti</p><p class="pub-journal">RSC Adv. 5, 1893–1901 (2014)</p></div></div>
-                <div class="pub-item"><div class="pub-num">4.</div><div class="pub-data"><h4 class="pub-title">Confinement Induced Stochastic Sensing of Charged Coronene and Perylene Aggregates in alpha-Hemolysin Nanochannel</h4><p class="pub-authors">R. Shivanna, D. Pramanik, <strong>Hemant Kumar</strong>, et al.</p><p class="pub-journal">Soft Matter 9, 10196-10202 (2013)</p></div></div>
-                <div class="pub-item"><div class="pub-num">3.</div><div class="pub-data"><h4 class="pub-title">Biopolymers in nanopores: challenges and opportunities</h4><p class="pub-authors"><strong>Hemant Kumar</strong>, Yves Lansac, Matt. Glaser, Prabal K. Maiti</p><p class="pub-journal">Soft Matter 7, 5898–5907 (2011)</p></div></div>
-                <div class="pub-item"><div class="pub-num">2.</div><div class="pub-data"><h4 class="pub-title">Thermodynamics of water entry in hydrophobic channels of carbon nanotubes</h4><p class="pub-authors"><strong>Hemant Kumar</strong>, Biswaroop Mukherjee, Chandan Dasgupta, A.K. Sood, S.T. Lin, Prabal K. Maiti</p><p class="pub-journal">J. Chem. Phys. 134, 124105 (2011)</p></div></div>
-                <div class="pub-item"><div class="pub-num">1.</div><div class="pub-data"><h4 class="pub-title">Introduction to molecular dynamics simulation</h4><p class="pub-authors"><strong>Hemant Kumar</strong>, Prabal K. Maiti</p><p class="pub-journal">Computational Statistical Physics: Lecture Notes, Guwahati SERC School, 298 (2011) — Book Chapter</p></div></div>
-            </div>
-        </div>
-
-    </main>
-
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <div>
-                <div class="footer-brand">SCALE · Computational Soft and Living Matter · IIT Bhubaneswar</div>
-                <div class="footer-sub">School of Basic Sciences · Dr. Hemant Kumar · hemant@iitbbs.ac.in</div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        function toggleBefore() {
-            const content = document.getElementById("before-content");
-            const btnText = document.getElementById("btn-text");
-            if(content.classList.contains("open")) {
-                content.classList.remove("open");
-                btnText.innerText = "expand_archive --before-iitbbs";
-            } else {
-                content.classList.add("open");
-                btnText.innerText = "collapse_archive --before-iitbbs";
-            }
-        }
-    </script>
-
+  setTopic('all');
+})();
+</script>
+<script src="theme-switcher.js"></script>
 </body>
 </html>

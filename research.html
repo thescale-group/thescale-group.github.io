@@ -1,376 +1,385 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="mist-alloy">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Research Vision — SCALE Group · Computational Soft and Living Matter · IIT Bhubaneswar">
-    <title>Research | SCALE · IIT Bhubaneswar</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --void: #060a10; --deep: #0b1220; --surface: #111d2e; --surface-hi: #162638;
-            --cyan: #00e5ff; --cyan-dim: rgba(0,229,255,0.1); --cyan-glow: rgba(0,229,255,0.05);
-            --amber: #ffb300; --amber-dim: rgba(255,179,0,0.1);
-            --green: #00ff88; --green-dim: rgba(0,255,136,0.07);
-            --violet: #a78bfa; --violet-dim: rgba(167,139,250,0.1);
-            --paper: #e8f0f7; --paper-dim: #7a93ad;
-            --border-c: rgba(0,229,255,0.1);
-            --font-serif: 'EB Garamond', serif;
-            --font-sans: 'IBM Plex Sans', sans-serif;
-            --font-mono: 'IBM Plex Mono', monospace;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Research in the SCALE Group connects structure-property relationships across soft matter, ionic liquids, inorganic-polymer composite electrolytes, energy materials, polymer models of DNA, machine-learning potentials, and kinetic Monte Carlo methods.">
+  <meta name="keywords" content="multiscale simulation, structure property relationship, soft matter physics, ionic transport, molecular dynamics, machine learning potentials, kinetic Monte Carlo, composite electrolytes, sodium sulfur batteries, genome organization">
+  <meta name="author" content="Dr. Hemant Kumar, SCALE Group, IIT Bhubaneswar">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#3f4a54">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The SCALE Group">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:title" content="Research | SCALE IITBBS">
+  <meta property="og:description" content="Research in the SCALE Group connects structure-property relationships across soft matter, ionic liquids, inorganic-polymer composite electrolytes, energy materials, polymer models of DNA, machine-learning potentials, and kinetic Monte Carlo methods.">
+  <meta property="og:image" content="https://thescale-group.github.io/assets/images/homepage.png">
+  <meta property="og:image:alt" content="SCALE Group computational research illustration">
+  <meta property="og:url" content="https://thescale-group.github.io/research.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Research | SCALE IITBBS">
+  <meta name="twitter:description" content="Research in the SCALE Group connects structure-property relationships across soft matter, ionic liquids, inorganic-polymer composite electrolytes, energy materials, polymer models of DNA, machine-learning potentials, and kinetic Monte Carlo methods.">
+  <meta name="twitter:image" content="https://thescale-group.github.io/assets/images/homepage.png">
+  <link rel="canonical" href="https://thescale-group.github.io/research.html">
+  <title>Research | SCALE IITBBS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script id="theme-bootstrap">{const t=new URLSearchParams(location.search).get('theme')||'mist-alloy'; if(t&&t!=='default'&&t!=='reset') document.documentElement.dataset.theme=t;}</script>
+  <link rel="stylesheet" href="scale.css?v=20260513-theme2">
+<script type="application/ld+json" id="page-jsonld">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://thescale-group.github.io/#website",
+      "name": "The SCALE Group",
+      "alternateName": "Simulation of Complex Systems Across Length and Energy Group",
+      "url": "https://thescale-group.github.io/",
+      "publisher": {
+        "@id": "https://thescale-group.github.io/#organization"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "ResearchOrganization",
+      "@id": "https://thescale-group.github.io/#organization",
+      "name": "The SCALE Group, IIT Bhubaneswar",
+      "alternateName": "Simulation of Complex Systems Across Length and Energy Group",
+      "url": "https://thescale-group.github.io/",
+      "image": "https://thescale-group.github.io/assets/images/homepage.png",
+      "description": "Research in the SCALE Group connects structure-property relationships across soft matter, ionic liquids, inorganic-polymer composite electrolytes, energy materials, polymer models of DNA, machine-learning potentials, and kinetic Monte Carlo methods.",
+      "parentOrganization": {
+        "@type": "CollegeOrUniversity",
+        "name": "Indian Institute of Technology Bhubaneswar"
+      },
+      "department": {
+        "@type": "Organization",
+        "name": "Department of Physics, School of Basic Sciences"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Room 133, Department of Physics,",
+        "addressLocality": "Argul, Jatni",
+        "addressRegion": "Odisha",
+        "postalCode": "752050",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://scholar.google.com/citations?user=oaTIUtkAAAAJ&hl=en",
+        "https://sbs.iitbbs.ac.in/index.php/hemantkumar/",
+        "https://www.linkedin.com/in/hemant-kumar-b3969862"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Dr. Hemant Kumar",
+        "affiliation": "IIT Bhubaneswar",
+        "sameAs": [
+          "https://scholar.google.com/citations?user=oaTIUtkAAAAJ&hl=en",
+          "https://www.linkedin.com/in/hemant-kumar-b3969862"
+        ]
+      },
+      "knowsAbout": [
+        "Molecular dynamics",
+        "Multiscale modelling",
+        "Soft matter physics",
+        "Battery electrolytes",
+        "Ionic transport",
+        "Solid electrolytes",
+        "Machine learning potentials",
+        "Kinetic Monte Carlo",
+        "Genome biophysics",
+        "Polymer models of DNA",
+        "Nanoscale interfaces",
+        "Two-dimensional materials",
+        "MXenes",
+        "Confined water"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://thescale-group.github.io/research.html#webpage",
+      "url": "https://thescale-group.github.io/research.html",
+      "name": "Research | SCALE IITBBS",
+      "description": "Research in the SCALE Group connects structure-property relationships across soft matter, ionic liquids, inorganic-polymer composite electrolytes, energy materials, polymer models of DNA, machine-learning potentials, and kinetic Monte Carlo methods.",
+      "isPartOf": {
+        "@id": "https://thescale-group.github.io/#website"
+      },
+      "about": {
+        "@id": "https://thescale-group.github.io/#organization"
+      },
+      "keywords": "multiscale simulation, structure property relationship, soft matter physics, ionic transport, molecular dynamics, machine learning potentials, kinetic Monte Carlo, composite electrolytes, sodium sulfur batteries, genome organization",
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://thescale-group.github.io/research.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://thescale-group.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research",
+          "item": "https://thescale-group.github.io/research.html"
         }
-
-        html { scroll-behavior: smooth; }
-        body { font-family: var(--font-sans); background: var(--void); color: var(--paper); overflow-x: hidden; line-height: 1.6; }
-        body::before { content: ''; position: fixed; inset: 0; z-index: 0; background-image: linear-gradient(rgba(0,229,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.025) 1px, transparent 1px); background-size: 44px 44px; pointer-events: none; }
-        a { color: var(--cyan); text-decoration: none; transition: .2s; }
-        a:hover { color: #fff; }
-
-        /* ── NAV ── */
-        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; background: rgba(6,10,16,0.88); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-c); }
-        .nav-logo { font-family: var(--font-mono); font-size: .78rem; font-weight: 500; color: var(--cyan); display: flex; align-items: center; gap: 8px; }
-        .nav-logo-b { color: var(--paper-dim); }
-        .nav-logo::before { content: '▸ '; color: var(--green); animation: blink 1.2s step-end infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
-        .nav-links { display: flex; list-style: none; }
-        .nav-links a { font-family: var(--font-mono); font-size: .7rem; color: var(--paper-dim); padding: 6px 16px; border-right: 1px solid var(--border-c); transition: .2s; }
-        .nav-links li:first-child a { border-left: 1px solid var(--border-c); }
-        .nav-links a:hover, .nav-links a.active { color: var(--cyan); background: var(--cyan-dim); }
-
-        /* ── LAYOUT ── */
-        .page-wrap { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 100px 48px 80px; }
-        .page-header { margin-bottom: 56px; }
-        .eyebrow { font-family: var(--font-mono); font-size: .62rem; letter-spacing: 3px; text-transform: uppercase; color: var(--green); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-        .eyebrow::before { content: '//'; color: var(--paper-dim); }
-        .page-title { font-family: var(--font-serif); font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 700; color: #fff; letter-spacing: -.3px; margin-bottom: 16px; }
-        .page-intro { font-size: 1.05rem; color: var(--paper-dim); max-width: 800px; line-height: 1.8; font-weight: 300; }
-
-        /* ── RESEARCH NAV TABS ── */
-        .r-tabs { display: flex; flex-wrap: wrap; gap: 0; margin-bottom: 80px; border: 1px solid var(--border-c); border-radius: 2px; overflow: hidden; }
-        .r-tab { flex: 1; min-width: 150px; padding: 16px 8px; text-align: center; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .5px; color: var(--paper-dim); background: var(--deep); border-right: 1px solid var(--border-c); border-bottom: 1px solid transparent; cursor: pointer; transition: .2s; }
-        .r-tab:last-child { border-right: none; }
-        .r-tab:hover { color: var(--paper); background: var(--surface); }
-        .r-tab.active { color: var(--cyan); background: var(--cyan-dim); }
-        .r-tab .tab-num { display: block; font-size: .55rem; color: var(--paper-dim); margin-bottom: 4px; }
-        .r-tab.active .tab-num { color: var(--cyan); opacity: .6; }
-
-        /* ── SECTION STRUCTURE ── */
-        .research-section { margin-bottom: 120px; scroll-margin-top: 100px; }
-        .section-header { display: grid; grid-template-columns: 4px 1fr; gap: 20px; align-items: center; margin-bottom: 40px; }
-        .section-bar-genome  { background: var(--violet); height: 100%; border-radius: 2px; }
-        .section-bar-electro { background: var(--cyan); height: 100%; border-radius: 2px; }
-        .section-bar-anode   { background: var(--amber); height: 100%; border-radius: 2px; }
-        .section-bar-tools   { background: var(--green); height: 100%; border-radius: 2px; }
-
-        .section-code { font-family: var(--font-mono); font-size: .62rem; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 4px; }
-        .section-code.genome  { color: var(--violet); }
-        .section-code.electro { color: var(--cyan); }
-        .section-code.anode   { color: var(--amber); }
-        .section-code.tools   { color: var(--green); }
-        .section-title { font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: #fff; line-height: 1.1; }
-
-        /* ── VISION LAYOUT (Text + Image) ── */
-        .vision-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; margin-bottom: 48px; }
-        .vision-text h3 { font-family: var(--font-mono); font-size: .75rem; letter-spacing: 2px; text-transform: uppercase; color: #fff; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; }
-        .vision-text p { font-size: 1rem; color: var(--paper-dim); line-height: 1.8; margin-bottom: 32px; }
-        .vision-text p strong { color: var(--paper); font-weight: 500; }
-
-        .vision-img { width: 100%; height: 350px; border-radius: 4px; border: 1px solid var(--border-c); overflow: hidden; background: var(--deep); position: relative; }
-        .vision-img img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.8) brightness(0.9); transition: transform 0.5s, filter 0.5s; }
-        .vision-img:hover img { transform: scale(1.03); filter: saturate(1.1) brightness(1); }
-
-        /* ── MILESTONES / EXAMPLES BOX ── */
-        .milestones-box { background: var(--deep); border: 1px solid var(--border-c); border-radius: 4px; padding: 32px; position: relative; }
-        .milestones-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; }
-        .milestones-box.genome::before { background: var(--violet); }
-        .milestones-box.electro::before { background: var(--cyan); }
-        .milestones-box.anode::before { background: var(--amber); }
-
-        .milestones-title { font-family: var(--font-mono); font-size: .7rem; letter-spacing: 2px; text-transform: uppercase; color: #fff; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
-        .milestones-title::before { content: '>>'; color: var(--paper-dim); }
-
-        .milestone-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
-        .milestone-item { font-size: .9rem; color: var(--paper-dim); line-height: 1.6; padding-left: 16px; position: relative; }
-        .milestone-item::before { content: '■'; position: absolute; left: 0; top: 0; font-size: .6rem; }
-        .milestone-item.genome::before { color: var(--violet); }
-        .milestone-item.electro::before { color: var(--cyan); }
-        .milestone-item.anode::before { color: var(--amber); }
-        .milestone-item strong { color: #fff; font-weight: 500; display: block; margin-bottom: 2px; }
-        .milestone-item em { font-style: normal; font-family: var(--font-mono); font-size: .7rem; opacity: 0.7; margin-left: 8px; }
-
-        /* ── TOOLS UNIFIED BLOCK ── */
-        .tools-unified { background: var(--surface); border: 1px solid var(--border-c); border-radius: 4px; padding: 48px; position: relative; overflow: hidden; text-align: center; }
-        .tools-unified::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: var(--green); }
-        .tools-body { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 32px; justify-content: center;}
-        
-        .tool-chip-large { 
-            font-family: var(--font-mono); font-size: 1rem; font-weight: 500;
-            padding: 16px 28px; border-radius: 4px; background: var(--deep); 
-            border: 1px solid rgba(0,255,136,0.2); color: var(--paper); 
-            transition: .3s; display: flex; align-items: center; gap: 12px; 
-        }
-        .tool-chip-large::before { content: '>'; font-size: .8rem; color: var(--green); font-weight: bold;}
-        .tool-chip-large:hover { border-color: var(--green); background: rgba(0,255,136,0.05); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,255,136,0.1);}
-
-        /* ── FOOTER ── */
-        .site-footer { position: relative; z-index: 1; border-top: 1px solid var(--border-c); padding: 48px; margin-top: 40px; }
-        .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; }
-        .footer-brand { font-family: var(--font-mono); font-size: .78rem; color: var(--cyan); margin-bottom: 6px; }
-        .footer-sub { font-size: .75rem; color: var(--paper-dim); line-height: 1.7; }
-
-        /* ── ANIMATIONS & RESPONSIVE ── */
-        .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
-        .reveal.visible { opacity: 1; transform: none; }
-
-        @media (max-width: 900px) {
-            .vision-layout { grid-template-columns: 1fr; gap: 32px; }
-            .vision-img { height: 250px; }
-        }
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .r-tabs { flex-direction: column; }
-            .r-tab { border-right: none; border-bottom: 1px solid var(--border-c); text-align: left; padding: 16px 24px; }
-            .tool-chip-large { width: 100%; justify-content: flex-start; }
-        }
-    </style>
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
-<nav>
-    <div class="nav-logo"><span class="nav-logo-b">[</span>SCALE<span class="nav-logo-b">]</span></div>
+<header class="site-header">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo"><strong>SCALE Group</strong><span>Simulation of Complex Systems Across Length and Energy</span></a>
     <ul class="nav-links">
-        <li><a href="index.html">home</a></li>
-        <li><a href="research.html" class="active">research</a></li>
-        <li><a href="publications.html">publications</a></li>
-        <li><a href="team.html">team</a></li>
-        <li><a href="teaching.html">teaching</a></li>
-        <li><a href="joinus.html">join_us</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html" class="active">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="joinus.html">Join Us</a></li>
     </ul>
-</nav>
+  </div>
+</header>
 
-<main class="page-wrap">
+<div class="page-hero">
+  <div class="container page-hero-inner research-simple-hero">
+    <h1 class="page-title">Research</h1>
+  </div>
+</div>
 
-    <div class="page-header reveal">
-        <div class="eyebrow">long_term_vision</div>
-        <h1 class="page-title">Research Vision</h1>
-        <p class="page-intro">
-            We are not just simulating materials; we are mapping the fundamental physical rules that govern complex systems. From predicting how atomic interfaces shape the future of the energy grid, to decoding how the 3D topology of DNA dictates the logic of life.
-        </p>
+<section class="research-map">
+  <div class="container">
+    <div class="research-map-intro research-map-text-only">
+      <p>Our research focuses on structure-property relationships across length and energy scales, from nanoscale materials and confined liquids to soft-matter and biological systems.</p>
+      <p>We use multiscale modelling rooted in soft matter physics, statistical mechanics, and atomistic simulation to study ionic transport, composite electrolytes, energy-material interfaces, and polymer models of genome organization.</p>
+      <p>Across these systems, molecular dynamics, coarse-grained models, machine-learning potentials, and kinetic Monte Carlo methods help connect microscopic structure and dynamics to mechanisms, predictions, and design rules.</p>
     </div>
+  </div>
+</section>
 
-    <div class="r-tabs reveal">
-        <div class="r-tab active" onclick="smoothScrollTo('genome')">
-            <span class="tab-num">01 ——</span>Genome Organization
+<!-- STICKY TABS -->
+<div class="research-tabs-wrap">
+  <div class="research-tabs">
+    <button class="r-tab active" type="button" data-id="liquid-electrolyte">Liquid Electrolyte</button>
+    <button class="r-tab" type="button" data-id="electrodes">Electrodes</button>
+    <button class="r-tab" type="button" data-id="solid-electrolyte">Solid Electrolyte</button>
+    <button class="r-tab" type="button" data-id="gene-regulation">Gene Regulation</button>
+    <button class="r-tab" type="button" data-id="nanoscale-physics">Nanoscale Physics</button>
+  </div>
+</div>
+
+<main>
+
+  <!-- LIQUID ELECTROLYTE -->
+  <div class="research-section" id="liquid-electrolyte">
+    <div class="container">
+      <div class="section-lead">
+        <div class="section-lead-bar bar-battery"></div>
+        <div>
+          <div class="code-label code-battery">Liquid Electrolyte</div>
+          <h2>Solvation, Transport, and Sodium-Sulfur Electrolytes</h2>
+          <p class="research-topic-summary">Classical and reactive MD are used to connect solvation-shell structure, weak-solvent exchange, fluorination, dendrite suppression, and room-temperature sodium-sulfur battery performance.</p>
         </div>
-        <div class="r-tab" onclick="smoothScrollTo('electrolytes')">
-            <span class="tab-num">02 ——</span>Electrolytes & Interfaces
-        </div>
-        <div class="r-tab" onclick="smoothScrollTo('electrodes')">
-            <span class="tab-num">03 ——</span>Quantum Electrodes
-        </div>
-        <div class="r-tab" onclick="smoothScrollTo('tools')">
-            <span class="tab-num">04 ——</span>Computational Toolkit
-        </div>
+      </div>
+      <div class="sub-grid">
+        <div class="sub-card battery"><div class="sub-num">L1</div><div class="sub-title">Solvation-Sheath Exchange</div><div class="sub-desc">Weak-solvent molecules and local coordination changes are treated as design variables for dual-ion pouch cells and sodium-metal stability.</div><div class="sub-tags"><span class="stag battery">Solvation shell</span><span class="stag battery">Na dual-ion</span><span class="stag battery">Pouch cells</span></div></div>
+        <div class="sub-card battery"><div class="sub-num">L2</div><div class="sub-title">Fluorination-Controlled Diffusion</div><div class="sub-desc">Fluorination changes ether-solvent structure, enabling transport mechanisms beyond simple vehicular ion motion.</div><div class="sub-tags"><span class="stag battery">Ether electrolytes</span><span class="stag battery">Structural diffusion</span><span class="stag battery">MD</span></div></div>
+        <div class="sub-card battery"><div class="sub-num">L3</div><div class="sub-title">Dendrites and Interphase Chemistry</div><div class="sub-desc">Electrolyte composition is linked to dendrite morphology, solvent decomposition, and stable multiphasic interphase formation.</div><div class="sub-tags"><span class="stag battery">Dendrites</span><span class="stag battery">SEI</span><span class="stag battery">ReaxFF</span></div></div>
+      </div>
+      <div class="pubs-block">
+        <div class="pubs-heading">Key Publications</div>
+        <div class="pub-row"><div><div class="pub-t"><a href="https://doi.org/10.1021/acsenergylett.5c03388" target="_blank" rel="noopener">Solvation Sheath Exchange with Weak-Solvent Molecules Enables the Development of Sodium Dual-Ion Pouch Cells</a></div><div class="pub-a">Sanjaykumar, Das Adhikari, Chandra, ..., <strong>H. Kumar</strong>, V. Kumar</div></div><div class="pub-j battery">ACS Energy Lett. 11 (2026)</div></div>
+        <div class="pub-row"><div><div class="pub-t"><a href="https://doi.org/10.1039/d5ta04224k" target="_blank" rel="noopener">Beyond Vehicular Transport: Fluorination-Induced Structural Diffusion in Ether Electrolytes</a></div><div class="pub-a">Barik, <strong>H. Kumar</strong></div></div><div class="pub-j battery">J. Mater. Chem. A 13, 30224 (2025)</div></div>
+        <div class="pub-row"><div><div class="pub-t"><a href="https://doi.org/10.1021/acsaem.5c00893" target="_blank" rel="noopener">Tailoring Electrochemical Properties of Ether-Based Solvents through Fluorination-Driven Solvation Control</a></div><div class="pub-a">Barik, Das Adhikari, <strong>H. Kumar</strong></div></div><div class="pub-j battery">ACS Appl. Energy Mater. 8, 5182 (2025)</div></div>
+      </div>
     </div>
+  </div>
 
-    <div class="research-section reveal" id="genome">
-        <div class="section-header">
-            <div class="section-bar-genome"></div>
-            <div class="section-head-inner">
-                <div class="section-code genome">// 01 · Biophysics & Epigenomics</div>
-                <h2 class="section-title">Genome Organization</h2>
-            </div>
+  <!-- ELECTRODES -->
+  <div class="research-section section-alt" id="electrodes">
+    <div class="container">
+      <div class="section-lead">
+        <div class="section-lead-bar bar-battery"></div>
+        <div>
+          <div class="code-label code-battery">Electrodes</div>
+          <h2>Electrode Materials and Interphases</h2>
+          <p class="research-topic-summary">We study how electrode surfaces, current collectors, interphases, and surface terminations control battery stability, rate performance, and reversibility.</p>
         </div>
-
-        <div class="vision-layout">
-            <div class="vision-text">
-                <h3>The Grand Challenge</h3>
-                <p>
-                    The genome is not a static, linear string of letters; it is a highly dynamic, 2-meter-long 3D polymer operating inside a microscopic nucleus. <strong>How this molecule folds physically determines which genes are expressed and which remain silent.</strong> Understanding these structural mechanics is the key to unlocking the mysteries of cellular differentiation, evolutionary biology, and genetic diseases.
-                </p>
-                <h3>Our Computational Approach</h3>
-                <p>
-                    We approach the nucleus through the lens of statistical polymer physics. By building advanced, physics-based simulations calibrated with experimental Hi-C contact maps, we recreate the folding architecture of chromosomes. We model the molecular motors (like CTCF and cohesin) that drive loop extrusion, allowing us to actively perturb the genome *in silico* and mathematically predict the resulting shifts in transcriptional output.
-                </p>
-            </div>
-            
-            <div class="vision-img">
-                <img src="https://placehold.co/1000x800/111d2e/a78bfa?text=3D+Chromatin+Polymer+Model" alt="Genome Folding Schematic">
-            </div>
-        </div>
-
-        <div class="milestones-box genome">
-            <div class="milestones-title">Recent Proofs of Concept</div>
-            <ul class="milestone-list">
-                <li class="milestone-item genome">
-                    <strong>Predicting Transcription Directly from Structure</strong> 
-                    We established a computational framework that quantitatively predicts gene expression levels directly from the 3D chromatin contact probability—bypassing the need for DNA sequence data entirely. <em>[npj Syst. Biol. Appl., 2025]</em>
-                </li>
-                <li class="milestone-item genome">
-                    <strong>Ribosome Dynamics & Information Flow</strong> 
-                    Beyond the nucleus, we extend our modeling to translation, using Ribo-seq data to build kinetic models that capture ribosome stacking and rate-limiting steps in protein synthesis. <em>[Front. Mol. Biosci., 2021]</em>
-                </li>
-            </ul>
-        </div>
+      </div>
+      <div class="sub-grid">
+        <div class="sub-card battery"><div class="sub-num">E1</div><div class="sub-title">Current Collectors and Metal Anodes</div><div class="sub-desc">Interfacial chemistry and current-collector design are connected to lean-lithium cycling, sodium-metal stability, and multiphasic interphase formation.</div><div class="sub-tags"><span class="stag battery">AFM</span><span class="stag battery">SEI</span><span class="stag battery">Li/Na metal</span></div></div>
+        <div class="sub-card battery"><div class="sub-num">E2</div><div class="sub-title">MXene-Terminated Electrode Surfaces</div><div class="sub-desc">Spatial control of O and F terminations is used to tune MXene electrochemistry and connect 2D surface chemistry with energy-storage performance.</div><div class="sub-tags"><span class="stag battery">MXenes</span><span class="stag battery">Surface terminations</span><span class="stag battery">Electrochemistry</span></div></div>
+        <div class="sub-card battery"><div class="sub-num">E3</div><div class="sub-title">Fast-Charging Cathodes and Alloy Anodes</div><div class="sub-desc">DFT and simulation support high-rate LiFePO4 cathodes, Prussian-blue analogues, Mg-Sn alloy anodes, and defective graphene-based electrode concepts.</div><div class="sub-tags"><span class="stag battery">DFT</span><span class="stag battery">LiFePO4</span><span class="stag battery">Mg-ion</span></div></div>
+      </div>
+      <div class="pubs-block">
+        <div class="pubs-heading">Key Publications</div>
+        <div class="pub-row"><div><div class="pub-t"><a href="https://doi.org/10.1002/adfm.202502473" target="_blank" rel="noopener">Bifunctional Current Collectors for Lean-Lithium Metal Batteries</a></div><div class="pub-a">Rajsekharan, Nadarajan, Das, <strong>H. Kumar</strong>, Shaijumon</div></div><div class="pub-j battery">Adv. Funct. Mater. 2502473 (2025)</div></div>
+        <div class="pub-row"><div><div class="pub-t"><a href="https://doi.org/10.1016/j.est.2025.118594" target="_blank" rel="noopener">Enhancing MXene Electrochemistry through Spatial Control of O and F Termination Distributions</a></div><div class="pub-a">Bera, Barik, <strong>H. Kumar</strong></div></div><div class="pub-j battery">J. Energy Storage 139, 118594 (2025)</div></div>
+        <div class="pub-row"><div><div class="pub-t"><a href="https://doi.org/10.1016/j.jpowsour.2025.238537" target="_blank" rel="noopener">Ultra High-Rate Performance LiFePO4 Cathode Material for Next Generation Fast Charging Li-ion Batteries</a></div><div class="pub-a">Gowthami, Venu Vinod, Pandey, <strong>H. Kumar</strong>, et al.</div></div><div class="pub-j battery">J. Power Sources 660, 238537 (2025)</div></div>
+      </div>
     </div>
+  </div>
 
-    <div class="research-section reveal" id="electrolytes">
-        <div class="section-header">
-            <div class="section-bar-electro"></div>
-            <div class="section-head-inner">
-                <div class="section-code electro">// 02 · Sustainable Energy</div>
-                <h2 class="section-title">Electrolytes & Interphases</h2>
-            </div>
+  <!-- SOLID ELECTROLYTE -->
+  <div class="research-section" id="solid-electrolyte">
+    <div class="container">
+      <div class="section-lead">
+        <div class="section-lead-bar bar-battery"></div>
+        <div>
+          <div class="code-label code-battery">Solid Electrolyte</div>
+          <h2>Machine-Learning Discovery of Solid Electrolytes</h2>
+          <p class="research-topic-summary">DFT data, graph models, and descriptor-driven screening are used to accelerate the search for stable, high-conductivity solid-state electrolytes.</p>
         </div>
-
-        <div class="vision-layout">
-            <div class="vision-text">
-                <h3>The Grand Challenge</h3>
-                <p>
-                    The global transition to a sustainable energy grid requires batteries that charge in minutes, hold massive amounts of energy, and will never catch fire. The primary bottleneck holding back this reality is the <strong>electrolyte and its highly reactive interface with the metal anode (the SEI).</strong> We must move beyond trial-and-error chemistry to rationally design ion-transport highways.
-                </p>
-                <h3>Our Computational Approach</h3>
-                <p>
-                    We explore the entire spectrum of ion transport. For liquid systems, we utilize classical MD to understand how manipulating solvent chemistry (like fluorination) alters atomic solvation shells and suppresses dendrite growth. For the future of batteries, we train <strong>Graph Neural Networks</strong> on quantum-mechanical DFT data to rapidly screen thousands of novel solid-state electrolyte structures, discovering safe, hyper-conductive ceramics.
-                </p>
-            </div>
-            
-            <div class="vision-img">
-                <img src="https://placehold.co/1000x800/111d2e/00e5ff?text=Solid-State+Electrolyte+Interface" alt="Electrolyte Simulation">
-            </div>
-        </div>
-
-        <div class="milestones-box electro">
-            <div class="milestones-title">Recent Proofs of Concept</div>
-            <ul class="milestone-list">
-                <li class="milestone-item electro">
-                    <strong>AI-Accelerated Solid-State Discovery</strong> 
-                    We deployed machine learning to screen vast compositional spaces, identifying unprecedented solid-state sodium-ion conductors with ideal electrochemical stability windows. <em>[PCCP, 2025]</em>
-                </li>
-                <li class="milestone-item electro">
-                    <strong>Decoding Solvation Mechanics</strong> 
-                    By atomistically simulating fluorinated ether-based solvents, we discovered structural diffusion mechanisms that fundamentally change how we suppress dendrite growth in room-temperature batteries. <em>[J. Mater. Chem. A, 2025; ACS Appl. Energy Mater., 2025]</em>
-                </li>
-            </ul>
-        </div>
+      </div>
+      <div class="sub-grid">
+        <div class="sub-card battery"><div class="sub-num">S1</div><div class="sub-title">DFT-Grounded Screening</div><div class="sub-desc">Electronic structure calculations provide stability, transport, and electrochemical-window information for candidate electrolyte materials.</div><div class="sub-tags"><span class="stag battery">DFT</span><span class="stag battery">AIMD</span><span class="stag battery">Stability window</span></div></div>
+        <div class="sub-card battery"><div class="sub-num">S2</div><div class="sub-title">Graph and Feature Models</div><div class="sub-desc">Machine-learning models translate structural features into fast screening criteria for ionic conductivity and phase stability.</div><div class="sub-tags"><span class="stag battery">Graph models</span><span class="stag battery">Descriptors</span><span class="stag battery">Screening</span></div></div>
+      </div>
+      <div class="pubs-block">
+        <div class="pubs-heading">Key Publications</div>
+        <div class="pub-row"><div><div class="pub-t"><a href="https://doi.org/10.1039/d4cp04043k" target="_blank" rel="noopener">Accelerating Discovery of Solid-State Electrolytes: Machine Learning Approach</a></div><div class="pub-a">Sewak, Sudarsanan, <strong>H. Kumar</strong></div></div><div class="pub-j battery">Phys. Chem. Chem. Phys. 27 (2025)</div></div>
+      </div>
     </div>
+  </div>
 
-    <div class="research-section reveal" id="electrodes">
-        <div class="section-header">
-            <div class="section-bar-anode"></div>
-            <div class="section-head-inner">
-                <div class="section-code anode">// 03 · Quantum Tunability</div>
-                <h2 class="section-title">Quantum Electrode Materials</h2>
-            </div>
+  <!-- GENE REGULATION -->
+  <div class="research-section section-alt" id="gene-regulation">
+    <div class="container">
+      <div class="section-lead">
+        <div class="section-lead-bar bar-genome"></div>
+        <div>
+          <div class="code-label code-genome">Gene Regulation</div>
+          <h2>Genome Organization, TADs, and Transcription Kinetics</h2>
+          <p class="research-topic-summary">Polymer models, Hi-C contact maps, and kinetic descriptions are combined to ask when 3D genome structure predicts transcriptional output and how enhancer-promoter dynamics control speed, noise, and energy trade-offs.</p>
         </div>
-
-        <div class="vision-layout">
-            <div class="vision-text">
-                <h3>The Grand Challenge</h3>
-                <p>
-                    Storing energy and processing information at the ultimate physical limit requires entirely new classes of materials. 2D materials (like MXenes) and complex intercalation lattices offer unprecedented tunability—but only if we can <strong>master their behavior at the quantum-mechanical level</strong> before heading to the synthesis lab.
-                </p>
-                <h3>Our Computational Approach</h3>
-                <p>
-                    Acting as theoretical architects, we rely on First-Principles Density Functional Theory (DFT) to build materials atom by atom. We predict complex phase diagrams, calculate intercalation voltages, and map electron spin densities. This allows us to explicitly design surface terminations for enhanced supercapacitors, or engineer Janus interfaces for next-generation Spintronic logic devices.
-                </p>
-            </div>
-            
-            <div class="vision-img">
-                <img src="https://placehold.co/1000x800/111d2e/ffb300?text=MXene+Quantum+Lattice" alt="MXene Lattice">
-            </div>
-        </div>
-
-        <div class="milestones-box anode">
-            <div class="milestones-title">Recent Proofs of Concept</div>
-            <ul class="milestone-list">
-                <li class="milestone-item anode">
-                    <strong>Design Rules for MXene Stability</strong> 
-                    We established comprehensive predictive maps detailing how coordination symmetry, transition metals, and surface terminations dictate the phase stability and electrochemical limits of MXenes. <em>[J. Phys. Chem. C, 2023; J. Energy Storage, 2025]</em>
-                </li>
-                <li class="milestone-item anode">
-                    <strong>Nanoscale Tribology & Spintronics</strong> 
-                    We identified a novel "sub-Moiré" friction mechanism operating within twisted bilayer heterostructures, and designed highly efficient spin-injection contacts using Janus TMD interfaces. <em>[J. Phys. Condens. Matter, 2025; ACS Nano, 2024]</em>
-                </li>
-            </ul>
-        </div>
+      </div>
+      <div class="sub-grid">
+        <div class="sub-card genome"><div class="sub-num">G1</div><div class="sub-title">3D Chromatin and TAD Architecture</div><div class="sub-desc">Bead-spring polymer simulations and contact maps capture how CTCF, cohesin, compartments, and TADs organize regulatory contacts.</div><div class="sub-tags"><span class="stag genome">Polymer MD</span><span class="stag genome">Hi-C</span><span class="stag genome">TADs</span></div></div>
+        <div class="sub-card genome"><div class="sub-num">G2</div><div class="sub-title">Structure-to-Expression Prediction</div><div class="sub-desc">Chromatin contact probability is used as a quantitative predictor of gene-expression changes after structural perturbation.</div><div class="sub-tags"><span class="stag genome">Gene expression</span><span class="stag genome">RNA-seq</span><span class="stag genome">Contact probability</span></div></div>
+        <div class="sub-card genome"><div class="sub-num">G3</div><div class="sub-title">Transcription Kinetics and Noise</div><div class="sub-desc">Coarse-grained and kinetic models describe enhancer-promoter condensate dynamics, transcriptional speed, noise, and energetic cost.</div><div class="sub-tags"><span class="stag genome">Kinetic model</span><span class="stag genome">E-P condensates</span><span class="stag genome">Noise</span></div></div>
+      </div>
+      <div class="pubs-block">
+        <div class="pubs-heading">Key Publications</div>
+        <div class="pub-row"><div><div class="pub-t"><a href="https://doi.org/10.1016/j.bpj.2026.02.015" target="_blank" rel="noopener">Kinetic Model of E-P Condensates Dynamics Reveals Transcriptional Speed, Noise, and Energy Trade-offs</a></div><div class="pub-a">Senapati, Sharma, <strong>H. Kumar</strong></div></div><div class="pub-j genome">Biophys. J. (2026)</div></div>
+        <div class="pub-row"><div><div class="pub-t"><a href="https://doi.org/10.1038/s41540-025-00510-4" target="_blank" rel="noopener">Predicting Gene Expression Changes from Chromatin Structure Modification</a></div><div class="pub-a">Senapati, Irshad, Sharma, <strong>H. Kumar</strong></div></div><div class="pub-j genome">npj Syst. Biol. Appl. 11, 34 (2025)</div></div>
+        <div class="pub-row"><div><div class="pub-t"><a href="https://doi.org/10.1088/1478-3975/ace8e5" target="_blank" rel="noopener">Fundamental Insights into the Correlation between Chromosome Configuration and Transcription</a></div><div class="pub-a">Senapati, Irshad, Sharma, <strong>H. Kumar</strong></div></div><div class="pub-j genome">Physical Biology 20, 051002 (2023)</div></div>
+      </div>
     </div>
+  </div>
 
-    <div class="research-section reveal" id="tools">
-        <div class="section-header">
-            <div class="section-bar-tools"></div>
-            <div class="section-head-inner">
-                <div class="section-code tools">// 04 · The Engine</div>
-                <h2 class="section-title">The Computational Toolkit</h2>
-                <p class="section-subtitle">
-                    Bridging the massive gap from quantum electron densities to mesoscale polymer dynamics requires a unified, high-performance stack of software, physics-based solvers, and AI frameworks.
-                </p>
-            </div>
+  <!-- NANOSCALE PHYSICS -->
+  <div class="research-section" id="nanoscale-physics">
+    <div class="container">
+      <div class="section-lead">
+        <div class="section-lead-bar bar-twod"></div>
+        <div>
+          <div class="code-label code-twod">Nanoscale Physics</div>
+          <h2>Confined Fluids, MXenes, 2D Materials, and Nanoscale Interfaces</h2>
+          <p class="research-topic-summary">This topic collects the group's broader nanoscale-physics work: confined water, MXenes, Janus materials, spin transport, moire friction, and nanoscale interfacial phenomena.</p>
         </div>
-
-        <div class="tools-unified">
-            <div class="tools-body">
-                <span class="tool-chip-large">First-Principles DFT (VASP, Quantum ESPRESSO)</span>
-                <span class="tool-chip-large">Molecular Dynamics (LAMMPS, GROMACS)</span>
-                <span class="tool-chip-large">AI & Graph Neural Nets (PyTorch, DGL)</span>
-                <span class="tool-chip-large">Machine Learning Potentials (MLIP)</span>
-                <span class="tool-chip-large">Genomics Pipelines (Hi-C, RNA-seq)</span>
-            </div>
-        </div>
+      </div>
+      <div class="sub-grid">
+        <div class="sub-card soft"><div class="sub-num">N1</div><div class="sub-title">Confined Water and Nanopores</div><div class="sub-desc">MD simulations reveal entropy-driven water entry, single-file dynamics, dipole alignment, and phase transitions in nanotubes and Janus nanopores.</div><div class="sub-tags"><span class="stag soft">Confined water</span><span class="stag soft">Nanopores</span><span class="stag soft">Phase behavior</span></div></div>
+        <div class="sub-card twod"><div class="sub-num">N2</div><div class="sub-title">MXenes and Spin Transport</div><div class="sub-desc">DFT connects composition, surface terminations, magnetic order, and transport properties in nitride MXenes and Janus TMD interfaces.</div><div class="sub-tags"><span class="stag twod">MXenes</span><span class="stag twod">Spintronics</span><span class="stag twod">DFT</span></div></div>
+        <div class="sub-card twod"><div class="sub-num">N3</div><div class="sub-title">Twisted Bilayers and Moire Friction</div><div class="sub-desc">Atomistic simulations resolve frictional response across lattice and moire length scales in twisted bilayer systems.</div><div class="sub-tags"><span class="stag twod">Moire</span><span class="stag twod">Tribology</span><span class="stag twod">MD</span></div></div>
+      </div>
+      <div class="pubs-block">
+        <div class="pubs-heading">Key Publications</div>
+        <div class="pub-row"><div><div class="pub-t"><a href="https://doi.org/10.1021/acs.accounts.6b00617" target="_blank" rel="noopener">Confined Water: Structure, Dynamics and Thermodynamics</a></div><div class="pub-a">Chakraborty, <strong>H. Kumar</strong>, Dasgupta, Maiti</div></div><div class="pub-j soft">Acc. Chem. Res. 50, 2139 (2017)</div></div>
+        <div class="pub-row"><div><div class="pub-t"><a href="https://doi.org/10.1021/acsnano.7b02578" target="_blank" rel="noopener">Tunable Magnetism and Transport Properties in Nitride MXenes</a></div><div class="pub-a"><strong>H. Kumar</strong>, Frey, Dong, Anasori, Gogotsi, Shenoy</div></div><div class="pub-j twod">ACS Nano 11, 7648 (2017) — Cover</div></div>
+        <div class="pub-row"><div><div class="pub-t"><a href="https://doi.org/10.1088/1361-648x/ade756" target="_blank" rel="noopener">Resolving Atomic-Scale Stick-Slip and Sub-Moire Frictional Modulation in Twisted Bilayers</a></div><div class="pub-a">Das, Mohapatra, <strong>H. Kumar</strong></div></div><div class="pub-j twod">J. Phys.: Condens. Matter 37, 275001 (2025)</div></div>
+      </div>
     </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Supported By</span>
+        <h2 class="section-title">Funded Projects</h2>
+        <p class="section-subtitle">Funding support for battery materials, solid-state battery technology, sodium-sulfur systems, high-purity alumina, and multiscale modelling.</p>
+      </div>
+      <div class="funding-grid">
+        <div class="funding-card">
+          <div class="funding-agency">SERB India</div>
+          <div class="funding-title">Rational Design of Flexible Energy Storage Devices Using Multiscale Simulations and Machine Learning</div>
+        </div>
+        <div class="funding-card">
+          <div class="funding-agency">DST India · IC-MAP</div>
+          <div class="funding-title">Automation and AI/ML-Assisted Development of Solid-State Battery Technology</div>
+        </div>
+        <div class="funding-card">
+          <div class="funding-agency">ReNew Power Ltd</div>
+          <div class="funding-title">Room-Temperature Sodium-Sulfur Batteries for Stationary Storage Applications</div>
+        </div>
+        <div class="funding-card">
+          <div class="funding-agency">NALCO</div>
+          <div class="funding-title">Preparation of 4N High Pure Alumina (HPA) and Substrate Making</div>
+        </div>
+        <div class="funding-card">
+          <div class="funding-agency">IIT Bhubaneswar</div>
+          <div class="funding-title">Development and Applications of Multiscale Modelling for 2D Material Heterostructures</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </main>
 
 <footer class="site-footer">
-    <div class="footer-inner">
-        <div>
-            <div class="footer-brand">SCALE · Computational Soft and Living Matter · IIT Bhubaneswar</div>
-            <div class="footer-sub">
-                School of Basic Sciences · Dr. Hemant Kumar · hemant@iitbbs.ac.in
-            </div>
+  <div class="container">
+    <div class="footer-inner" id="contact">
+      <div>
+        <div class="footer-logo">SCALE Group · IIT Bhubaneswar</div>
+        <div class="footer-tagline">Simulation of Complex Systems Across Length and Energy (SCALE) Group<br>Room 133, Department of Physics,<br>SBS, IIT Bhubaneswar<br>Argul, Jatni, Odisha 752050</div>
+        <div class="footer-contact">
+          <div><span class="contact-obfuscated">hemant [at] iitbbs [dot] ac [dot] in</span> · +91 674 713 5404</div>
         </div>
+      </div>
+      <div>
+        <div class="footer-nav-title">Navigation</div>
+        <ul class="footer-nav-links"><li><a href="research.html">Research</a></li><li><a href="publications.html">Publications</a></li><li><a href="team.html">Team</a></li><li><a href="joinus.html">Join Us</a></li></ul>
+      </div>
+      <div>
+        <div class="footer-nav-title">Connect</div>
+        <ul class="footer-nav-links">
+          <li><a href="https://scholar.google.com/citations?user=oaTIUtkAAAAJ&amp;hl=en" target="_blank">Google Scholar</a></li>
+          <li><a href="https://sbs.iitbbs.ac.in/index.php/hemantkumar/" target="_blank">Faculty Page</a></li>
+          <li><a href="https://www.linkedin.com/in/hemant-kumar-b3969862" target="_blank">LinkedIn</a></li>
+          <li><span class="contact-obfuscated">hemant [at] iitbbs [dot] ac [dot] in</span></li>
+        </ul>
+      </div>
     </div>
+    <div class="footer-bottom">
+      <div class="footer-text">© 2026 SCALE Group · IIT Bhubaneswar · Department of Physics</div>
+      <div class="footer-socials">
+        <a href="https://scholar.google.com/citations?user=oaTIUtkAAAAJ&amp;hl=en" target="_blank">Scholar</a>
+        <a href="https://www.linkedin.com/in/hemant-kumar-b3969862" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
+<script src="theme-switcher.js"></script>
 <script>
-// ── SCROLL TO SECTION (FIXED FOR TABS) ──
-function smoothScrollTo(id) {
-    const element = document.getElementById(id);
-    if (element) {
-        // Scroll with an offset so the sticky header doesn't cover the title
-        const y = element.getBoundingClientRect().top + window.scrollY - 90;
-        window.scrollTo({top: y, behavior: 'smooth'});
-    }
-}
-
-// ── UPDATE ACTIVE TAB ON SCROLL ──
-const sections = ['genome','electrolytes','electrodes','tools'];
 const tabs = document.querySelectorAll('.r-tab');
+const ids  = ['liquid-electrolyte','electrodes','solid-electrolyte','gene-regulation','nanoscale-physics'];
+tabs.forEach(t => t.addEventListener('click', () => {
+  document.getElementById(t.dataset.id).scrollIntoView({behavior:'smooth'});
+}));
 window.addEventListener('scroll', () => {
-    let current = sections[0];
-    sections.forEach(id => {
-        const el = document.getElementById(id);
-        // Check if the section is near the top of the viewport
-        if (el && el.getBoundingClientRect().top < 200) current = id;
-    });
-    tabs.forEach((tab, i) => {
-        tab.classList.toggle('active', sections[i] === current);
-    });
-});
-
-// ── SCROLL REVEAL ──
-const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        e.target.classList.add('visible');
-    });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  let cur = ids[0];
+  ids.forEach(id => { const el=document.getElementById(id); if(el && el.getBoundingClientRect().top<=180) cur=id; });
+  tabs.forEach(t => t.classList.toggle('active', t.dataset.id===cur));
+}, {passive:true});
 </script>
-
 </body>
 </html>
