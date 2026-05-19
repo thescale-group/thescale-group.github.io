@@ -159,11 +159,7 @@
     </button>
     <ul class="nav-links" id="primary-navigation">
       <li><a href="index.html">Home</a></li>
-      <li class="has-submenu"><a href="research.html" class="active">Research</a>
-        <ul class="nav-submenu" aria-label="Research sections">
-          <li><a href="research.html#energy">Energy Materials</a></li>
-          <li><a href="research.html#biophysics">Genome Biophysics</a></li>
-        </ul></li>
+      <li><a href="research.html" class="active">Research</a></li>
       <li class="has-submenu"><a href="publications.html">Publications</a>
         <ul class="nav-submenu" aria-label="Publications sections">
           <li><a href="publications.html">All Papers</a></li>
@@ -240,7 +236,7 @@
       <div class="projects-grid">
         <article class="project-card" id="solvation-ionic-transport">
           <div class="project-visual">
-            <img src="assets/images/E1.jpg" alt="Solvation shell and ion transport illustration" width="1200" height="900" loading="lazy" decoding="async">
+            <img src="assets/images/E1.webp" alt="Solvation shell and ion transport illustration" width="1200" height="900" loading="lazy" decoding="async">
           </div>
           <div class="project-info">
             <div class="project-category">Liquid Electrolytes</div>
@@ -259,7 +255,7 @@
 
         <article class="project-card" id="composite-electrolytes">
           <div class="project-visual">
-            <img src="assets/images/E2.jpg" alt="Solid and polymer electrolyte illustration" width="1200" height="654" loading="lazy" decoding="async">
+            <img src="assets/images/E2.webp" alt="Solid and polymer electrolyte illustration" width="1200" height="654" loading="lazy" decoding="async">
           </div>
           <div class="project-info">
             <div class="project-category">Composite Electrolytes</div>
@@ -329,7 +325,7 @@
       <div class="projects-grid">
         <article class="project-card" id="genome-organization">
           <div class="project-visual">
-            <img src="assets/images/G1.jpg" alt="Polymer model of genome organization" width="1200" height="900" loading="lazy" decoding="async">
+            <img src="assets/images/G1.webp" alt="Polymer model of genome organization" width="1200" height="900" loading="lazy" decoding="async">
           </div>
           <div class="project-info">
             <div class="project-category">Genome Organization</div>
@@ -347,7 +343,7 @@
 
         <article class="project-card" id="gene-regulation-kinetics">
           <div class="project-visual">
-            <img src="assets/images/G3.jpg" alt="Kinetic modelling illustration" width="1200" height="800" loading="lazy" decoding="async">
+            <img src="assets/images/G3.webp" alt="Kinetic modelling illustration" width="1646" height="832" loading="lazy" decoding="async">
           </div>
           <div class="project-info">
             <div class="project-category">Kinetic Models</div>
@@ -366,7 +362,7 @@
 
         <article class="project-card" id="regulation-ml-bioinformatics">
           <div class="project-visual">
-            <img src="assets/images/G2.jpg" alt="Machine learning and bioinformatics illustration" width="1200" height="654" loading="lazy" decoding="async">
+            <img src="assets/images/G2.webp" alt="Machine learning and bioinformatics illustration" width="1200" height="654" loading="lazy" decoding="async">
           </div>
           <div class="project-info">
             <div class="project-category">Data-Driven Regulation</div>
@@ -458,6 +454,21 @@
 <script>
 (function () {
   var links = Array.from(document.querySelectorAll('.thrust-link'));
+  var researchNavLink = document.querySelector('.site-header a[href="research.html"]');
+
+  if (researchNavLink) {
+    researchNavLink.addEventListener('click', function (event) {
+      event.preventDefault();
+      if (window.location.hash) {
+        history.pushState(null, '', 'research.html');
+      }
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      links.forEach(function (item) {
+        item.classList.toggle('active', item.dataset.thrust === 'energy');
+      });
+    });
+  }
+
   links.forEach(function (link) {
     link.addEventListener('click', function () {
       links.forEach(function (item) {
