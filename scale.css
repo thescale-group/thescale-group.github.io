@@ -1591,19 +1591,25 @@ a.pi-link:hover,
   border-color: var(--navy);
 }
 .home-team-grid {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  display: flex;
   gap: clamp(10px, 1.2vw, 16px);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding-bottom: 8px;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
 }
 .home-team-card {
   display: grid;
+  flex: 0 0 clamp(126px, 12vw, 158px);
   justify-items: center;
   gap: 12px;
-  min-width: 0;
+  min-width: 126px;
   padding: clamp(10px, 1.1vw, 14px) 6px clamp(12px, 1.3vw, 16px);
   background: var(--paper);
   border: 1px solid var(--border);
   border-radius: 8px;
+  scroll-snap-align: start;
   text-align: center;
 }
 .home-team-card:hover {
@@ -1641,16 +1647,16 @@ a.pi-link:hover,
 
 @media (max-width: 980px) {
   .home-team-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
  }
 }
 
 @media (max-width: 680px) {
   .home-team-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
  }
   .home-team-card {
-    grid-column: auto;
+    flex-basis: 126px;
  }
 }
 
@@ -1660,10 +1666,10 @@ a.pi-link:hover,
     flex-direction: column;
  }
   .home-team-grid {
-    grid-template-columns: 1fr;
+    margin-right: calc(var(--page-pad) * -1);
  }
   .home-team-card {
-    grid-column: auto;
+    flex-basis: 122px;
  }
 }
 
