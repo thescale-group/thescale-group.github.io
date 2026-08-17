@@ -455,6 +455,13 @@ p { color: var(--text-mid); }
   color: var(--text); line-height: 1.15;
 }
 .hero-title em { color: var(--crimson); font-style: normal; }
+.hero-affiliation {
+  margin: -8px 0 14px;
+  color: var(--text);
+  font-size: .98rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
 .hero-desc { font-size: 1rem; color: var(--text-muted); line-height: 1.8; max-width: 520px; margin-bottom: 28px; }
 
 
